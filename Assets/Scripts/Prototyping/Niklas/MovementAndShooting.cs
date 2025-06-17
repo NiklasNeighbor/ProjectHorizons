@@ -10,13 +10,14 @@ public class MovementAndShooting : MonoBehaviour
     Vector2 aimEnd;
     public float AimMultiplier = 1f;
     public GameObject ProjectilePrefab;
+    Rigidbody2D rb;
     public enum ControlScheme {HoldToWalk, TapJump};
     public ControlScheme Scheme = ControlScheme.HoldToWalk;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -42,6 +43,7 @@ public class MovementAndShooting : MonoBehaviour
         if (Input.GetMouseButtonUp(0) && aiming)
         {
             aiming = false;
+            FireProjectile();
         }
 
 
@@ -57,7 +59,6 @@ public class MovementAndShooting : MonoBehaviour
         {
             transform.Translate(Vector2.right * MoveSpeed * Time.deltaTime);
         }
-        
     }
 
     void ApplyAim()
@@ -76,5 +77,12 @@ public class MovementAndShooting : MonoBehaviour
             return true;
         } 
         return false;
+    }
+
+    void FireProjectile()
+    {
+        GameObject projectile = Instantiate(ProjectilePrefab, transform.position, Quaternion.identity);
+        Rigidbody2D projectileRb = projectile.GetComponent<Rigidbody2D>();
+        projectileRb.AddForce((aimStart - aimEnd) * AimMultiplier * 100);
     }
 }
