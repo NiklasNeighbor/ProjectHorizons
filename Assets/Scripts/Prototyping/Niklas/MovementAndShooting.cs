@@ -11,6 +11,7 @@ public class MovementAndShooting : MonoBehaviour
     public float AimMultiplier = 1f;
     public GameObject ProjectilePrefab;
     Rigidbody2D rb;
+    LineRenderer arrow;
     public enum ControlScheme {HoldToWalk, TapJump};
     public ControlScheme Scheme = ControlScheme.HoldToWalk;
 
@@ -18,6 +19,8 @@ public class MovementAndShooting : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        arrow = GetComponent<LineRenderer>();
+        arrow.enabled = false;
     }
 
     // Update is called once per frame
@@ -32,6 +35,7 @@ public class MovementAndShooting : MonoBehaviour
         {
             aiming = true;
             aimStart = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            arrow.enabled = true;
             
         } 
 
@@ -44,6 +48,7 @@ public class MovementAndShooting : MonoBehaviour
         {
             aiming = false;
             FireProjectile();
+            arrow.enabled = false;
         }
 
 
@@ -65,6 +70,7 @@ public class MovementAndShooting : MonoBehaviour
     {
         aimEnd = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         DebugExtension.DebugArrow(transform.position, (aimStart - aimEnd) * AimMultiplier, Color.green);
+        arrow.SetPosition(1, (aimStart - aimEnd) * AimMultiplier);
         Debug.Log("Aiming.");
     }
 
