@@ -8,6 +8,8 @@ public class MovementAndShooting : MonoBehaviour
     bool aiming = false;
     Vector2 aimStart;
     Vector2 aimEnd;
+    public float AimMultiplier = 1f;
+    public GameObject ProjectilePrefab;
     public enum ControlScheme {HoldToWalk, TapJump};
     public ControlScheme Scheme = ControlScheme.HoldToWalk;
 
@@ -28,8 +30,15 @@ public class MovementAndShooting : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && MouseNearPlayer())
         {
             aiming = true;
-            ApplyAim();
+            aimStart = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            
         } 
+
+        if (aiming)
+        {
+            ApplyAim();
+        }
+
         if (Input.GetMouseButtonUp(0) && aiming)
         {
             aiming = false;
@@ -53,7 +62,9 @@ public class MovementAndShooting : MonoBehaviour
 
     void ApplyAim()
     {
-        Debug.Log("Aiming...");
+        aimEnd = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        DebugExtension.DebugArrow(transform.position, (aimStart - aimEnd) * AimMultiplier, Color.green);
+        Debug.Log("Aiming.");
     }
 
     bool MouseNearPlayer()
