@@ -287,9 +287,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveSpeed: 5
+  AimingSpeed: 2.5
   JumpForce: 400
   JumpRaycastLength: 1
   PlayerDragSize: 2
+  FallGravityMultiplier: 2
   AimMultiplier: 3
   ProjectilePrefab: {fileID: 5349289351302610006, guid: aade6836fc2de65418640a08627ece32, type: 3}
   Ground:
