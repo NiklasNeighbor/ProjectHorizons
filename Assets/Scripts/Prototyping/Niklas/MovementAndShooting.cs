@@ -18,8 +18,6 @@ public class MovementAndShooting : MonoBehaviour
     Rigidbody2D rb;
     LineRenderer arrow;
     public LayerMask Ground;
-    public enum ControlScheme {HoldToWalk, TapJump};
-    public ControlScheme Scheme = ControlScheme.HoldToWalk;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -81,10 +79,7 @@ public class MovementAndShooting : MonoBehaviour
 
     void ApplyMovement()
     {
-        if (Scheme == ControlScheme.HoldToWalk)
-        {
-            rb.linearVelocityX = (MoveSpeed);
-        }
+        rb.linearVelocityX = (MoveSpeed);
     }
 
     void DoJump()
