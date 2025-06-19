@@ -201,7 +201,7 @@ Transform:
   m_GameObject: {fileID: 66433788}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 41.1247, y: -3.0220819, z: -0.03973891}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -263,7 +263,7 @@ GameObject:
   m_Component:
   - component: {fileID: 107944074}
   - component: {fileID: 107944073}
-  - component: {fileID: 107944072}
+  - component: {fileID: 107944078}
   - component: {fileID: 107944076}
   - component: {fileID: 107944075}
   - component: {fileID: 107944077}
@@ -274,28 +274,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &107944072
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 107944071}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57da315cf3afd9b4ab26e280e508cef9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MoveSpeed: 5
-  JumpForce: 400
-  JumpRaycastLength: 1
-  PlayerDragSize: 2
-  AimMultiplier: 3
-  ProjectilePrefab: {fileID: 5349289351302610006, guid: aade6836fc2de65418640a08627ece32, type: 3}
-  Ground:
-    serializedVersion: 2
-    m_Bits: 8
-  Scheme: 0
 --- !u!212 &107944073
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -556,6 +534,29 @@ LineRenderer:
   m_UseWorldSpace: 0
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!114 &107944078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107944071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 414912236a0d48c42b2f2aca12c5e1e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveSpeed: 1
+  PlayerDragSize: 2
+  AimMultiplier: 3
+  ProjectilePrefab: {fileID: 5349289351302610006, guid: aade6836fc2de65418640a08627ece32, type: 3}
+  Scheme: 0
+  JumpClickTime: 0.2
+  JumpStrength: 300
+  floorLayers:
+    serializedVersion: 2
+    m_Bits: 8
+  GroundCheckCastLength: 0.7
 --- !u!1 &294604658
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,7 +719,7 @@ Transform:
   m_GameObject: {fileID: 1034065663}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.19469984, y: 0.062081706, z: 0.03973891}
+  m_LocalPosition: {x: 0, y: -2.12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
