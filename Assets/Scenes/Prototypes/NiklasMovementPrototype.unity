@@ -291,13 +291,12 @@ MonoBehaviour:
   JumpForce: 400
   JumpRaycastLength: 1
   PlayerDragSize: 2
-  FallGravityMultiplier: 2
+  FallGravityMultiplier: 3
   AimMultiplier: 3
   ProjectilePrefab: {fileID: 5349289351302610006, guid: aade6836fc2de65418640a08627ece32, type: 3}
   Ground:
     serializedVersion: 2
     m_Bits: 8
-  Scheme: 0
 --- !u!212 &107944073
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -365,8 +364,7 @@ Transform:
   m_LocalPosition: {x: -7.49, y: -0.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 294604661}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &107944075
@@ -570,6 +568,7 @@ GameObject:
   - component: {fileID: 294604660}
   - component: {fileID: 294604659}
   - component: {fileID: 294604662}
+  - component: {fileID: 294604663}
   m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -620,7 +619,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -645,11 +644,11 @@ Transform:
   m_GameObject: {fileID: 294604658}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.28, y: 1.64, z: -10}
+  m_LocalPosition: {x: 1.2200003, y: 1.24, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 107944074}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &294604662
 MonoBehaviour:
@@ -695,6 +694,21 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &294604663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 294604658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b80c9aeba6b453f41931212a19331dd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CameraTarget: {fileID: 107944071}
+  VerticalMoveSpeed: 0.1
+  IdleFraming: {x: 8, y: 2}
 --- !u!1 &1034065663
 GameObject:
   m_ObjectHideFlags: 0
@@ -733,3 +747,4 @@ SceneRoots:
   m_Roots:
   - {fileID: 107944074}
   - {fileID: 1034065664}
+  - {fileID: 294604661}
