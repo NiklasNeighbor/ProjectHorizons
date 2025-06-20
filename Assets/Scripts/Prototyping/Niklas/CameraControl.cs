@@ -5,6 +5,7 @@ public class CameraControl : MonoBehaviour
     public GameObject CameraTarget;
     public float VerticalMoveSpeed = 1f;
     public Vector2 IdleFraming;
+    public LayerMask Ground;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,9 +24,16 @@ public class CameraControl : MonoBehaviour
 
     void AdjustHeight()
     {
-        if (Mathf.Abs((CameraTarget.transform.position.y + IdleFraming.y) - transform.position.y) > 1)
+        Vector3 currentPos = transform.position;
+        Vector3 targetPos = new Vector3(transform.position.x, CameraTarget.transform.position.y + IdleFraming.y, transform.position.z);
+
+        if (Vector3.Distance(currentPos, targetPos) > 0.5f)
         {
-            Debug.Log("Adjusting");
+            if (Physics2D.BoxCast(CameraTarget.transform.position, new Vector2(1,1), 0f, Vector2.down, 0.1f, Ground))
+            {
+                transform.position = Vector3.MoveTowards(currentPos, targetPos, VerticalMoveSpeed * Time.deltaTime);
+            }
+            
         }
     }
 
