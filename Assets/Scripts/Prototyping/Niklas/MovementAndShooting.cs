@@ -4,9 +4,12 @@ using UnityEngine.Rendering;
 public class MovementAndShooting : MonoBehaviour
 {
     public float MoveSpeed = 1f;
+    public float AimingSpeed = 1f;
     public float JumpForce = 1f;
     public float JumpRaycastLength = 1f;
     public float PlayerDragSize = 1f;
+    float regularGravity;
+    public float FallGravityMultiplier;
     bool aiming = false;
     Vector2 aimStart;
     Vector2 aimEnd;
@@ -15,13 +18,12 @@ public class MovementAndShooting : MonoBehaviour
     Rigidbody2D rb;
     LineRenderer arrow;
     public LayerMask Ground;
-    public enum ControlScheme {HoldToWalk, TapJump};
-    public ControlScheme Scheme = ControlScheme.HoldToWalk;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        regularGravity = rb.gravityScale;
         arrow = GetComponent<LineRenderer>();
         arrow.enabled = false;
     }
@@ -64,15 +66,20 @@ public class MovementAndShooting : MonoBehaviour
         {
             DoJump();
         }
+
+        if ((Input.GetMouseButton(0) && !aiming))
+        {
+            rb.gravityScale = regularGravity;
+        } else
+        {
+            rb.gravityScale = regularGravity * FallGravityMultiplier;
+        }
         
     }
 
     void ApplyMovement()
     {
-        if (Scheme == ControlScheme.HoldToWalk)
-        {
-            transform.Translate(Vector2.right * MoveSpeed * Time.deltaTime);
-        }
+        rb.linearVelocityX = (MoveSpeed);
     }
 
     void DoJump()
@@ -87,6 +94,7 @@ public class MovementAndShooting : MonoBehaviour
 
     void ApplyAim()
     {
+        rb.linearVelocityX = (AimingSpeed);
         aimEnd = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 ownPosition = new Vector2(transform.position.x, transform.position.y);
         DebugExtension.DebugArrow(transform.position, ((ownPosition + aimStart) - (aimEnd)) * AimMultiplier, Color.green);

@@ -23,6 +23,10 @@ public class Full2Dmovement : MonoBehaviour
     bool canJump;
     [SerializeField] LayerMask floorLayers;
     [SerializeField] float GroundCheckCastLength;
+    [SerializeField] bool ButtonMovement;
+    [SerializeField] bool SpeedSlowLevel;
+    [SerializeField] LevelGeneration levelGeneration;
+    float levelNormalSpeed;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -30,7 +34,7 @@ public class Full2Dmovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         arrow = GetComponent<LineRenderer>();
         arrow.enabled = false;
-        
+        levelNormalSpeed = levelGeneration._Speed;
     }
 
     // Update is called once per frame
@@ -48,8 +52,6 @@ public class Full2Dmovement : MonoBehaviour
             aimStart = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             //arrow.enabled = true;
             jumpTimer = JumpClickTime;
-
-
         }
 
         //jump
@@ -82,30 +84,70 @@ public class Full2Dmovement : MonoBehaviour
             FireProjectile();
             arrow.enabled = false;
         }
-        
-        //movement
-        if(Input.GetMouseButtonDown(0) && MouseOnSide(false))
-        {
-            startMousePos = Input.mousePosition;
-        }
 
-        if(Input.GetMouseButton(0) && startMousePos != Vector2.zero)
+        //movement
+        if (!ButtonMovement)
         {
-            DoMovement();
+            if (Input.GetMouseButtonDown(0) && MouseOnSide(false))
+            {
+                startMousePos = Input.mousePosition;
+            }
+
+            if (Input.GetMouseButton(0) && startMousePos != Vector2.zero)
+            {
+                DoMouseMovement();
+            }
+            else
+            {
+                startMousePos = Vector2.zero;
+            }
         }else
         {
-            startMousePos = Vector2.zero;
+            if(Input.GetMouseButton(0) && MouseOnSide(false))
+            {
+                DoButtonMovement();
+            }
+
+            if(Input.GetMouseButtonUp(0))
+            {
+                levelGeneration._Speed = levelNormalSpeed;
+            }
         }
 
 
     }
 
-    void DoMovement()
+    void DoMouseMovement()
     {
         Vector2 currentMousePos = Input.mousePosition;
         Vector2 differenceV = currentMousePos - startMousePos;
 
         transform.position += new Vector3(differenceV.x, 0, 0) * MoveSpeed * 0.0001f;
+    }
+
+    void DoButtonMovement()
+    {
+        if(Input.mousePosition.x < 200)
+        {
+            if(!SpeedSlowLevel)
+            {
+                transform.position += new Vector3(-1, 0, 0) * MoveSpeed * 0.1f;
+            }else
+            {
+                levelGeneration._Speed = levelNormalSpeed - 1;
+            }
+            
+        }else
+        {
+            if(!SpeedSlowLevel)
+            {
+                transform.position += new Vector3(1, 0, 0) * MoveSpeed * 0.1f;
+            }
+            else
+            {
+                levelGeneration._Speed = levelNormalSpeed + 1;
+            }
+        }
     }
 
     void DoJump()
