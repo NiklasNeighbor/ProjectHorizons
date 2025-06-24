@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8916452508331144616}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FlyingEnemySpawn
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4536853663716296155}
   - component: {fileID: 741220245050287295}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: LevelSegment3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2402953226406694292}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FlyingEnemySpawn (1)
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -128,7 +128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3798580393239115656}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SpawnPos
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -161,6 +161,18 @@ PrefabInstance:
     - target: {fileID: 1164675190901901932, guid: f26329dd6a80ccb4bb0be16b79fe43e6, type: 3}
       propertyPath: m_Name
       value: LvlPartStraigh
+      objectReference: {fileID: 0}
+    - target: {fileID: 1164675190901901932, guid: f26329dd6a80ccb4bb0be16b79fe43e6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1169594753325175300, guid: f26329dd6a80ccb4bb0be16b79fe43e6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3869757721006917929, guid: f26329dd6a80ccb4bb0be16b79fe43e6, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8456303364729717088, guid: f26329dd6a80ccb4bb0be16b79fe43e6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -224,6 +236,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: LvlPartStraigh (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1164675190901901932, guid: f26329dd6a80ccb4bb0be16b79fe43e6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1169594753325175300, guid: f26329dd6a80ccb4bb0be16b79fe43e6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3869757721006917929, guid: f26329dd6a80ccb4bb0be16b79fe43e6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8456303364729717088, guid: f26329dd6a80ccb4bb0be16b79fe43e6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 26
@@ -282,9 +306,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4536853663716296155}
     m_Modifications:
+    - target: {fileID: 1700040322711892500, guid: 8236842c18120854085b01017dcd1b29, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5282963264287154323, guid: 8236842c18120854085b01017dcd1b29, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7410002110413104478, guid: 8236842c18120854085b01017dcd1b29, type: 3}
       propertyPath: m_Name
       value: LvlPartSlope
+      objectReference: {fileID: 0}
+    - target: {fileID: 7410002110413104478, guid: 8236842c18120854085b01017dcd1b29, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8865533924636034025, guid: 8236842c18120854085b01017dcd1b29, type: 3}
       propertyPath: m_LocalPosition.x

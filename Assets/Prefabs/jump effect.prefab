@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4002670552511730233}
   - component: {fileID: 2047379058765800061}
   - component: {fileID: 6569358785013345604}
+  - component: {fileID: 2015339413897799069}
   m_Layer: 0
   m_Name: jump effect
   m_TagString: Untagged
@@ -1495,7 +1496,7 @@ ParticleSystem:
     x:
       serializedVersion: 2
       minMaxState: 0
-      scalar: -3
+      scalar: -2
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -4833,3 +4834,16 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &2015339413897799069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3852633956719443277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cbdbb0dc0e368243935336ab20042ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Lifetime: 1.5

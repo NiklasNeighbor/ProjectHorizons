@@ -4,27 +4,31 @@ using UnityEngine.Rendering;
 public class MovementAndShooting : MonoBehaviour
 {
     public float MoveSpeed = 1f;
+    public float AimingSpeed = 1f;
     public float JumpForce = 1f;
     public float JumpRaycastLength = 1f;
     public float PlayerDragSize = 1f;
+    float regularGravity;
+    public float FallGravityMultiplier;
+    public GameObject JumpParticle; // the effect prefab to spawn
     bool aiming = false;
     Vector2 aimStart;
     Vector2 aimEnd;
     public float AimMultiplier = 1f;
     public GameObject ProjectilePrefab;
+    public LevelGeneration LevelGeneration;
     Rigidbody2D rb;
     LineRenderer arrow;
+    Animator animator;
     public LayerMask Ground;
-    public enum ControlScheme {HoldToWalk, TapJump};
-    public ControlScheme Scheme = ControlScheme.HoldToWalk;
-
-      public GameObject objectToSpawn; // the effect prefab to spawn
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        regularGravity = rb.gravityScale;
         arrow = GetComponent<LineRenderer>();
+        animator = GetComponent<Animator>();
         arrow.enabled = false;
     }
 
@@ -66,14 +70,22 @@ public class MovementAndShooting : MonoBehaviour
         {
             DoJump();
         }
+
+        if ((Input.GetMouseButton(0) && !aiming))
+        {
+            rb.gravityScale = regularGravity;
+        } else
+        {
+            rb.gravityScale = regularGravity * FallGravityMultiplier;
+        }
         
     }
 
     void ApplyMovement()
     {
-        if (Scheme == ControlScheme.HoldToWalk)
+        if (!CollisionOnRight())
         {
-            transform.Translate(Vector2.right * MoveSpeed * Time.deltaTime);
+            LevelGeneration.ScrollAdvance(MoveSpeed * Time.deltaTime);
         }
     }
 
@@ -82,11 +94,8 @@ public class MovementAndShooting : MonoBehaviour
         Debug.Log("Try Jump");
         if (Physics2D.Raycast(transform.position, Vector2.down, JumpRaycastLength, Ground))
         {
-
-
-GameObject spawned = Instantiate(objectToSpawn, transform.position, Quaternion.identity);
-    spawned.SetActive(true);//spawns jump effect
-
+            GameObject spawned = Instantiate(JumpParticle, transform.position, Quaternion.identity);
+            spawned.SetActive(true);//spawns jump effect
             rb.AddForce(Vector2.up * JumpForce);
             Debug.Log("Jumped");
         }
@@ -94,6 +103,11 @@ GameObject spawned = Instantiate(objectToSpawn, transform.position, Quaternion.i
 
     void ApplyAim()
     {
+        if (!CollisionOnRight())
+        {
+            LevelGeneration.ScrollAdvance(AimingSpeed * Time.deltaTime);
+        }
+        
         aimEnd = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 ownPosition = new Vector2(transform.position.x, transform.position.y);
         DebugExtension.DebugArrow(transform.position, ((ownPosition + aimStart) - (aimEnd)) * AimMultiplier, Color.green);
@@ -118,5 +132,14 @@ GameObject spawned = Instantiate(objectToSpawn, transform.position, Quaternion.i
         GameObject projectile = Instantiate(ProjectilePrefab, transform.position, Quaternion.identity);
         Rigidbody2D projectileRb = projectile.GetComponent<Rigidbody2D>();
         projectileRb.AddForce(((ownPosition + aimStart) - aimEnd) * AimMultiplier * 100);
+    }
+
+    bool CollisionOnRight()
+    {
+        if (Physics2D.Raycast(transform.position, Vector2.right, 0.6f, Ground))
+        {
+            return true ;
+        }
+        return false;
     }
 }
