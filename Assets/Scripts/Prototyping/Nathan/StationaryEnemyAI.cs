@@ -17,7 +17,7 @@ public class StationaryEnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector2.Distance(this.transform.position, player.position) <= 10 && !detectedPlayer)
+        if (Vector2.Distance(this.transform.position, player.position) <= 15 && !detectedPlayer)
         {
             ThrowProjectile();
             detectedPlayer=true;
@@ -28,9 +28,10 @@ public class StationaryEnemyAI : MonoBehaviour
    
     void ThrowProjectile()
     {
-        GameObject spawnedProjectile = Instantiate(projectile, new Vector2(transform.position.x + 1, transform.position.y + 1), Quaternion.identity);
+        GameObject spawnedProjectile = Instantiate(projectile, new Vector2(transform.position.x - 1, transform.position.y + 1), Quaternion.identity);
         Rigidbody2D projectileRB = spawnedProjectile.GetComponent<Rigidbody2D>();
-        //projectileRB.AddForce();
+        Vector2 throwForce = new Vector2(-8,3);
+        projectileRB.AddForce(throwForce, ForceMode2D.Impulse);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
