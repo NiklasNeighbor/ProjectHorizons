@@ -107,6 +107,7 @@ MonoBehaviour:
   moveSpeed: 5
   player: {fileID: 0}
   chasingPlayer: 0
+  objectToSpawn: {fileID: 7482686703546088179, guid: eb57d09a696c9cb43b4fc2d7f8e7386b, type: 3}
 --- !u!58 &2824748333375809365
 CircleCollider2D:
   m_ObjectHideFlags: 0

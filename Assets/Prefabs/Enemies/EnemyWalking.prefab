@@ -107,6 +107,7 @@ MonoBehaviour:
   rb: {fileID: 6563604535989368681}
   moveSpeed: -6
   player: {fileID: 0}
+  objectToSpawn: {fileID: 7482686703546088179, guid: eb57d09a696c9cb43b4fc2d7f8e7386b, type: 3}
 --- !u!50 &6563604535989368681
 Rigidbody2D:
   serializedVersion: 5
