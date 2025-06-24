@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3759593152517704985}
   - component: {fileID: 4832545304439167628}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: LevelSegment5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66,7 +66,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 429873576643353238}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FlyingEnemySpawn
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -97,7 +97,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5175384377936972455}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SpawnPos
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -130,6 +130,14 @@ PrefabInstance:
     - target: {fileID: 2600604901357765009, guid: fef5877a9113b944c89ce70a431384d7, type: 3}
       propertyPath: m_Name
       value: LvlPartSlopeDown
+      objectReference: {fileID: 0}
+    - target: {fileID: 2600604901357765009, guid: fef5877a9113b944c89ce70a431384d7, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6628873997483758566, guid: fef5877a9113b944c89ce70a431384d7, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8689908728556502419, guid: fef5877a9113b944c89ce70a431384d7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -171,6 +179,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8919956881819856683, guid: fef5877a9113b944c89ce70a431384d7, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -189,9 +201,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3759593152517704985}
     m_Modifications:
+    - target: {fileID: 1700040322711892500, guid: 8236842c18120854085b01017dcd1b29, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5282963264287154323, guid: 8236842c18120854085b01017dcd1b29, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7410002110413104478, guid: 8236842c18120854085b01017dcd1b29, type: 3}
       propertyPath: m_Name
       value: LvlPartSlope
+      objectReference: {fileID: 0}
+    - target: {fileID: 7410002110413104478, guid: 8236842c18120854085b01017dcd1b29, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8865533924636034025, guid: 8236842c18120854085b01017dcd1b29, type: 3}
       propertyPath: m_LocalScale.x
@@ -259,6 +283,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: LvlPartStraigh
       objectReference: {fileID: 0}
+    - target: {fileID: 1164675190901901932, guid: f26329dd6a80ccb4bb0be16b79fe43e6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1169594753325175300, guid: f26329dd6a80ccb4bb0be16b79fe43e6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3869757721006917929, guid: f26329dd6a80ccb4bb0be16b79fe43e6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8456303364729717088, guid: f26329dd6a80ccb4bb0be16b79fe43e6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5
@@ -320,6 +356,18 @@ PrefabInstance:
     - target: {fileID: 1164675190901901932, guid: f26329dd6a80ccb4bb0be16b79fe43e6, type: 3}
       propertyPath: m_Name
       value: LvlPartStraigh (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1164675190901901932, guid: f26329dd6a80ccb4bb0be16b79fe43e6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1169594753325175300, guid: f26329dd6a80ccb4bb0be16b79fe43e6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3869757721006917929, guid: f26329dd6a80ccb4bb0be16b79fe43e6, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8456303364729717088, guid: f26329dd6a80ccb4bb0be16b79fe43e6, type: 3}
       propertyPath: m_LocalPosition.x
