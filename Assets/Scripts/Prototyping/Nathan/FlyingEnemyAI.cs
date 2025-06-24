@@ -8,9 +8,7 @@ public class FlyingEnemyAI : MonoBehaviour
     public float moveSpeed;
     public Transform player;
     public bool chasingPlayer;
-
-
-  public GameObject objectToSpawn; // the prefab to spawn
+    public GameObject objectToSpawn; // the prefab to spawn
 
     Vector2 targetPosition;
 
@@ -22,7 +20,6 @@ public class FlyingEnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(PlayerDetected());
         if (chasingPlayer && Vector2.Distance(rb.position, player.position) > 2.5f)
         {
             Vector2 newTargetPosition = Vector2.MoveTowards(rb.position, new Vector2(player.position.x + 2, targetPosition.y), moveSpeed * 3f * Time.deltaTime);
@@ -55,11 +52,8 @@ public class FlyingEnemyAI : MonoBehaviour
         }
         if (collision.gameObject.layer == 7)
         {
-
-
-
- GameObject spawned = Instantiate(objectToSpawn, transform.position, Quaternion.identity);
-    spawned.SetActive(true);//spawns in death particle effect prefab
+            GameObject spawned = Instantiate(objectToSpawn, transform.position, Quaternion.identity);
+            spawned.SetActive(true);//spawns in death particle effect prefab
 
             Destroy(collision.gameObject);
             Destroy(this.gameObject);
