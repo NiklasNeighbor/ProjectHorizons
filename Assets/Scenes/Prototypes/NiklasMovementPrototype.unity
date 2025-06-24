@@ -508,6 +508,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   Scheme: 0
+  objectToSpawn: {fileID: 3852633956719443277, guid: 3f9d3b7901c0c4744b7e3d7861b61d04, type: 3}
 --- !u!212 &116826837
 SpriteRenderer:
   m_ObjectHideFlags: 0
