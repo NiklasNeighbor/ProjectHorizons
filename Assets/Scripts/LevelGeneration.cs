@@ -5,11 +5,12 @@ using UnityEngine;
 
 public class LevelGeneration : MonoBehaviour
 {
-    [SerializeField] float _Speed;
+    public float _Speed;
     [SerializeField] GameObject _LevelParent;
     [SerializeField] float _SpawnDistance;
     [SerializeField] float _RemoveDistance;
     [SerializeField] GameObject[] _LevelSegments;
+    
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -29,8 +30,7 @@ public class LevelGeneration : MonoBehaviour
     {
         for(int i = 0; i < _LevelParent.transform.childCount; i++)
         {
-            _LevelParent.transform.GetChild(i).position -= new Vector3(_Speed, 0, 0);
-            //_LevelParent.transform.position += new Vector3(_Speed, 0, 0);
+            _LevelParent.transform.GetChild(i).position -= new Vector3(_Speed * 0.01f, 0, 0);
         }
     }
 
@@ -54,7 +54,7 @@ public class LevelGeneration : MonoBehaviour
     void SpawnLevel(Vector3 pos)
     {
         int random = Random.Range(0, _LevelSegments.Length);
-        GameObject newSegment = Instantiate(_LevelSegments[random], new Vector3(pos.x, 0, 0), Quaternion.identity);
+        GameObject newSegment = Instantiate(_LevelSegments[random], new Vector3(pos.x, pos.y, 0), Quaternion.identity);
         newSegment.transform.parent = _LevelParent.transform;
     }
 }
