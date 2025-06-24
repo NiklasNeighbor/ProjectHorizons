@@ -8,6 +8,10 @@ public class FlyingEnemyAI : MonoBehaviour
     public float moveSpeed;
     public Transform player;
     public bool chasingPlayer;
+
+
+  public GameObject objectToSpawn; // the prefab to spawn
+
     Vector2 targetPosition;
 
     private void Start()
@@ -50,6 +54,12 @@ public class FlyingEnemyAI : MonoBehaviour
         }
         if (collision.gameObject.layer == 7)
         {
+
+
+
+ GameObject spawned = Instantiate(objectToSpawn, transform.position, Quaternion.identity);
+    spawned.SetActive(true);//spawns in death particle effect prefab
+
             Destroy(collision.gameObject);
             Destroy(this.gameObject);
         }
