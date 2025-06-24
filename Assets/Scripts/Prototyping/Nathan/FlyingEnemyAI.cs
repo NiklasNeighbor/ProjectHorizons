@@ -17,6 +17,7 @@ public class FlyingEnemyAI : MonoBehaviour
     private void Start()
     {
         chasingPlayer = false;
+        player = GameObject.FindWithTag("Player").transform;
     }
     // Update is called once per frame
     void Update()

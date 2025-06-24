@@ -11,6 +11,7 @@ public class StationaryEnemyAI : MonoBehaviour
     void Start()
     {
         detectedPlayer = false;
+        player = GameObject.FindWithTag("Player").transform;
     }
 
     // Update is called once per frame
