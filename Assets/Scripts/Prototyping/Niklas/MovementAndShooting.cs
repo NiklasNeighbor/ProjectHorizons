@@ -15,8 +15,10 @@ public class MovementAndShooting : MonoBehaviour
     Vector2 aimEnd;
     public float AimMultiplier = 1f;
     public GameObject ProjectilePrefab;
+    public LevelGeneration LevelGeneration;
     Rigidbody2D rb;
     LineRenderer arrow;
+    Animator animator;
     public LayerMask Ground;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -25,6 +27,7 @@ public class MovementAndShooting : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         regularGravity = rb.gravityScale;
         arrow = GetComponent<LineRenderer>();
+        animator = GetComponent<Animator>();
         arrow.enabled = false;
     }
 
@@ -79,7 +82,10 @@ public class MovementAndShooting : MonoBehaviour
 
     void ApplyMovement()
     {
-        rb.linearVelocityX = (MoveSpeed);
+        if (!CollisionOnRight())
+        {
+            LevelGeneration.ScrollAdvance(MoveSpeed * Time.deltaTime);
+        }
     }
 
     void DoJump()
@@ -94,7 +100,11 @@ public class MovementAndShooting : MonoBehaviour
 
     void ApplyAim()
     {
-        rb.linearVelocityX = (AimingSpeed);
+        if (!CollisionOnRight())
+        {
+            LevelGeneration.ScrollAdvance(AimingSpeed * Time.deltaTime);
+        }
+        
         aimEnd = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 ownPosition = new Vector2(transform.position.x, transform.position.y);
         DebugExtension.DebugArrow(transform.position, ((ownPosition + aimStart) - (aimEnd)) * AimMultiplier, Color.green);
@@ -119,5 +129,14 @@ public class MovementAndShooting : MonoBehaviour
         GameObject projectile = Instantiate(ProjectilePrefab, transform.position, Quaternion.identity);
         Rigidbody2D projectileRb = projectile.GetComponent<Rigidbody2D>();
         projectileRb.AddForce(((ownPosition + aimStart) - aimEnd) * AimMultiplier * 100);
+    }
+
+    bool CollisionOnRight()
+    {
+        if (Physics2D.Raycast(transform.position, Vector2.right, 0.6f, Ground))
+        {
+            return true ;
+        }
+        return false;
     }
 }
