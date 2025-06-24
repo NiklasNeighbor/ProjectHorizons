@@ -18,6 +18,8 @@ public class MovementAndShooting : MonoBehaviour
     public enum ControlScheme {HoldToWalk, TapJump};
     public ControlScheme Scheme = ControlScheme.HoldToWalk;
 
+      public GameObject objectToSpawn; // the effect prefab to spawn
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -80,6 +82,11 @@ public class MovementAndShooting : MonoBehaviour
         Debug.Log("Try Jump");
         if (Physics2D.Raycast(transform.position, Vector2.down, JumpRaycastLength, Ground))
         {
+
+
+GameObject spawned = Instantiate(objectToSpawn, transform.position, Quaternion.identity);
+    spawned.SetActive(true);//spawns jump effect
+
             rb.AddForce(Vector2.up * JumpForce);
             Debug.Log("Jumped");
         }
