@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Prototypes/PaulMovementProtoType1.unity
     guid: 2d4e1dc1eac8d0348924f11275da614d
+  - enabled: 0
+    path: Assets/Scenes/Prototypes/NathanEnemyTester.unity
+    guid: 5f70b69074f6730468d69cdbb250f497
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
