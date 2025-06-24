@@ -10,6 +10,7 @@ public class MovementAndShooting : MonoBehaviour
     public float PlayerDragSize = 1f;
     float regularGravity;
     public float FallGravityMultiplier;
+    public GameObject JumpParticle; // the effect prefab to spawn
     bool aiming = false;
     Vector2 aimStart;
     Vector2 aimEnd;
@@ -93,6 +94,8 @@ public class MovementAndShooting : MonoBehaviour
         Debug.Log("Try Jump");
         if (Physics2D.Raycast(transform.position, Vector2.down, JumpRaycastLength, Ground))
         {
+            GameObject spawned = Instantiate(JumpParticle, transform.position, Quaternion.identity);
+            spawned.SetActive(true);//spawns jump effect
             rb.AddForce(Vector2.up * JumpForce);
             Debug.Log("Jumped");
         }
