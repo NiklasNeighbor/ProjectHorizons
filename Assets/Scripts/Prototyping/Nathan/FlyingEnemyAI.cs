@@ -48,5 +48,10 @@ public class FlyingEnemyAI : MonoBehaviour
         {
             Debug.Log("boop");
         }
+        if (collision.gameObject.layer == 7)
+        {
+            Destroy(collision.gameObject);
+            Destroy(this.gameObject);
+        }
     }
 }
