@@ -18,6 +18,7 @@ public class WalkingEnemyAI : MonoBehaviour
         if (DetectedPlayer())
         {
             rb.linearVelocityX = moveSpeed;
+            Debug.Log("MOVE");
             //moveSpeed = moveSpeed * 2;
         }
         else
@@ -49,6 +50,11 @@ public class WalkingEnemyAI : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Debug.Log("boop");
+        }
+        if(collision.gameObject.layer == 7)
+        {
+            Destroy(collision.gameObject);
+            Destroy(this.gameObject);
         }
     }
 }
