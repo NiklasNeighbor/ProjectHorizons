@@ -6,7 +6,11 @@ public class WalkingEnemyAI : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
     public float moveSpeed;
     public Transform player;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    public GameObject objectToSpawn; // the prefab effect
+
+
+
     void Start()
     {
         
@@ -53,6 +57,13 @@ public class WalkingEnemyAI : MonoBehaviour
         }
         if(collision.gameObject.layer == 7)
         {
+
+
+    GameObject spawned = Instantiate(objectToSpawn, transform.position, Quaternion.identity);
+    spawned.SetActive(true);//spawns in death particle effect prefab
+
+
+            
             Destroy(collision.gameObject);
             Destroy(this.gameObject);
         }
