@@ -19,7 +19,7 @@ public class MovementAndShooting : MonoBehaviour
     public LevelGeneration LevelGeneration;
     Rigidbody2D rb;
     LineRenderer arrow;
-    Animator animator;
+    public Animator animator;
     public LayerMask Ground;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -28,7 +28,11 @@ public class MovementAndShooting : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         regularGravity = rb.gravityScale;
         arrow = GetComponent<LineRenderer>();
-        animator = GetComponent<Animator>();
+        if (animator == null)
+        {
+            animator = GetComponent<Animator>();
+        }
+
         arrow.enabled = false;
     }
 
