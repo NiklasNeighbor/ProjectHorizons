@@ -79,7 +79,7 @@ public class MovementAndShooting : MonoBehaviour
             rb.gravityScale = regularGravity * FallGravityMultiplier;
         }
 
-        
+        AnimationControl();
 
 
 
