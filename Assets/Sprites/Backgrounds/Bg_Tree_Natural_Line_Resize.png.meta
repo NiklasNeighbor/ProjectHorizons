@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6a304bbdad8f2314689d2c1eb23c18d1
+guid: d3c7438252a8f114aa4fbaf89b3a4192
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6281347024042726494
-    second: Jumping1_0
+      213: -1498122572716274329
+    second: Bg_Tree_Natural_Line_Resize_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Jumping1_0
+      name: Bg_Tree_Natural_Line_Resize_0
       rect:
         serializedVersion: 2
-        x: 519
-        y: 56
-        width: 1330
-        height: 745
+        x: 0
+        y: 0
+        width: 7200
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2abe9f0692c24d8a0800000000000000
-      internalID: -6281347024042726494
+      spriteID: 76d804f1579953be0800000000000000
+      internalID: -1498122572716274329
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Jumping1_0: -6281347024042726494
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

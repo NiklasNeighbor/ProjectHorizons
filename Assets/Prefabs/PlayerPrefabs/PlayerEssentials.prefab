@@ -44,13 +44,15 @@ GameObject:
   - component: {fileID: 3275452054638745135}
   - component: {fileID: 6335170416927064511}
   - component: {fileID: 6633295975295920011}
+  - component: {fileID: 4809034543612621333}
+  - component: {fileID: 4242338017620890236}
   - component: {fileID: 8552757029220537828}
   - component: {fileID: 996887720566452439}
   - component: {fileID: 6663765135603881995}
   - component: {fileID: 1078815225411479803}
   m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -137,18 +139,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57da315cf3afd9b4ab26e280e508cef9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 5
+  MoveSpeed: 8
   AimingSpeed: 2.5
   JumpForce: 400
   JumpRaycastLength: 1
   PlayerDragSize: 2
   FallGravityMultiplier: 3
+  JumpParticle: {fileID: 0}
   AimMultiplier: 3
   ProjectilePrefab: {fileID: 5349289351302610006, guid: aade6836fc2de65418640a08627ece32, type: 3}
   LevelGeneration: {fileID: 0}
   Ground:
     serializedVersion: 2
     m_Bits: 8
+--- !u!114 &4809034543612621333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4015072207564472471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 338988e0d80393743939314ebf282360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreManagerRef: {fileID: 4242338017620890236}
+--- !u!114 &4242338017620890236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4015072207564472471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e043e10e70b47479c22460480edc2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameActive: 0
+  deathScreen: {fileID: 0}
+  scoreText: {fileID: 0}
+  finalScoreText: {fileID: 0}
 --- !u!61 &8552757029220537828
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -430,7 +462,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7
+  orthographic size: 8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

@@ -82,7 +82,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NextSegmentSpawnPos: {fileID: 5559765601553965043}
   enemySpawns:
-  - enemyPrefab: {fileID: 0}
+  - enemyPrefab: {fileID: 8150807907685363065, guid: fd0d0ef4876febf4ba5b365332eacb91, type: 3}
     spawnPositions:
     - {fileID: 4991475610044873102}
     spawnChanceRange:
