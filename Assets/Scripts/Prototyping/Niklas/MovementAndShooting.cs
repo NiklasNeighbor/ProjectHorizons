@@ -78,7 +78,11 @@ public class MovementAndShooting : MonoBehaviour
         {
             rb.gravityScale = regularGravity * FallGravityMultiplier;
         }
+
         
+
+
+
     }
 
     void ApplyMovement()
@@ -141,5 +145,20 @@ public class MovementAndShooting : MonoBehaviour
             return true ;
         }
         return false;
+    }
+
+    public void AnimationControl()
+    {
+        if (Physics2D.Raycast(transform.position, Vector2.down, JumpRaycastLength, Ground))
+        {
+            animator.SetBool("Grounded", true);
+        }
+        else
+        {
+            animator.SetBool("Grounded", false);
+        }
+
+        animator.SetBool("Aiming", aiming);
+        animator.SetFloat("VerticalSpeed", rb.linearVelocityY);
     }
 }
