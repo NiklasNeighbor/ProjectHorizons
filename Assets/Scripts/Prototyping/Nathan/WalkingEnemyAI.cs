@@ -33,18 +33,10 @@ public class WalkingEnemyAI : MonoBehaviour
     }
     bool DetectedPlayer()
     {
-        if (player != null)
-        {
-            if (Vector2.Distance(rb.position, player.position) <= 10)
-
-
-                return true;
-
-            else
-                return false;
-        }
-            else
-                return false;
+        if(Vector2.Distance(rb.position, player.position) <= 10)
+            return true;
+        else
+            return false;
     }
    /* private void OnTriggerEnter2D(Collider2D collision)
     {
