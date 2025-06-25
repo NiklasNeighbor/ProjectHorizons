@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: d3c7438252a8f114aa4fbaf89b3a4192
+guid: 94c9afdf7bc6f4b4582519b4d686cdc8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1498122572716274329
-    second: Bg_Tree_Natural_Line_Resize_0
+      213: 4695905817628729974
+    second: Mountains Purple_0
+  - first:
+      213: -6955438211249898677
+    second: Mountains Purple_1
+  - first:
+      213: 6364068275524396034
+    second: Mountains Purple_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +119,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bg_Tree_Natural_Line_Resize_0
+      name: Mountains Purple_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 200
         y: 0
-        width: 7200
-        height: 1080
+        width: 1354
+        height: 777
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +134,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 76d804f1579953be0800000000000000
-      internalID: -1498122572716274329
+      spriteID: 672637e06753b2140800000000000000
+      internalID: 4695905817628729974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mountains Purple_1
+      rect:
+        serializedVersion: 2
+        x: 2446
+        y: 0
+        width: 1740
+        height: 808
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4b75416cc1597f90800000000000000
+      internalID: -6955438211249898677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mountains Purple_2
+      rect:
+        serializedVersion: 2
+        x: 4804
+        y: 0
+        width: 2062
+        height: 806
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 204e6f8d066b15850800000000000000
+      internalID: 6364068275524396034
       vertices: []
       indices: 
       edges: []
@@ -147,8 +197,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Bg_Tree_Natural_Line_Resize_0: -1498122572716274329
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

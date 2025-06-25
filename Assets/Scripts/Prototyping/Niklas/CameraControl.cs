@@ -17,10 +17,13 @@ public class CameraControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 newFraming = CameraTarget.transform.position + new Vector3(IdleFraming.x, IdleFraming.y, -10);
-        newFraming.y = transform.position.y;
-        transform.position = newFraming;
-        AdjustHeight();
+       if (CameraTarget != null)
+        {
+            Vector3 newFraming = CameraTarget.transform.position + new Vector3(IdleFraming.x, IdleFraming.y, -10);
+            newFraming.y = transform.position.y;
+            transform.position = newFraming;
+            AdjustHeight();
+        }
     }
 
     void AdjustHeight()
@@ -47,6 +50,7 @@ public class CameraControl : MonoBehaviour
     {
         Gizmos.DrawSphere(new Vector3(transform.position.x, transform.position.y, 0) - new Vector3(IdleFraming.x, IdleFraming.y, 0), 0.5f);
         Gizmos.color = Color.yellow;
+        if(CameraTarget != null)
         Gizmos.DrawSphere(CameraTarget.transform.position, 0.5f);
         Gizmos.color = Color.red;
         Gizmos.DrawLine(new Vector3(transform.position.x - 10, transform.position.y + LowerLimit, 0), new Vector3(transform.position.x + 10, transform.position.y + LowerLimit, 0));

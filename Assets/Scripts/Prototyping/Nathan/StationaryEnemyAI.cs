@@ -17,14 +17,17 @@ public class StationaryEnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector2.Distance(this.transform.position, player.position) <= 15 && !detectedPlayer)
+        if (player != null)
         {
-            ThrowProjectile();
-            detectedPlayer=true;
-            //moveSpeed = moveSpeed * 2;
+            if (Vector2.Distance(this.transform.position, player.position) <= 15 && !detectedPlayer && player != null)
+            {
+                ThrowProjectile();
+                detectedPlayer = true;
+                //moveSpeed = moveSpeed * 2;
+            }
         }
         // rb.linearVelocityX = moveSpeed;
-    }
+        }
    
     void ThrowProjectile()
     {

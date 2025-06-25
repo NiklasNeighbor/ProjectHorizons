@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: d3c7438252a8f114aa4fbaf89b3a4192
+guid: b95e68772938a1244ba07ce0249f9cad
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1498122572716274329
-    second: Bg_Tree_Natural_Line_Resize_0
+      213: -22145280827988568
+    second: Mountains Brown_0
+  - first:
+      213: 7615278440547532029
+    second: Mountains Brown_1
+  - first:
+      213: 731533643111627228
+    second: Mountains Brown_2
+  - first:
+      213: -2657396699870723546
+    second: Mountains Brown_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +122,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bg_Tree_Natural_Line_Resize_0
+      name: Mountains Brown_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 7200
-        height: 1080
+        width: 490
+        height: 583
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +137,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 76d804f1579953be0800000000000000
-      internalID: -1498122572716274329
+      spriteID: 8a5ebc20cf251bff0800000000000000
+      internalID: -22145280827988568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mountains Brown_1
+      rect:
+        serializedVersion: 2
+        x: 1326
+        y: 0
+        width: 1610
+        height: 622
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfcb68ae467eea960800000000000000
+      internalID: 7615278440547532029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mountains Brown_2
+      rect:
+        serializedVersion: 2
+        x: 3991
+        y: 0
+        width: 1017
+        height: 489
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd97aeaf8fde62a00800000000000000
+      internalID: 731533643111627228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mountains Brown_3
+      rect:
+        serializedVersion: 2
+        x: 6738
+        y: 0
+        width: 462
+        height: 583
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62209ece7c70f1bd0800000000000000
+      internalID: -2657396699870723546
       vertices: []
       indices: 
       edges: []
@@ -147,8 +222,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Bg_Tree_Natural_Line_Resize_0: -1498122572716274329
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

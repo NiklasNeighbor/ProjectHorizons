@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: d3c7438252a8f114aa4fbaf89b3a4192
+guid: 2fc866ff853dd8640963258b3ca2000a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1498122572716274329
-    second: Bg_Tree_Natural_Line_Resize_0
+      213: 1887494081247492234
+    second: Rocks_0
+  - first:
+      213: 2007986136508003152
+    second: Rocks_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bg_Tree_Natural_Line_Resize_0
+      name: Rocks_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 576
         width: 7200
-        height: 1080
+        height: 504
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +131,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 76d804f1579953be0800000000000000
-      internalID: -1498122572716274329
+      spriteID: a88b864ddd9b13a10800000000000000
+      internalID: 1887494081247492234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocks_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 7200
+        height: 396
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 053f77c90cccddb10800000000000000
+      internalID: 2007986136508003152
       vertices: []
       indices: 
       edges: []
@@ -147,8 +172,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Bg_Tree_Natural_Line_Resize_0: -1498122572716274329
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

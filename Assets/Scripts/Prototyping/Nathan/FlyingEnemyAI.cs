@@ -8,29 +8,34 @@ public class FlyingEnemyAI : MonoBehaviour
     public float moveSpeed;
     public Transform player;
     public bool chasingPlayer;
-    public GameObject objectToSpawn; // the prefab to spawn
+
+
+  public GameObject objectToSpawn; // the effect prefab to spawn
 
     Vector2 targetPosition;
 
     private void Start()
     {
         chasingPlayer = false;
-        player = GameObject.FindWithTag("Player").transform;
     }
     // Update is called once per frame
     void Update()
     {
-        if (chasingPlayer && Vector2.Distance(rb.position, player.position) > 2.5f)
+        Debug.Log(PlayerDetected());
+        if(player != null)
+        {
+        if (chasingPlayer && Vector2.Distance(rb.position, player.position) > 2.5f && player != null)
         {
             Vector2 newTargetPosition = Vector2.MoveTowards(rb.position, new Vector2(player.position.x + 2, targetPosition.y), moveSpeed * 3f * Time.deltaTime);
             rb.MovePosition(newTargetPosition);
         }
-        else
-        {
-            if(chasingPlayer)
-                chasingPlayer=false;
-            rb.linearVelocity = Vector2.left * moveSpeed; 
         }
+        else
+            {
+                if (chasingPlayer)
+                    chasingPlayer = false;
+                rb.linearVelocity = Vector2.left * moveSpeed;
+            }
         if (PlayerDetected())
         {
             targetPosition = new Vector2(player.position.x + 2, player.position.y);
@@ -39,8 +44,16 @@ public class FlyingEnemyAI : MonoBehaviour
     }
     bool PlayerDetected()
     {
-        if (Vector2.Distance(rb.position, player.position) <= 10 && rb.position.x > player.position.x)
-            return true;
+        if (player != null)
+        {
+            if (Vector2.Distance(rb.position, player.position) <= 10)
+
+
+                return true;
+
+            else
+                return false;
+        }
         else
             return false;
     }
@@ -52,6 +65,9 @@ public class FlyingEnemyAI : MonoBehaviour
         }
         if (collision.gameObject.layer == 7)
         {
+
+
+
             GameObject spawned = Instantiate(objectToSpawn, transform.position, Quaternion.identity);
             spawned.SetActive(true);//spawns in death particle effect prefab
 

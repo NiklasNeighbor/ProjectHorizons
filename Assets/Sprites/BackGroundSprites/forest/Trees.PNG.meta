@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d3c7438252a8f114aa4fbaf89b3a4192
+guid: 73dff3c973a8ede4885fd390c8cbdfa3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1498122572716274329
-    second: Bg_Tree_Natural_Line_Resize_0
+      213: 2572236292851511218
+    second: Trees_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bg_Tree_Natural_Line_Resize_0
+      name: Trees_0
       rect:
         serializedVersion: 2
         x: 0
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 76d804f1579953be0800000000000000
-      internalID: -1498122572716274329
+      spriteID: 2bf28c1b74b62b320800000000000000
+      internalID: 2572236292851511218
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Bg_Tree_Natural_Line_Resize_0: -1498122572716274329
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
