@@ -31,13 +31,16 @@ public class CameraControl : MonoBehaviour
         while(CameraTarget.transform.position.y < transform.position.y + LowerLimit)
         {
             transform.Translate(Vector3.down * 0.1f);
+            Debug.Log("Failsafe Scroll Down");
         }
 
         if (Vector3.Distance(currentPos, targetPos) > 0.5f)
         {
-            if (Physics2D.BoxCast(CameraTarget.transform.position, new Vector2(1,1), 0f, Vector2.down, 0.1f, Ground))
+            Debug.Log("Must Scroll!");
+            if (Physics2D.Raycast(CameraTarget.transform.position, Vector2.down, 0.75f, Ground))
             {
                 transform.position = Vector3.MoveTowards(currentPos, targetPos, VerticalMoveSpeed * Time.deltaTime);
+                Debug.Log("Grounded! Scrolling.");
             }
             
         }
