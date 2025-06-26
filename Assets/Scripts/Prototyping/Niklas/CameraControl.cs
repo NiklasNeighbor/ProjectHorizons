@@ -11,16 +11,19 @@ public class CameraControl : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 newFraming = CameraTarget.transform.position + new Vector3(IdleFraming.x, IdleFraming.y, -10);
-        newFraming.y = transform.position.y;
-        transform.position = newFraming;
-        AdjustHeight();
+        if (CameraTarget != null)
+        {
+            Vector3 newFraming = CameraTarget.transform.position + new Vector3(IdleFraming.x, IdleFraming.y, -10);
+            newFraming.y = transform.position.y;
+            transform.position = newFraming;
+            AdjustHeight();
+        }
     }
 
     void AdjustHeight()
@@ -28,7 +31,7 @@ public class CameraControl : MonoBehaviour
         Vector3 currentPos = transform.position;
         Vector3 targetPos = new Vector3(transform.position.x, CameraTarget.transform.position.y + IdleFraming.y, transform.position.z);
 
-        while(CameraTarget.transform.position.y < transform.position.y + LowerLimit)
+        while (CameraTarget.transform.position.y < transform.position.y + LowerLimit)
         {
             transform.Translate(Vector3.down * 0.1f);
             Debug.Log("Failsafe Scroll Down");
@@ -42,7 +45,7 @@ public class CameraControl : MonoBehaviour
                 transform.position = Vector3.MoveTowards(currentPos, targetPos, VerticalMoveSpeed * Time.deltaTime);
                 Debug.Log("Grounded! Scrolling.");
             }
-            
+
         }
     }
 
@@ -50,7 +53,8 @@ public class CameraControl : MonoBehaviour
     {
         Gizmos.DrawSphere(new Vector3(transform.position.x, transform.position.y, 0) - new Vector3(IdleFraming.x, IdleFraming.y, 0), 0.5f);
         Gizmos.color = Color.yellow;
-        Gizmos.DrawSphere(CameraTarget.transform.position, 0.5f);
+        if (CameraTarget != null)
+            Gizmos.DrawSphere(CameraTarget.transform.position, 0.5f);
         Gizmos.color = Color.red;
         Gizmos.DrawLine(new Vector3(transform.position.x - 10, transform.position.y + LowerLimit, 0), new Vector3(transform.position.x + 10, transform.position.y + LowerLimit, 0));
     }
