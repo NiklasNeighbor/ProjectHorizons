@@ -16,6 +16,7 @@ public class MovementAndShooting : MonoBehaviour
     Vector2 aimEnd;
     public float AimMultiplier = 1f;
     public GameObject ProjectilePrefab;
+    public Vector3 ProjectileOriginOffset;
     public LevelGeneration LevelGeneration;
     Rigidbody2D rb;
     LineRenderer arrow;
@@ -29,6 +30,7 @@ public class MovementAndShooting : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        ProjectileOriginOffset.z = 0;
         rb = GetComponent<Rigidbody2D>();
         regularGravity = rb.gravityScale;
         arrow = GetComponent<LineRenderer>();
@@ -128,7 +130,10 @@ if (Input.GetMouseButtonDown(0) && MouseNearPlayer())
         if (!CollisionOnRight())
         {
             LevelGeneration.ScrollAdvance(MoveSpeed * Time.deltaTime);
-            BackgroundScript.ScrollAdvance(MoveSpeed * BgSpeed * Time.deltaTime);
+            if (BackgroundScript != null)
+            {
+                BackgroundScript.ScrollAdvance(MoveSpeed * BgSpeed * Time.deltaTime);
+            }
         }
     }
 
@@ -149,7 +154,10 @@ if (Input.GetMouseButtonDown(0) && MouseNearPlayer())
         if (!CollisionOnRight())
         {
             LevelGeneration.ScrollAdvance(AimingSpeed * Time.deltaTime);
-            BackgroundScript.ScrollAdvance(AimingSpeed * BgSpeed * Time.deltaTime);
+            if (BackgroundScript != null)
+            {
+                BackgroundScript.ScrollAdvance(AimingSpeed * BgSpeed * Time.deltaTime);
+            }
         }
         
         aimEnd = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -183,7 +191,7 @@ if (Input.GetMouseButtonDown(0) && MouseNearPlayer())
     void FireProjectile()
     {
         Vector2 ownPosition = new Vector2(transform.position.x, transform.position.y);
-        GameObject projectile = Instantiate(ProjectilePrefab, transform.position, Quaternion.identity);
+        GameObject projectile = Instantiate(ProjectilePrefab, transform.position + ProjectileOriginOffset, Quaternion.identity);
         Rigidbody2D projectileRb = projectile.GetComponent<Rigidbody2D>();
 
         if (UseAltControls)
@@ -235,5 +243,11 @@ if (Input.GetMouseButtonDown(0) && MouseNearPlayer())
             return true;
         }
         return false;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawSphere(transform.position + ProjectileOriginOffset, 0.2f);
     }
 }
