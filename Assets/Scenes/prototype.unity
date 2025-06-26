@@ -422,7 +422,7 @@ Animator:
   m_GameObject: {fileID: 399881874}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1335b490c0fc93b42bcde05ad612ec6a, type: 2}
+  m_Controller: {fileID: 9100000, guid: df32522222fad2b419dc5387671ed76b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -995,28 +995,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3275452054638745135, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
   m_PrefabInstance: {fileID: 1568497966}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1198376920
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 423962939}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: df32522222fad2b419dc5387671ed76b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!212 &1198376926
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1161,6 +1139,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3852633956719443277, guid: 3f9d3b7901c0c4744b7e3d7861b61d04, type: 3}
     - target: {fileID: 6633295975295920011, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
+      propertyPath: UseAltControls
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6633295975295920011, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
       propertyPath: LevelGeneration
       value: 
       objectReference: {fileID: 991366440}
@@ -1244,9 +1226,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 337752271}
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4015072207564472471, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1198376920}
     - targetCorrespondingSourceObject: {fileID: 4015072207564472471, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1198376926}
