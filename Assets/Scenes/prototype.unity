@@ -985,7 +985,6 @@ MonoBehaviour:
   SpawnDistance: 500
   RemoveDistance: -500
   BackGroundPrefab: {fileID: 4285944025496151969, guid: 193d1c65e9d91794195072700cb12644, type: 3}
-  Speed: 0.1
 --- !u!1 &1131159092 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6199284848022028764, guid: 853c0a563b9f0a248ac8faa7dcd0f40a, type: 3}
@@ -1146,6 +1145,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6633295975295920011, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
+      propertyPath: BgSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6633295975295920011, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 399881877}
+    - target: {fileID: 6633295975295920011, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
       propertyPath: MoveSpeed
       value: 14
       objectReference: {fileID: 0}
@@ -1157,6 +1164,10 @@ PrefabInstance:
       propertyPath: LevelGeneration
       value: 
       objectReference: {fileID: 991366440}
+    - target: {fileID: 6633295975295920011, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
+      propertyPath: BackgroundScript
+      value: 
+      objectReference: {fileID: 991366443}
     - target: {fileID: 6750603486420980572, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
       propertyPath: LowerLimit
       value: -4
@@ -1200,6 +1211,22 @@ PrefabInstance:
     - target: {fileID: 7625826516216379356, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8552757029220537828, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 10.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8552757029220537828, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 11.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8552757029220537828, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 10.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8552757029220537828, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 11.13
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4242338017620890236, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}

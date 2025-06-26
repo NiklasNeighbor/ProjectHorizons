@@ -22,6 +22,10 @@ public class MovementAndShooting : MonoBehaviour
     public Animator animator;
     public LayerMask Ground;
 
+    [SerializeField] bool UseAltControls;
+    [SerializeField] BackgroundScript BackgroundScript;
+    [SerializeField] float BgSpeed;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -44,13 +48,35 @@ public class MovementAndShooting : MonoBehaviour
 
     void ControlsManager()
     {
-        if (Input.GetMouseButtonDown(0) && MouseNearPlayer())
+        /*
+        if(Input.GetMouseButtonDown(0))
+        {
+            if(UseAltControls && MouseOnRightSide(false))
+            {
+                aimStart = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            }else
+            if(MouseNearPlayer())
+            {
+                aimStart = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+            }
+            aiming = true;
+            arrow.enabled = true;
+        }
+        */
+
+        if (Input.GetMouseButtonDown(0) && UseAltControls && MouseOnRightSide(false))
+        {
+            aimStart = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            aiming = true;
+            arrow.enabled = true;
+        }
+        else
+if (Input.GetMouseButtonDown(0) && MouseNearPlayer())
         {
             aiming = true;
             aimStart = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
             arrow.enabled = true;
-            
-        } 
+        }
 
         if (aiming)
         {
@@ -72,7 +98,15 @@ public class MovementAndShooting : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && !aiming)
         {
-            DoJump();
+            if (UseAltControls && MouseOnRightSide(true))
+            {
+                DoJump();
+            }
+            else
+            if (!UseAltControls)
+            {
+                DoJump();
+            }
         }
 
         if ((Input.GetMouseButton(0) && !aiming))
@@ -94,6 +128,7 @@ public class MovementAndShooting : MonoBehaviour
         if (!CollisionOnRight())
         {
             LevelGeneration.ScrollAdvance(MoveSpeed * Time.deltaTime);
+            BackgroundScript.ScrollAdvance(MoveSpeed * BgSpeed * Time.deltaTime);
         }
     }
 
@@ -114,12 +149,23 @@ public class MovementAndShooting : MonoBehaviour
         if (!CollisionOnRight())
         {
             LevelGeneration.ScrollAdvance(AimingSpeed * Time.deltaTime);
+            BackgroundScript.ScrollAdvance(AimingSpeed * BgSpeed * Time.deltaTime);
         }
         
         aimEnd = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 ownPosition = new Vector2(transform.position.x, transform.position.y);
-        DebugExtension.DebugArrow(transform.position, ((ownPosition + aimStart) - (aimEnd)) * AimMultiplier, Color.green);
-        arrow.SetPosition(1, ((ownPosition + aimStart) - aimEnd) * AimMultiplier);
+
+        if (UseAltControls)
+        {
+            DebugExtension.DebugArrow(transform.position, (ownPosition - aimStart) * AimMultiplier, Color.green);
+            arrow.SetPosition(1, (aimStart - aimEnd) * AimMultiplier);
+        }
+        else
+        {
+            DebugExtension.DebugArrow(transform.position, ((ownPosition + aimStart) - (aimEnd)) * AimMultiplier, Color.green);
+            arrow.SetPosition(1, ((ownPosition + aimStart) - aimEnd) * AimMultiplier);
+        }
+
         Debug.Log("Aiming.");
     }
 
@@ -139,7 +185,15 @@ public class MovementAndShooting : MonoBehaviour
         Vector2 ownPosition = new Vector2(transform.position.x, transform.position.y);
         GameObject projectile = Instantiate(ProjectilePrefab, transform.position, Quaternion.identity);
         Rigidbody2D projectileRb = projectile.GetComponent<Rigidbody2D>();
-        projectileRb.AddForce(((ownPosition + aimStart) - aimEnd) * AimMultiplier * 100);
+
+        if (UseAltControls)
+        {
+            projectileRb.AddForce((aimStart - aimEnd) * AimMultiplier * 100);
+        }
+        else
+        {
+            projectileRb.AddForce(((ownPosition + aimStart) - aimEnd) * AimMultiplier * 100);
+        }
     }
 
     bool CollisionOnRight()
@@ -164,5 +218,22 @@ public class MovementAndShooting : MonoBehaviour
 
         animator.SetBool("Aiming", aiming);
         animator.SetFloat("VerticalSpeed", rb.linearVelocityY);
+    }
+
+    //check on what side of screen mouse is
+    bool MouseOnRightSide(bool right)
+    {
+        Vector2 mouseScreenPos = Input.mousePosition;
+
+        if (right && mouseScreenPos.x > Screen.width / 2)
+        {
+            return true;
+        }
+
+        if (!right && mouseScreenPos.x < Screen.width / 2)
+        {
+            return true;
+        }
+        return false;
     }
 }
