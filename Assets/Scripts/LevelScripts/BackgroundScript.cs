@@ -6,7 +6,6 @@ public class BackgroundScript : MonoBehaviour
     [SerializeField] float SpawnDistance;
     [SerializeField] float RemoveDistance;
     [SerializeField] GameObject BackGroundPrefab;
-    [SerializeField] float Speed;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,7 +16,6 @@ public class BackgroundScript : MonoBehaviour
     void FixedUpdate()
     {
         CheckLevelDistance();
-        ScrollAdvance(Speed);
     }
 
     void CheckLevelDistance()
@@ -44,7 +42,7 @@ public class BackgroundScript : MonoBehaviour
         newSegment.transform.parent = BackgroundParent.transform;
     }
 
-    void ScrollAdvance(float moveAmount)
+    public void ScrollAdvance(float moveAmount)
     {
         for (int i = 0; i < BackgroundParent.transform.childCount; i++)
         {
