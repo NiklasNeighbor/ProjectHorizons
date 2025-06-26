@@ -20,21 +20,24 @@ public class FlyingEnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (chasingPlayer && Vector2.Distance(rb.position, player.position) > 2.5f)
+        if (player != null)
         {
-            Vector2 newTargetPosition = Vector2.MoveTowards(rb.position, new Vector2(player.position.x + 2, targetPosition.y), moveSpeed * 3f * Time.deltaTime);
-            rb.MovePosition(newTargetPosition);
-        }
-        else
-        {
-            if(chasingPlayer)
-                chasingPlayer=false;
-            rb.linearVelocity = Vector2.left * moveSpeed; 
-        }
-        if (PlayerDetected())
-        {
-            targetPosition = new Vector2(player.position.x + 2, player.position.y);
-            chasingPlayer = true;
+            if (chasingPlayer && Vector2.Distance(rb.position, player.position) > 2.5f)
+            {
+                Vector2 newTargetPosition = Vector2.MoveTowards(rb.position, new Vector2(player.position.x + 2, targetPosition.y), moveSpeed * 3f * Time.deltaTime);
+                rb.MovePosition(newTargetPosition);
+            }
+            else
+            {
+                if (chasingPlayer)
+                    chasingPlayer = false;
+                rb.linearVelocity = Vector2.left * moveSpeed;
+            }
+            if (PlayerDetected())
+            {
+                targetPosition = new Vector2(player.position.x + 2, player.position.y);
+                chasingPlayer = true;
+            }
         }
     }
     bool PlayerDetected()
