@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Damager
+  - DeathZone
   layers:
   - Default
   - TransparentFX

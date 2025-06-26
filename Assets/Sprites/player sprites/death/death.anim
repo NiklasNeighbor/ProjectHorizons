@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: jumping
+  m_Name: death
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,19 +21,17 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -6281347024042726494, guid: 6a304bbdad8f2314689d2c1eb23c18d1, type: 3}
-    - time: 0.083333336
-      value: {fileID: -8201363028933123358, guid: 2b16a733a69984041bba9633d7c051a6, type: 3}
-    - time: 0.25
-      value: {fileID: 647408157840228073, guid: 7827b4b5374e75f4fb2e61ce5fa8cdee, type: 3}
-    - time: 0.41666666
-      value: {fileID: -8516714583122140651, guid: b20f99fd9b6f43446baca04dd30b4006, type: 3}
+      value: {fileID: -2509409704438842034, guid: 13822aa49f55e6840b82a42f8e2b4ecc, type: 3}
+    - time: 0.16666667
+      value: {fileID: 7671078779260403301, guid: 987aa018ee1868e48b638fd065370271, type: 3}
+    - time: 0.48333332
+      value: {fileID: -6990081392350209015, guid: f4b9fdbcf7ca16641b9fd051fddf61f7, type: 3}
     attribute: m_Sprite
     path: Sprite
     classID: 212
     script: {fileID: 0}
     flags: 2
-  m_SampleRate: 12
+  m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -50,16 +48,15 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -6281347024042726494, guid: 6a304bbdad8f2314689d2c1eb23c18d1, type: 3}
-    - {fileID: -8201363028933123358, guid: 2b16a733a69984041bba9633d7c051a6, type: 3}
-    - {fileID: 647408157840228073, guid: 7827b4b5374e75f4fb2e61ce5fa8cdee, type: 3}
-    - {fileID: -8516714583122140651, guid: b20f99fd9b6f43446baca04dd30b4006, type: 3}
+    - {fileID: -2509409704438842034, guid: 13822aa49f55e6840b82a42f8e2b4ecc, type: 3}
+    - {fileID: 7671078779260403301, guid: 987aa018ee1868e48b638fd065370271, type: 3}
+    - {fileID: -6990081392350209015, guid: f4b9fdbcf7ca16641b9fd051fddf61f7, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.5
+    m_StopTime: 1
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -78,4 +75,11 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 1
+    functionName: KillPlayer
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

@@ -9,7 +9,7 @@ public class FlyingEnemyAI : MonoBehaviour
     public Transform player;
     public bool chasingPlayer;
     public GameObject objectToSpawn; // the prefab to spawn
-
+    public float diveMultiplier;
     Vector2 targetPosition;
 
     private void Start()
@@ -18,12 +18,36 @@ public class FlyingEnemyAI : MonoBehaviour
         player = GameObject.FindWithTag("Player").transform;
     }
     // Update is called once per frame
-    void Update()
+    private void Update()
+    {
+
+        if (player != null)
+        {
+            if (PlayerDetected())
+            {
+                targetPosition = new Vector2(player.position.x + 2, player.position.y);
+                chasingPlayer = true;
+            }
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Vector2 newPosition = new Vector2(rb.position.x, player.position.y + 4);
+                rb.position = newPosition;
+            }
+        }
+    }
+    void FixedUpdate()
     {
         if (player != null)
         {
-            if (chasingPlayer && Vector2.Distance(rb.position, player.position) > 2.5f)
+            if (Vector2.Distance(rb.position, player.position) < 50 && Vector2.Distance(rb.position, player.position) > 20 && !chasingPlayer)
             {
+                Vector2 newPosition = new Vector2(rb.position.x, player.position.y + 4);
+                this.transform.position = newPosition;
+            }
+            if (chasingPlayer && Vector2.Distance(rb.position, player.position) < 5f)
+            {
+                Debug.Log("COOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOM");
                 Vector2 newTargetPosition = Vector2.MoveTowards(rb.position, new Vector2(player.position.x + 2, targetPosition.y), moveSpeed * 3f * Time.deltaTime);
                 rb.MovePosition(newTargetPosition);
             }
@@ -32,11 +56,6 @@ public class FlyingEnemyAI : MonoBehaviour
                 if (chasingPlayer)
                     chasingPlayer = false;
                 rb.linearVelocity = Vector2.left * moveSpeed;
-            }
-            if (PlayerDetected())
-            {
-                targetPosition = new Vector2(player.position.x + 2, player.position.y);
-                chasingPlayer = true;
             }
         }
     }
@@ -47,7 +66,7 @@ public class FlyingEnemyAI : MonoBehaviour
         else
             return false;
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
