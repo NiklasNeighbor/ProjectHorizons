@@ -1150,6 +1150,22 @@ PrefabInstance:
       propertyPath: BackgroundScript
       value: 
       objectReference: {fileID: 991366443}
+    - target: {fileID: 6633295975295920011, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
+      propertyPath: ProjectileOriginOffset.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6633295975295920011, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
+      propertyPath: ProjectileOriginOffset.y
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6663765135603881995, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
+      propertyPath: m_Positions.Array.data[0].x
+      value: -0.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 6663765135603881995, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
+      propertyPath: m_Positions.Array.data[0].y
+      value: 1.16
+      objectReference: {fileID: 0}
     - target: {fileID: 6750603486420980572, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
       propertyPath: LowerLimit
       value: -4
