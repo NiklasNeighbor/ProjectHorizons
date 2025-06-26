@@ -332,6 +332,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1078815225411479803, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3514451368823977186, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
       propertyPath: m_Name
       value: PlayerEssentials
@@ -345,16 +349,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3852633956719443277, guid: 3f9d3b7901c0c4744b7e3d7861b61d04, type: 3}
     - target: {fileID: 6633295975295920011, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
+      propertyPath: UseAltControls
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6633295975295920011, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
       propertyPath: LevelGeneration
       value: 
       objectReference: {fileID: 991366440}
     - target: {fileID: 6633295975295920011, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
       propertyPath: ProjectileOriginOffset.x
-      value: 0
+      value: -1.35
       objectReference: {fileID: 0}
     - target: {fileID: 6633295975295920011, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
       propertyPath: ProjectileOriginOffset.y
-      value: 0
+      value: 1.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 6663765135603881995, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
+      propertyPath: m_Positions.Array.data[0].x
+      value: -1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6663765135603881995, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
+      propertyPath: m_Positions.Array.data[0].y
+      value: 1.08
       objectReference: {fileID: 0}
     - target: {fileID: 7625826516216379356, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
       propertyPath: m_LocalPosition.x
