@@ -1,17 +1,19 @@
 using System.Diagnostics.CodeAnalysis;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class LevelSetup : MonoBehaviour
 {
     public Transform NextSegmentSpawnPos;
+    DifficultyManager difficultyManager;
+    enum Difficulty { Easy, Medium, Hard };
 
     [System.Serializable]
     struct EnemySpawn
     {
         public GameObject enemyPrefab;
-        public Transform[] spawnPositions;
-        [Range(0.0f, 1f)]
-        public float[] spawnChanceRange;
+        public Transform spawnPosition;
+        public Difficulty difficulty;
     }
 
     [SerializeField] EnemySpawn[] enemySpawns;
@@ -20,21 +22,46 @@ public class LevelSetup : MonoBehaviour
     void Start()
     {
         SpawnEnemies();
+        //difficultyManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<DifficultyManager>();
     }
 
     void SpawnEnemies()
     {
-        foreach(EnemySpawn spawn in enemySpawns)
+
+        foreach (EnemySpawn spawn in enemySpawns)
         {
-            for(int i = 0; i < spawn.spawnChanceRange.Length; i++)
+            float random = Random.value;
+            bool doSpawn = false;
+
+            switch (spawn.difficulty)
             {
-                if(Random.value < spawn.spawnChanceRange[i])
-                {
-                    GameObject enemy = Instantiate(spawn.enemyPrefab, spawn.spawnPositions[i].position, Quaternion.identity);
-                    enemy.transform.parent = transform;
-                }
+                case Difficulty.Easy:
+                    doSpawn = true;
+                    break;
+
+                case Difficulty.Medium:
+                    if (random <= GameObject.FindGameObjectWithTag("GameController").GetComponent<DifficultyManager>().mediumDifficulty) //?? getting the difficultyManager in start gives errors
+                    {
+                        doSpawn = true;
+                    }
+                    break;
+
+                case Difficulty.Hard:
+                    if (random <= GameObject.FindGameObjectWithTag("GameController").GetComponent<DifficultyManager>().hardDifficulty)
+                    {
+                        doSpawn = true;
+                    }
+                    break;
+            }
+
+            if(doSpawn)
+            {
+                GameObject enemy = Instantiate(spawn.enemyPrefab, spawn.spawnPosition.position, Quaternion.identity);
+                enemy.transform.parent = transform;
             }
         }
     }
 
 }
+
+

@@ -904,6 +904,7 @@ GameObject:
   - component: {fileID: 991366440}
   - component: {fileID: 991366442}
   - component: {fileID: 991366443}
+  - component: {fileID: 991366444}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -927,17 +928,9 @@ MonoBehaviour:
   _LevelParent: {fileID: 774143897}
   _SpawnDistance: 200
   _RemoveDistance: -200
-  _LevelSegments:
-  - {fileID: 2054966469424343781, guid: 6b0e4ebdbff6ad54da8de7c3212a26b3, type: 3}
-  - {fileID: 7584197894465167035, guid: 0cb9078e26ca7fd45959e79b598fcfde, type: 3}
-  - {fileID: 3269919098656222023, guid: b09144a336f20b24bb052d935a23fc6b, type: 3}
-  - {fileID: 7813029850474969577, guid: f3b02106670476c469a92c6c664b21a6, type: 3}
-  - {fileID: 1043654856513989628, guid: 951cd808676da2940af37323118f97e9, type: 3}
-  - {fileID: 160656085374927695, guid: 5870240c0b2f21b40897bac378e4e66a, type: 3}
-  - {fileID: 5246039778716043055, guid: 7ecdda8216b176c43bc74025345c7dc4, type: 3}
-  - {fileID: 3512165299892714874, guid: 6e02ddb45ec4b0f4ea1d6b1ae0afccc2, type: 3}
-  - {fileID: 7888372119524112548, guid: caf00b93a577f77439acf0125454983b, type: 3}
-  - {fileID: 5205863000833432643, guid: fa3b0732f86300e4a96988a95dc5984c, type: 3}
+  _EasySegments: []
+  _MediumSegments: []
+  _HardSegments: []
 --- !u!4 &991366441
 Transform:
   m_ObjectHideFlags: 0
@@ -985,6 +978,23 @@ MonoBehaviour:
   SpawnDistance: 500
   RemoveDistance: -500
   BackGroundPrefab: {fileID: 4285944025496151969, guid: 193d1c65e9d91794195072700cb12644, type: 3}
+--- !u!114 &991366444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991366439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ab7edb7e8fbf8840b8d6d4c4a33ecbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difficulty: 0
+  normalDifficulty: 0
+  hardDifficulty: 0
+  normalRange: {x: 0, y: 0}
+  hardRange: {x: 0, y: 0}
 --- !u!1 &1131159092 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6199284848022028764, guid: 853c0a563b9f0a248ac8faa7dcd0f40a, type: 3}
@@ -1134,6 +1144,10 @@ PrefabInstance:
       propertyPath: MoveSpeed
       value: 14
       objectReference: {fileID: 0}
+    - target: {fileID: 6633295975295920011, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
+      propertyPath: GameManager
+      value: 
+      objectReference: {fileID: 991366439}
     - target: {fileID: 6633295975295920011, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
       propertyPath: JumpParticle
       value: 

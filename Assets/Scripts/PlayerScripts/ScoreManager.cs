@@ -16,19 +16,17 @@ public class ScoreManager : MonoBehaviour
         score = 0;
         deathScreen.SetActive(false);
         gameActive = true;
-        StartCoroutine(IncreaseScore());
     }
     public void EndRun()
     {
         deathScreen.SetActive(true);
         finalScoreText.text = "Final Score: " +  score.ToString();
     }
-    IEnumerator IncreaseScore()
+    public void IncreaseScore(int addedScore)
     {
         while (gameActive)
         {
-            yield return new WaitForSeconds(0.05f);
-            score += 3;
+            score += addedScore;
             scoreText.text = "Score: " + score.ToString();
         }
     }

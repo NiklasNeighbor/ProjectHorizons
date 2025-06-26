@@ -55,15 +55,11 @@ MonoBehaviour:
   NextSegmentSpawnPos: {fileID: 805144748350631288}
   enemySpawns:
   - enemyPrefab: {fileID: 8150807907685363065, guid: fd0d0ef4876febf4ba5b365332eacb91, type: 3}
-    spawnPositions:
-    - {fileID: 353514509704924251}
-    spawnChanceRange:
-    - 0.5
+    spawnPosition: {fileID: 353514509704924251}
+    difficulty: 0
   - enemyPrefab: {fileID: 8150807907685363065, guid: fd0d0ef4876febf4ba5b365332eacb91, type: 3}
-    spawnPositions:
-    - {fileID: 7952777048324711250}
-    spawnChanceRange:
-    - 0.25
+    spawnPosition: {fileID: 7952777048324711250}
+    difficulty: 1
 --- !u!1 &1772445745790389972
 GameObject:
   m_ObjectHideFlags: 0

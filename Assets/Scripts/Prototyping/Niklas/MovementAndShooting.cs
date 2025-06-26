@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 public class MovementAndShooting : MonoBehaviour
 {
@@ -17,15 +18,21 @@ public class MovementAndShooting : MonoBehaviour
     public float AimMultiplier = 1f;
     public GameObject ProjectilePrefab;
     public Vector3 ProjectileOriginOffset;
-    public LevelGeneration LevelGeneration;
+    LevelGeneration levelGeneration;
     Rigidbody2D rb;
     LineRenderer arrow;
     public Animator animator;
     public LayerMask Ground;
 
     [SerializeField] bool UseAltControls;
-    [SerializeField] BackgroundScript BackgroundScript;
+    BackgroundScript backgroundScript;
     [SerializeField] float BgSpeed;
+
+    [SerializeField] GameObject GameManager;
+    ScoreManager scoreManager;
+    DifficultyManager difficultyManager;
+
+    bool stopMoving = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -40,6 +47,11 @@ public class MovementAndShooting : MonoBehaviour
         }
 
         arrow.enabled = false;
+
+        levelGeneration = GameManager.GetComponent<LevelGeneration>();
+        backgroundScript = GameManager.GetComponent<BackgroundScript>();
+        scoreManager = GameManager.GetComponent<ScoreManager>();
+        difficultyManager = GameManager.GetComponent<DifficultyManager>();
     }
 
     // Update is called once per frame
@@ -48,23 +60,38 @@ public class MovementAndShooting : MonoBehaviour
         ControlsManager();
     }
 
+    private void FixedUpdate()
+    {
+        //UpdatePoints();
+        UpdateDifficulty();
+    }
+
+    void UpdatePoints()
+    {
+        if (!aiming)
+        {
+            scoreManager.IncreaseScore(10);
+        }
+        else
+        {
+            scoreManager.IncreaseScore(5);
+        }
+    }
+
+    void UpdateDifficulty()
+    {
+        if (!aiming)
+        {
+            difficultyManager.IncreaseDifficulty(4);
+        }
+        else
+        {
+            difficultyManager.IncreaseDifficulty(2);
+        }
+    }
+
     void ControlsManager()
     {
-        /*
-        if(Input.GetMouseButtonDown(0))
-        {
-            if(UseAltControls && MouseOnRightSide(false))
-            {
-                aimStart = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            }else
-            if(MouseNearPlayer())
-            {
-                aimStart = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-            }
-            aiming = true;
-            arrow.enabled = true;
-        }
-        */
 
         if (Input.GetMouseButtonDown(0) && UseAltControls && MouseOnRightSide(false))
         {
@@ -73,7 +100,7 @@ public class MovementAndShooting : MonoBehaviour
             arrow.enabled = true;
         }
         else
-if (Input.GetMouseButtonDown(0) && MouseNearPlayer())
+        if (Input.GetMouseButtonDown(0) && MouseNearPlayer())
         {
             aiming = true;
             aimStart = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
@@ -93,7 +120,7 @@ if (Input.GetMouseButtonDown(0) && MouseNearPlayer())
         }
 
 
-        if (!aiming)
+        if (!aiming && !stopMoving)
         {
             ApplyMovement();
         }
@@ -114,7 +141,8 @@ if (Input.GetMouseButtonDown(0) && MouseNearPlayer())
         if ((Input.GetMouseButton(0) && !aiming))
         {
             rb.gravityScale = regularGravity;
-        } else
+        }
+        else
         {
             rb.gravityScale = regularGravity * FallGravityMultiplier;
         }
@@ -129,10 +157,10 @@ if (Input.GetMouseButtonDown(0) && MouseNearPlayer())
     {
         if (!CollisionOnRight())
         {
-            LevelGeneration.ScrollAdvance(MoveSpeed * Time.deltaTime);
-            if (BackgroundScript != null)
+            levelGeneration.ScrollAdvance(MoveSpeed * Time.deltaTime);
+            if (backgroundScript != null)
             {
-                BackgroundScript.ScrollAdvance(MoveSpeed * BgSpeed * Time.deltaTime);
+                backgroundScript.ScrollAdvance(MoveSpeed * BgSpeed * Time.deltaTime);
             }
         }
     }
@@ -153,13 +181,13 @@ if (Input.GetMouseButtonDown(0) && MouseNearPlayer())
     {
         if (!CollisionOnRight())
         {
-            LevelGeneration.ScrollAdvance(AimingSpeed * Time.deltaTime);
-            if (BackgroundScript != null)
+            levelGeneration.ScrollAdvance(AimingSpeed * Time.deltaTime);
+            if (backgroundScript != null)
             {
-                BackgroundScript.ScrollAdvance(AimingSpeed * BgSpeed * Time.deltaTime);
+                backgroundScript.ScrollAdvance(AimingSpeed * BgSpeed * Time.deltaTime);
             }
         }
-        
+
         aimEnd = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 ownPosition = new Vector2(transform.position.x, transform.position.y);
 
@@ -184,7 +212,7 @@ if (Input.GetMouseButtonDown(0) && MouseNearPlayer())
         if (Vector2.Distance(mousePos, transform.position) < PlayerDragSize)
         {
             return true;
-        } 
+        }
         return false;
     }
 
@@ -208,7 +236,7 @@ if (Input.GetMouseButtonDown(0) && MouseNearPlayer())
     {
         if (Physics2D.Raycast(transform.position, Vector2.right, 0.6f, Ground))
         {
-            return true ;
+            return true;
         }
         return false;
     }
@@ -249,5 +277,10 @@ if (Input.GetMouseButtonDown(0) && MouseNearPlayer())
     {
         Gizmos.color = Color.green;
         Gizmos.DrawSphere(transform.position + ProjectileOriginOffset, 0.2f);
+    }
+
+    public void StopMoving()
+    {
+        stopMoving = true;
     }
 }
