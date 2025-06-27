@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 987aa018ee1868e48b638fd065370271
+guid: bfa1b389f2a3fc24093df0ec7adbecd1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7671078779260403301
-    second: Death2_0
+      213: 7811098824627776574
+    second: SlopeTile1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Death2_0
+      name: SlopeTile1_0
       rect:
         serializedVersion: 2
-        x: 370
-        y: 26
-        width: 1387
-        height: 751
+        x: 0
+        y: 0
+        width: 100
+        height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 56e7ad1b185257a60800000000000000
-      internalID: 7671078779260403301
+      spriteID: e3ce86bfef8966c60800000000000000
+      internalID: 7811098824627776574
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 3ccca417cf98e054fb2923315b72c057
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Death2_0: 7671078779260403301
+      SlopeTile1_0: 7811098824627776574
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
