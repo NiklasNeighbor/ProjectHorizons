@@ -129,12 +129,12 @@ public class MovementAndShooting : MonoBehaviour
         {
             if (UseAltControls && MouseOnRightSide(true))
             {
-                DoJump();
+                DoJump(JumpForce);
             }
             else
             if (!UseAltControls)
             {
-                DoJump();
+                DoJump(JumpForce);
             }
         }
 
@@ -165,15 +165,15 @@ public class MovementAndShooting : MonoBehaviour
         }
     }
 
-    void DoJump()
+    public void DoJump(float force)
     {
-        Debug.Log("Try Jump");
+        //Debug.Log("Try Jump");
         if (Physics2D.Raycast(transform.position, Vector2.down, JumpRaycastLength, Ground))
         {
             GameObject spawned = Instantiate(JumpParticle, transform.position, Quaternion.identity);
             spawned.SetActive(true);//spawns jump effect
-            rb.AddForce(Vector2.up * JumpForce);
-            Debug.Log("Jumped");
+            rb.AddForce(Vector2.up * force);
+            //Debug.Log("Jumped");
         }
     }
 
@@ -202,7 +202,7 @@ public class MovementAndShooting : MonoBehaviour
             arrow.SetPosition(1, ((ownPosition + aimStart) - aimEnd) * AimMultiplier);
         }
 
-        Debug.Log("Aiming.");
+        //Debug.Log("Aiming.");
     }
 
     bool MouseNearPlayer()
@@ -257,7 +257,7 @@ public class MovementAndShooting : MonoBehaviour
     }
 
     //check on what side of screen mouse is
-    bool MouseOnRightSide(bool right)
+    public bool MouseOnRightSide(bool right)
     {
         Vector2 mouseScreenPos = Input.mousePosition;
 

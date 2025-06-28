@@ -2,6 +2,7 @@
 //
 
 using UnityEngine;
+using System.Collections.Generic;
 
 public class LevelGeneration : MonoBehaviour
 {
@@ -14,10 +15,17 @@ public class LevelGeneration : MonoBehaviour
     [SerializeField] GameObject[] _HardSegments;
     DifficultyManager difficultyManager;
 
+    List<float> levelHeights = new List<float>();
+    float lowestLow = 100;
+    [SerializeField] GameObject deathBox;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         difficultyManager = GetComponent<DifficultyManager>();
+        float startLevelHeight = _LevelParent.transform.GetChild(0).transform.position.y;
+        levelHeights.Add(startLevelHeight);
+        lowestLow = startLevelHeight;
     }
 
     // Update is called once per frame
@@ -38,7 +46,7 @@ public class LevelGeneration : MonoBehaviour
 
         if (firstChild.position.x < _RemoveDistance)
         {
-            Destroy(firstChild.gameObject);
+            RemoveSegment(firstChild.gameObject);
         }
     }
 
@@ -76,9 +84,29 @@ public class LevelGeneration : MonoBehaviour
 
         GameObject newSegment = Instantiate(newSegmentPrfb, new Vector3(pos.x, pos.y, 0), Quaternion.identity);
         newSegment.transform.parent = _LevelParent.transform;
+
+        float levelHeight = newSegment .transform.position.y;
+        levelHeights.Add(levelHeight);
+        if (levelHeight < lowestLow)
+        {
+            lowestLow = levelHeight;
+            AdjustDeathBox(lowestLow);
+        }
     }
 
+    void RemoveSegment(GameObject segment)
+    {
+        //needs to check if the lowest platform gets removed but this if statement doesnt work.
+        //if(segment.transform.position.y == lowestLow)
+        //{
+            GetLowestSegment();
+        //}
 
+        Destroy(segment);
+        levelHeights.RemoveAt(0);
+
+        AdjustDeathBox(lowestLow);
+    }
     public void ScrollAdvance(float moveAmount)
     {
         for (int i = 0; i < _LevelParent.transform.childCount; i++)
@@ -86,4 +114,24 @@ public class LevelGeneration : MonoBehaviour
             _LevelParent.transform.GetChild(i).position -= new Vector3(moveAmount, 0, 0);
         }
     }
+
+    void GetLowestSegment()
+    {
+        float currentLowest = 1000000;
+        for(int i = 0; i < levelHeights.Count; i++)
+        {
+            if (levelHeights[i] < currentLowest)
+            {
+                currentLowest = levelHeights[i];
+            }
+        }
+        lowestLow = currentLowest;
+    }
+
+    void AdjustDeathBox(float levelHeight)
+    {
+        deathBox.transform.position = new Vector3(deathBox.transform.position.x, levelHeight - 10, deathBox.transform.position.z);
+    }
+
+
 }

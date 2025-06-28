@@ -119,6 +119,39 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &57902042
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 57902043}
+  m_Layer: 0
+  m_Name: Environment
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &57902043
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 57902042}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 774143898}
+  - {fileID: 466003747}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &71518063
 GameObject:
   m_ObjectHideFlags: 0
@@ -451,7 +484,7 @@ GameObject:
   - component: {fileID: 466003746}
   - component: {fileID: 466003748}
   m_Layer: 0
-  m_Name: Damage Zone
+  m_Name: Death zone
   m_TagString: Damager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -520,12 +553,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 466003745}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -22.6, z: 0}
   m_LocalScale: {x: 300, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 57902043}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &466003748
 BoxCollider2D:
@@ -599,7 +632,7 @@ GameObject:
   m_Component:
   - component: {fileID: 774143898}
   m_Layer: 3
-  m_Name: LevelParent
+  m_Name: LevelsParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -613,13 +646,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 774143897}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 171524685}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 57902043}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &808435041 stripped
 GameObject:
@@ -928,9 +961,20 @@ MonoBehaviour:
   _LevelParent: {fileID: 774143897}
   _SpawnDistance: 200
   _RemoveDistance: -200
-  _EasySegments: []
+  _EasySegments:
+  - {fileID: 2054966469424343781, guid: 6b0e4ebdbff6ad54da8de7c3212a26b3, type: 3}
+  - {fileID: 7584197894465167035, guid: 0cb9078e26ca7fd45959e79b598fcfde, type: 3}
+  - {fileID: 3269919098656222023, guid: b09144a336f20b24bb052d935a23fc6b, type: 3}
+  - {fileID: 7813029850474969577, guid: f3b02106670476c469a92c6c664b21a6, type: 3}
+  - {fileID: 1043654856513989628, guid: 951cd808676da2940af37323118f97e9, type: 3}
+  - {fileID: 160656085374927695, guid: 5870240c0b2f21b40897bac378e4e66a, type: 3}
+  - {fileID: 5246039778716043055, guid: 7ecdda8216b176c43bc74025345c7dc4, type: 3}
+  - {fileID: 3512165299892714874, guid: 6e02ddb45ec4b0f4ea1d6b1ae0afccc2, type: 3}
+  - {fileID: 7888372119524112548, guid: caf00b93a577f77439acf0125454983b, type: 3}
+  - {fileID: 5205863000833432643, guid: fa3b0732f86300e4a96988a95dc5984c, type: 3}
   _MediumSegments: []
   _HardSegments: []
+  deathBox: {fileID: 466003745}
 --- !u!4 &991366441
 Transform:
   m_ObjectHideFlags: 0
@@ -991,9 +1035,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   difficulty: 0
-  normalDifficulty: 0
+  mediumDifficulty: 0
   hardDifficulty: 0
-  normalRange: {x: 0, y: 0}
+  mediumRange: {x: 0, y: 0}
   hardRange: {x: 0, y: 0}
 --- !u!1 &1131159092 stripped
 GameObject:
@@ -1104,6 +1148,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4809034543612621333, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 399881877}
     - target: {fileID: 4809034543612621333, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
       propertyPath: scoreManagerRef
       value: 
@@ -1429,7 +1477,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 991366441}
-  - {fileID: 774143898}
+  - {fileID: 57902043}
   - {fileID: 1568497966}
   - {fileID: 974619269}
-  - {fileID: 466003747}

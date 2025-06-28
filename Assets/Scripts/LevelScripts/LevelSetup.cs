@@ -23,6 +23,7 @@ public class LevelSetup : MonoBehaviour
     {
         SpawnEnemies();
         //difficultyManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<DifficultyManager>();
+
     }
 
     void SpawnEnemies()
