@@ -57,26 +57,45 @@ public class LevelGeneration : MonoBehaviour
 
         while(!hasFoundLvl)
         {
+
             switch(Random.Range(0, 3))
             {
                 case 0: //easy
-                    hasFoundLvl = true;
-                    newSegmentPrfb = _EasySegments[Random.Range(0, _EasySegments.Length)];
+                    if(_EasySegments.Length > 0)
+                    {
+                        hasFoundLvl = true;
+                        newSegmentPrfb = _EasySegments[Random.Range(0, _EasySegments.Length)];
+                    }else
+                    {
+                        Debug.Log("Missing easy level segments!");
+                    }
                     break;
 
                 case 1: //normal
                     if(Random.value < difficultyManager.mediumDifficulty)
                     {
-                        hasFoundLvl = true;
-                        newSegmentPrfb = _MediumSegments[Random.Range(0, _MediumSegments.Length)];
+                        if(_MediumSegments.Length > 0)
+                        {
+                            hasFoundLvl = true;
+                            newSegmentPrfb = _MediumSegments[Random.Range(0, _MediumSegments.Length)];
+                        }else
+                        {
+                            Debug.Log("Missing medium level segments!");
+                        }
                     }
                     break;
 
                 case 2: //hard
                     if (Random.value < difficultyManager.hardDifficulty)
                     {
-                        hasFoundLvl = true;
-                        newSegmentPrfb = _HardSegments[Random.Range(0, _HardSegments.Length)];
+                        if (_HardSegments.Length > 0)
+                        {
+                            hasFoundLvl = true;
+                            newSegmentPrfb = _HardSegments[Random.Range(0, _HardSegments.Length)];
+                        }else
+                        {
+                            Debug.Log("Missing hard level segments!");
+                        }
                     }
                     break;
             }

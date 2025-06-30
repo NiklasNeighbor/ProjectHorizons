@@ -50,7 +50,7 @@ public class FlyingEnemyAI : MonoBehaviour
             if (chasingPlayer && rb.transform.position.y > player.position.y /*Vector2.Distance(rb.position, player.position) < 5f*/)
             {
 
-                Debug.Log("COOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOM");
+                //Debug.Log("COOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOM");
                 Vector2 newTargetPosition = Vector2.MoveTowards(rb.position, new Vector2(player.position.x + 6, targetPosition.y), moveSpeed * 3f * Time.deltaTime);
                 this.transform.position = newTargetPosition;
                 //rb.MovePosition(newTargetPosition);

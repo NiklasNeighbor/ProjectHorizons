@@ -1,13 +1,15 @@
+using System;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class DifficultyManager : MonoBehaviour
 {
     [SerializeField] int difficulty;
 
     [Range(0, 1)]
-    public float mediumDifficulty;
+    public float mediumDifficulty = 0;
     [Range(0, 1)]
-    public float hardDifficulty;
+    public float hardDifficulty = 0;
 
     [SerializeField] Vector2Int mediumRange;
     [SerializeField] Vector2Int hardRange;
@@ -31,12 +33,24 @@ public class DifficultyManager : MonoBehaviour
 
         if (difficulty > mediumRange.x && difficulty < mediumRange.y)
         {
-            mediumDifficulty = (difficulty - mediumRange.x) / (mediumRange.y - mediumRange.x);
+            mediumDifficulty = (float)(difficulty - mediumRange.x) / (float)(mediumRange.y - mediumRange.x);
         }
 
         if (difficulty > hardRange.x && difficulty < hardRange.y)
         {
-            hardDifficulty = (difficulty - hardRange.x) / (hardRange.y - hardRange.x);
+            hardDifficulty = (float)(difficulty - hardRange.x) / (float)(hardRange.y - hardRange.x);
         }
     }
+    
+    public float GetMediumDifficulty()
+    {
+        return mediumDifficulty;
+    }
+
+    public float GetHardDifficulty()
+    {
+        return hardDifficulty;
+    }
+
+
 }

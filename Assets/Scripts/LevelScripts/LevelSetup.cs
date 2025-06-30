@@ -21,9 +21,8 @@ public class LevelSetup : MonoBehaviour
 
     void Start()
     {
+        difficultyManager = GameObject.FindWithTag("GameController").GetComponent<DifficultyManager>();
         SpawnEnemies();
-        //difficultyManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<DifficultyManager>();
-
     }
 
     void SpawnEnemies()
@@ -41,14 +40,14 @@ public class LevelSetup : MonoBehaviour
                     break;
 
                 case Difficulty.Medium:
-                    if (random <= GameObject.FindGameObjectWithTag("GameController").GetComponent<DifficultyManager>().mediumDifficulty) //?? getting the difficultyManager in start gives errors
+                    if (random <= difficultyManager.GetMediumDifficulty()) //?? getting the difficultyManager in start gives errors
                     {
                         doSpawn = true;
                     }
                     break;
 
                 case Difficulty.Hard:
-                    if (random <= GameObject.FindGameObjectWithTag("GameController").GetComponent<DifficultyManager>().hardDifficulty)
+                    if (random <= difficultyManager.GetHardDifficulty())
                     {
                         doSpawn = true;
                     }
