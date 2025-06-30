@@ -12,6 +12,7 @@ public class PlayerStateChecker : MonoBehaviour
         if (collision.gameObject.tag == "Damager")
         {
             anim.SetBool("Dead", true);
+            KillPlayer();
         }
         if(collision.gameObject.tag == "DeathZone")
         {
@@ -19,6 +20,7 @@ public class PlayerStateChecker : MonoBehaviour
             scoreManagerRef.gameActive = false;
             scoreManagerRef.EndRun();
             Destroy(this.gameObject);
+            KillPlayer();
         }
     }
     public void KillPlayer()

@@ -111,6 +111,7 @@ MonoBehaviour:
   objectToSpawn: {fileID: 7482686703546088179, guid: eb57d09a696c9cb43b4fc2d7f8e7386b, type: 3}
   diveMultiplier: 3
   anim: {fileID: 832976215503017914}
+  pointsOnDeath: 5
 --- !u!50 &8783301138760204306
 Rigidbody2D:
   serializedVersion: 5

@@ -13,6 +13,7 @@ public class FlyingEnemyAI : MonoBehaviour
     public float diveMultiplier;
     Vector2 targetPosition;
     [SerializeField] Animator anim;
+    [SerializeField] int pointsOnDeath;
     private void Start()
     {
         chasingPlayer = false;
@@ -79,17 +80,21 @@ public class FlyingEnemyAI : MonoBehaviour
         }
         if (collision.gameObject.layer == 7)
         {
-
-            GameObject spawned = Instantiate(objectToSpawn, transform.position, Quaternion.identity);
-            spawned.SetActive(true);//spawns in death particle effect prefab
-
-            Destroy(collision.gameObject);
             Destroy(this.gameObject);
+            Death();
         }
     }
     public void SwoopIn()
     {
         if (PlayerDetected())
             chasingPlayer = true;
+    }
+
+    void Death()
+    {
+        GameObject spawned = Instantiate(objectToSpawn, transform.position, Quaternion.identity);
+        spawned.SetActive(true);//spawns in death particle effect prefab
+        GameObject.FindWithTag("GameController").GetComponent<ScoreManager>().IncreaseScore(pointsOnDeath);
+        Destroy(this.gameObject);
     }
 }

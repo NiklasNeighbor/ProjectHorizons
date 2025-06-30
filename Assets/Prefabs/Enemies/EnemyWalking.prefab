@@ -108,6 +108,7 @@ MonoBehaviour:
   moveSpeed: -6
   player: {fileID: 0}
   objectToSpawn: {fileID: 7482686703546088179, guid: eb57d09a696c9cb43b4fc2d7f8e7386b, type: 3}
+  pointsOnDeath: 5
 --- !u!50 &-2893407593476942160
 Rigidbody2D:
   serializedVersion: 5

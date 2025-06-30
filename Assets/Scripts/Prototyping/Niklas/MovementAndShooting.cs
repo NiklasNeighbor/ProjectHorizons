@@ -34,6 +34,9 @@ public class MovementAndShooting : MonoBehaviour
 
     bool stopMoving = false;
 
+    [SerializeField] float addPointsPerSec;
+    float pointTimer = 0;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -52,6 +55,8 @@ public class MovementAndShooting : MonoBehaviour
         backgroundScript = GameManager.GetComponent<BackgroundScript>();
         scoreManager = GameManager.GetComponent<ScoreManager>();
         difficultyManager = GameManager.GetComponent<DifficultyManager>();
+
+        pointTimer = addPointsPerSec;
     }
 
     // Update is called once per frame
@@ -62,7 +67,7 @@ public class MovementAndShooting : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //UpdatePoints();
+        UpdatePoints();
         UpdateDifficulty();
     }
 
@@ -70,11 +75,17 @@ public class MovementAndShooting : MonoBehaviour
     {
         if (!aiming)
         {
-            scoreManager.IncreaseScore(10);
-        }
-        else
+            pointTimer -= Time.deltaTime;
+        }else
         {
-            scoreManager.IncreaseScore(5);
+            pointTimer -= Time.deltaTime * (AimingSpeed / MoveSpeed);
+        }
+
+
+        if (pointTimer <= 0)
+        {
+            scoreManager.IncreaseScore(1);
+            pointTimer = addPointsPerSec;
         }
     }
 

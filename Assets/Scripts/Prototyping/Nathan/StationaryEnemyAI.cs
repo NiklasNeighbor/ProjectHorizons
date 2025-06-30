@@ -7,6 +7,7 @@ public class StationaryEnemyAI : MonoBehaviour
     public Transform player;
     [SerializeField] GameObject projectile;
     bool detectedPlayer;
+    [SerializeField] int pointsOnDeath;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -45,7 +46,13 @@ public class StationaryEnemyAI : MonoBehaviour
         if (collision.gameObject.layer == 7)
         {
             Destroy(collision.gameObject);
-            Destroy(this.gameObject);
+            
         }
+    }
+
+    void Death()
+    {
+        GameObject.FindWithTag("GameController").GetComponent<ScoreManager>().IncreaseScore(pointsOnDeath);
+        Destroy(this.gameObject);
     }
 }
