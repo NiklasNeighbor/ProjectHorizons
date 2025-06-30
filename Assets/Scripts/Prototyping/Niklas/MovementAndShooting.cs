@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
@@ -36,6 +37,7 @@ public class MovementAndShooting : MonoBehaviour
 
     [SerializeField] float addPointsPerSec;
     float pointTimer = 0;
+    float speedMultiplier = 1;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -168,10 +170,10 @@ public class MovementAndShooting : MonoBehaviour
     {
         if (!CollisionOnRight())
         {
-            levelGeneration.ScrollAdvance(MoveSpeed * Time.deltaTime);
+            levelGeneration.ScrollAdvance(MoveSpeed * Time.deltaTime * speedMultiplier);
             if (backgroundScript != null)
             {
-                backgroundScript.ScrollAdvance(MoveSpeed * BgSpeed * Time.deltaTime);
+                backgroundScript.ScrollAdvance(MoveSpeed * BgSpeed * Time.deltaTime * speedMultiplier);
             }
         }
     }
@@ -293,5 +295,10 @@ public class MovementAndShooting : MonoBehaviour
     public void StopMoving()
     {
         stopMoving = true;
+    }
+
+    public void AdjustSpeed(float multiplier)
+    {
+        speedMultiplier = multiplier;
     }
 }
