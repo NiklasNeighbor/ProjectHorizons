@@ -7,6 +7,8 @@ public class MovementAndShooting : MonoBehaviour
 {
     public float MoveSpeed = 1f;
     public float AimingSpeed = 1f;
+    public bool SlowdownThroughTimescale = true;
+    public float AimingTimeScale = 0.25f;
     public float JumpForce = 1f;
     public float JumpRaycastLength = 1f;
     public float PlayerDragSize = 1f;
@@ -171,6 +173,7 @@ public class MovementAndShooting : MonoBehaviour
         if (!CollisionOnRight())
         {
             levelGeneration.ScrollAdvance(MoveSpeed * Time.deltaTime * speedMultiplier);
+            Time.timeScale = 1f;
             if (backgroundScript != null)
             {
                 backgroundScript.ScrollAdvance(MoveSpeed * BgSpeed * Time.deltaTime * speedMultiplier);
@@ -194,7 +197,16 @@ public class MovementAndShooting : MonoBehaviour
     {
         if (!CollisionOnRight())
         {
-            levelGeneration.ScrollAdvance(AimingSpeed * Time.deltaTime);
+            if (SlowdownThroughTimescale)
+            {
+                levelGeneration.ScrollAdvance(MoveSpeed * Time.deltaTime * speedMultiplier);
+                Time.timeScale = AimingTimeScale;
+            } else
+            {
+                levelGeneration.ScrollAdvance(AimingSpeed * Time.deltaTime);
+            }
+
+
             if (backgroundScript != null)
             {
                 backgroundScript.ScrollAdvance(AimingSpeed * BgSpeed * Time.deltaTime);
