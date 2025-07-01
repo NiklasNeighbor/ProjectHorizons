@@ -80,7 +80,7 @@ public class MovementAndShooting : MonoBehaviour
             ControlsManager();
         }
 
-        RotatePlayer();
+        //RotatePlayer();
         ApplyControls();
     }
 
