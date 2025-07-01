@@ -52,13 +52,16 @@ public class PlayerStateChecker : MonoBehaviour
             speedScale = Mathf.Clamp(speedScale, 0, 1);
             movementAndShooting.AdjustSpeed(speedScale);
         }
-
-        if(speedScale == 0)
+ 
+        if(!Physics2D.Raycast(transform.position, Vector2.down, movementAndShooting.JumpRaycastLength, LayerMask.NameToLayer("Ground")))
         {
-            scoreManagerRef.EndRun();
-            hasStopped = true;
-            Time.timeScale = 0;
+            if (speedScale == 0)
+            {
+                scoreManagerRef.EndRun();
+                hasStopped = true;
+            }
         }
+
     }
 
     public void KillPlayer()
@@ -66,6 +69,7 @@ public class PlayerStateChecker : MonoBehaviour
         scoreManagerRef.gameActive = false;
         //start falling animation
         hasDied = true;
+        movementAndShooting.IsDead = true;
         //Destroy(this.gameObject);
     }
 

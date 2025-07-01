@@ -825,18 +825,18 @@ PrefabInstance:
     - target: {fileID: 4809034543612621333, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
       propertyPath: anim
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1198376933}
     - target: {fileID: 4809034543612621333, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
       propertyPath: scoreManagerRef
       value: 
       objectReference: {fileID: 991366442}
     - target: {fileID: 4809034543612621333, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
       propertyPath: EndGameSlowSpeed
-      value: 0.4
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 4809034543612621333, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
       propertyPath: SlowDownAfterSec
-      value: 0.3
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5782009983088234877, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
       propertyPath: m_LocalPosition.y
@@ -869,7 +869,7 @@ PrefabInstance:
     - target: {fileID: 6633295975295920011, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
       propertyPath: animator
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1198376933}
     - target: {fileID: 6633295975295920011, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
       propertyPath: MoveSpeed
       value: 14
@@ -894,6 +894,14 @@ PrefabInstance:
       propertyPath: BackgroundScript
       value: 
       objectReference: {fileID: 991366443}
+    - target: {fileID: 6633295975295920011, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
+      propertyPath: leftnRightBounds.x
+      value: -0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6633295975295920011, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
+      propertyPath: leftnRightBounds.y
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 6633295975295920011, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
       propertyPath: ProjectileOriginOffset.x
       value: -1
@@ -975,6 +983,7 @@ PrefabInstance:
     - {fileID: 6335170416927064511, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
     - {fileID: 1078815225411479803, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
     - {fileID: 53389980074249289, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
+    - {fileID: 3689613831073564131, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

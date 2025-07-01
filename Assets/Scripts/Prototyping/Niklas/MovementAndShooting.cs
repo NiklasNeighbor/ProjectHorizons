@@ -40,6 +40,11 @@ public class MovementAndShooting : MonoBehaviour
     [SerializeField] float addPointsPerSec;
     float pointTimer = 0;
     float speedMultiplier = 1;
+    [SerializeField] bool noPoints;
+    public bool IsDead;
+    [SerializeField] Vector2 leftnRightBounds;
+    Transform childTf;
+    bool isGrounded = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -61,18 +66,43 @@ public class MovementAndShooting : MonoBehaviour
         difficultyManager = GameManager.GetComponent<DifficultyManager>();
 
         pointTimer = addPointsPerSec;
+
+        childTf = transform.GetChild(0);
     }
 
     // Update is called once per frame
     void Update()
     {
-        ControlsManager();
+        CheckGrounded();
+
+        if (!IsDead)
+        {
+            ControlsManager();
+        }
+
+        RotatePlayer();
+        ApplyControls();
     }
 
     private void FixedUpdate()
     {
-        UpdatePoints();
+        if(!noPoints)
+        {
+            UpdatePoints();
+        }
         UpdateDifficulty();
+    }
+
+    void CheckGrounded()
+    {
+        if (Physics2D.Raycast(transform.position, Vector2.down, JumpRaycastLength, Ground))
+        {
+            isGrounded = true;
+        }
+        else
+        {
+            isGrounded = false;
+        }
     }
 
     void UpdatePoints()
@@ -105,6 +135,7 @@ public class MovementAndShooting : MonoBehaviour
         }
     }
 
+
     void ControlsManager()
     {
 
@@ -122,22 +153,12 @@ public class MovementAndShooting : MonoBehaviour
             arrow.enabled = true;
         }
 
-        if (aiming)
-        {
-            ApplyAim();
-        }
-
         if (Input.GetMouseButtonUp(0) && aiming)
         {
             aiming = false;
+            Time.timeScale = 1;
             FireProjectile();
             arrow.enabled = false;
-        }
-
-
-        if (!aiming && !stopMoving)
-        {
-            ApplyMovement();
         }
 
         if (Input.GetMouseButtonDown(0) && !aiming)
@@ -163,9 +184,19 @@ public class MovementAndShooting : MonoBehaviour
         }
 
         AnimationControl();
+    }
 
+    void ApplyControls()
+    {
+        if (aiming)
+        {
+            ApplyAim();
+        }
 
-
+        if (!aiming && !stopMoving)
+        {
+            ApplyMovement();
+        }
     }
 
     void ApplyMovement()
@@ -173,7 +204,6 @@ public class MovementAndShooting : MonoBehaviour
         if (!CollisionOnRight())
         {
             levelGeneration.ScrollAdvance(MoveSpeed * Time.deltaTime * speedMultiplier);
-            Time.timeScale = 1f;
             if (backgroundScript != null)
             {
                 backgroundScript.ScrollAdvance(MoveSpeed * BgSpeed * Time.deltaTime * speedMultiplier);
@@ -183,8 +213,7 @@ public class MovementAndShooting : MonoBehaviour
 
     public void DoJump(float force)
     {
-        //Debug.Log("Try Jump");
-        if (Physics2D.Raycast(transform.position, Vector2.down, JumpRaycastLength, Ground))
+        if (isGrounded)
         {
             GameObject spawned = Instantiate(JumpParticle, transform.position, Quaternion.identity);
             spawned.SetActive(true);//spawns jump effect
@@ -312,5 +341,20 @@ public class MovementAndShooting : MonoBehaviour
     public void AdjustSpeed(float multiplier)
     {
         speedMultiplier = multiplier;
+    }
+
+    void RotatePlayer()
+    {
+        Vector2 leftBound = transform.position + new Vector3(leftnRightBounds.x, 0, 0);
+        Vector2 rightBound = transform.position + new Vector3(leftnRightBounds.y, 0, 0);
+        RaycastHit2D leftRay = Physics2D.Raycast(leftBound, Vector2.down, JumpRaycastLength + 0.5f, Ground);
+        RaycastHit2D rightRay = Physics2D.Raycast(rightBound, Vector2.down, JumpRaycastLength + 0.5f, Ground);
+        
+        float angle = Mathf.Atan2(leftRay.point.y - rightRay.point.y, leftRay.point.x - rightRay.point.x) * Mathf.Rad2Deg + 180;
+        if(!Physics2D.Raycast(transform.position, Vector2.down, JumpRaycastLength + 0.5f, Ground))
+        {
+            angle = 0;
+        }
+        childTf.eulerAngles = new Vector3(childTf.eulerAngles.x, childTf.eulerAngles.y, angle);
     }
 }
