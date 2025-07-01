@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b47d19aa46a33bd45b57766148e17227
+guid: 0f80789b5f230fb41a9781167d3f1c31
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BirdEnemyIdle1_0: -8214350472256622341
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -8,6 +8,7 @@ public class WalkingEnemyAI : MonoBehaviour
     public Transform player;
 
     public GameObject objectToSpawn; // the prefab effect
+    [SerializeField] int pointsOnDeath;
 
 
 
@@ -58,17 +59,18 @@ public class WalkingEnemyAI : MonoBehaviour
         {
             Debug.Log("boop");
         }
-        if (collision.gameObject.layer == 7)
+        if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerProjectile"))
         {
-
-
-            GameObject spawned = Instantiate(objectToSpawn, transform.position, Quaternion.identity);
-            spawned.SetActive(true);//spawns in death particle effect prefab
-
-
-
             Destroy(collision.gameObject);
-            Destroy(this.gameObject);
+            Death();
         }
+    }
+
+    void Death()
+    {
+        GameObject spawned = Instantiate(objectToSpawn, transform.position, Quaternion.identity);
+        spawned.SetActive(true);//spawns in death particle effect prefab
+        GameObject.FindWithTag("GameController").GetComponent<ScoreManager>().IncreaseScore(pointsOnDeath);
+        Destroy(this.gameObject);
     }
 }

@@ -48,8 +48,7 @@ GameObject:
   - component: {fileID: 8552757029220537828}
   - component: {fileID: 996887720566452439}
   - component: {fileID: 6663765135603881995}
-  - component: {fileID: 1078815225411479803}
-  - component: {fileID: 1660513040400798177}
+  - component: {fileID: 3689613831073564131}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -95,14 +94,14 @@ MonoBehaviour:
   AimMultiplier: 3
   ProjectilePrefab: {fileID: 5349289351302610006, guid: aade6836fc2de65418640a08627ece32, type: 3}
   ProjectileOriginOffset: {x: -1, y: 1.4, z: 0}
-  LevelGeneration: {fileID: 0}
-  animator: {fileID: 1078815225411479803}
+  animator: {fileID: 0}
   Ground:
     serializedVersion: 2
     m_Bits: 8
   UseAltControls: 1
-  BackgroundScript: {fileID: 0}
   BgSpeed: 0.5
+  GameManager: {fileID: 0}
+  addPointsPerSec: 0.5
 --- !u!114 &4809034543612621333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,7 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreManagerRef: {fileID: 0}
-  anim: {fileID: 1078815225411479803}
+  anim: {fileID: 0}
 --- !u!61 &8552757029220537828
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -188,7 +187,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 5
 --- !u!120 &6663765135603881995
 LineRenderer:
@@ -306,29 +305,7 @@ LineRenderer:
   m_UseWorldSpace: 0
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
---- !u!95 &1078815225411479803
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4015072207564472471}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 899feac9652557848b306bf0b10fb573, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!212 &1660513040400798177
+--- !u!212 &3689613831073564131
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -10,25 +10,38 @@ public class ScoreManager : MonoBehaviour
     [SerializeField]GameObject deathScreen;
     [SerializeField]TextMeshProUGUI scoreText;
     [SerializeField]TextMeshProUGUI finalScoreText;
+    [SerializeField] TextMeshProUGUI highScoreText;
+    float highScore;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         score = 0;
         deathScreen.SetActive(false);
         gameActive = true;
-        StartCoroutine(IncreaseScore());
     }
     public void EndRun()
     {
         deathScreen.SetActive(true);
-        finalScoreText.text = "Final Score: " +  score.ToString();
-    }
-    IEnumerator IncreaseScore()
-    {
-        while (gameActive)
+
+        highScore = PlayerPrefs.GetFloat("highScore", highScore);
+
+        if (score > highScore)
         {
-            yield return new WaitForSeconds(0.05f);
-            score += 3;
+            highScore = score;
+            PlayerPrefs.SetFloat("highScore", highScore);
+        }
+
+        finalScoreText.text = "Final Score: " +  score.ToString();
+        highScoreText.text = "High Score: " + PlayerPrefs.GetFloat("highScore", highScore);
+
+    }
+    public void IncreaseScore(int addedScore)
+    {
+        if(gameActive)
+        {
+            score += addedScore;
             scoreText.text = "Score: " + score.ToString();
         }
     }

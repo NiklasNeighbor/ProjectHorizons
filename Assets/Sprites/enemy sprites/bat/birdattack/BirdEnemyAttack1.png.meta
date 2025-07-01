@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 13822aa49f55e6840b82a42f8e2b4ecc
+guid: 390c7be4ad5cbdd4d8dde2efdda36cb9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2509409704438842034
-    second: Death1_0
+      213: -6203172983161824942
+    second: BirdEnemyAttack1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Death1_0
+      name: BirdEnemyAttack1_0
       rect:
         serializedVersion: 2
-        x: 602
-        y: 23
-        width: 1269
-        height: 790
+        x: 465
+        y: 177
+        width: 603
+        height: 556
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e4d31035b29cc2dd0800000000000000
-      internalID: -2509409704438842034
+      spriteID: 259d652a907e9e9a0800000000000000
+      internalID: -6203172983161824942
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Death1_0: -2509409704438842034
+      BirdEnemyAttack1_0: -6203172983161824942
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
