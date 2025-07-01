@@ -18,6 +18,7 @@ public class LevelGeneration : MonoBehaviour
     List<float> levelHeights = new List<float>();
     float lowestLow = 100;
     [SerializeField] GameObject deathBox;
+    [SerializeField] bool generateFlat;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -53,53 +54,57 @@ public class LevelGeneration : MonoBehaviour
     void SpawnLevel(Vector3 pos)
     {
         bool hasFoundLvl = false;
-        GameObject newSegmentPrfb = new GameObject();
-
-        while(!hasFoundLvl)
-        {
-
-            switch(Random.Range(0, 3))
+        GameObject newSegmentPrfb = _EasySegments[0];
+        
+        if(!generateFlat)
+            while (!hasFoundLvl)
             {
-                case 0: //easy
-                    if(_EasySegments.Length > 0)
-                    {
-                        hasFoundLvl = true;
-                        newSegmentPrfb = _EasySegments[Random.Range(0, _EasySegments.Length)];
-                    }else
-                    {
-                        Debug.Log("Missing easy level segments!");
-                    }
-                    break;
-
-                case 1: //normal
-                    if(Random.value < difficultyManager.mediumDifficulty)
-                    {
-                        if(_MediumSegments.Length > 0)
+                switch (Random.Range(0, 3))
+                {
+                    case 0: //easy
+                        if (_EasySegments.Length > 0)
                         {
                             hasFoundLvl = true;
-                            newSegmentPrfb = _MediumSegments[Random.Range(0, _MediumSegments.Length)];
-                        }else
-                        {
-                            Debug.Log("Missing medium level segments!");
+                            newSegmentPrfb = _EasySegments[Random.Range(0, _EasySegments.Length)];
                         }
-                    }
-                    break;
+                        else
+                        {
+                            Debug.Log("Missing easy level segments!");
+                        }
+                        break;
 
-                case 2: //hard
-                    if (Random.value < difficultyManager.hardDifficulty)
-                    {
-                        if (_HardSegments.Length > 0)
+                    case 1: //normal
+                        if (Random.value < difficultyManager.mediumDifficulty)
                         {
-                            hasFoundLvl = true;
-                            newSegmentPrfb = _HardSegments[Random.Range(0, _HardSegments.Length)];
-                        }else
-                        {
-                            Debug.Log("Missing hard level segments!");
+                            if (_MediumSegments.Length > 0)
+                            {
+                                hasFoundLvl = true;
+                                newSegmentPrfb = _MediumSegments[Random.Range(0, _MediumSegments.Length)];
+                            }
+                            else
+                            {
+                                Debug.Log("Missing medium level segments!");
+                            }
                         }
-                    }
-                    break;
+                        break;
+
+                    case 2: //hard
+                        if (Random.value < difficultyManager.hardDifficulty)
+                        {
+                            if (_HardSegments.Length > 0)
+                            {
+                                hasFoundLvl = true;
+                                newSegmentPrfb = _HardSegments[Random.Range(0, _HardSegments.Length)];
+                            }
+                            else
+                            {
+                                Debug.Log("Missing hard level segments!");
+                            }
+                        }
+                        break;
+                }
             }
-        }
+
 
         GameObject newSegment = Instantiate(newSegmentPrfb, new Vector3(pos.x, pos.y, 0), Quaternion.identity);
         newSegment.transform.parent = _LevelParent.transform;
