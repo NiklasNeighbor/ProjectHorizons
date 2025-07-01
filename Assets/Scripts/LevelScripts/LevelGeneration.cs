@@ -18,7 +18,7 @@ public class LevelGeneration : MonoBehaviour
     List<float> levelHeights = new List<float>();
     float lowestLow = 100;
     [SerializeField] GameObject deathBox;
-    [SerializeField] bool generateFlat;
+    public bool generateFlat;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

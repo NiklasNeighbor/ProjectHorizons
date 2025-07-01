@@ -62,8 +62,13 @@ public class MovementAndShooting : MonoBehaviour
 
         levelGeneration = GameManager.GetComponent<LevelGeneration>();
         backgroundScript = GameManager.GetComponent<BackgroundScript>();
-        scoreManager = GameManager.GetComponent<ScoreManager>();
-        difficultyManager = GameManager.GetComponent<DifficultyManager>();
+        if (!levelGeneration.generateFlat)
+        {
+            scoreManager = GameManager.GetComponent<ScoreManager>();
+            difficultyManager = GameManager.GetComponent<DifficultyManager>();
+        }
+        else
+            MoveSpeed *= 0.5f;
 
         pointTimer = addPointsPerSec;
 
@@ -86,7 +91,7 @@ public class MovementAndShooting : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(!noPoints)
+        if (!noPoints)
         {
             UpdatePoints();
         }
@@ -110,7 +115,8 @@ public class MovementAndShooting : MonoBehaviour
         if (!aiming)
         {
             pointTimer -= Time.deltaTime;
-        }else
+        }
+        else
         {
             pointTimer -= Time.deltaTime * (AimingSpeed / MoveSpeed);
         }
@@ -138,51 +144,51 @@ public class MovementAndShooting : MonoBehaviour
 
     void ControlsManager()
     {
-
-        if (Input.GetMouseButtonDown(0) && UseAltControls && MouseOnRightSide(false))
+        if (!levelGeneration.generateFlat)
         {
-            aimStart = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            aiming = true;
-            arrow.enabled = true;
-        }
-        else
-        if (Input.GetMouseButtonDown(0) && MouseNearPlayer())
-        {
-            aiming = true;
-            aimStart = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-            arrow.enabled = true;
-        }
-
-        if (Input.GetMouseButtonUp(0) && aiming)
-        {
-            aiming = false;
-            Time.timeScale = 1;
-            FireProjectile();
-            arrow.enabled = false;
-        }
-
-        if (Input.GetMouseButtonDown(0) && !aiming)
-        {
-            if (UseAltControls && MouseOnRightSide(true))
+            if (Input.GetMouseButtonDown(0) && UseAltControls && MouseOnRightSide(false))
             {
-                DoJump(JumpForce);
+                aimStart = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                aiming = true;
+                arrow.enabled = true;
+            }
+            else if (Input.GetMouseButtonDown(0) && MouseNearPlayer())
+            {
+                aiming = true;
+                aimStart = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+                arrow.enabled = true;
+            }
+
+            if (Input.GetMouseButtonUp(0) && aiming)
+            {
+                aiming = false;
+                Time.timeScale = 1;
+                FireProjectile();
+                arrow.enabled = false;
+            }
+
+            if (Input.GetMouseButtonDown(0) && !aiming)
+            {
+                if (UseAltControls && MouseOnRightSide(true))
+                {
+                    DoJump(JumpForce);
+                }
+                else
+                if (!UseAltControls)
+                {
+                    DoJump(JumpForce);
+                }
+            }
+
+            if ((Input.GetMouseButton(0) && !aiming))
+            {
+                rb.gravityScale = regularGravity;
             }
             else
-            if (!UseAltControls)
             {
-                DoJump(JumpForce);
+                rb.gravityScale = regularGravity * FallGravityMultiplier;
             }
         }
-
-        if ((Input.GetMouseButton(0) && !aiming))
-        {
-            rb.gravityScale = regularGravity;
-        }
-        else
-        {
-            rb.gravityScale = regularGravity * FallGravityMultiplier;
-        }
-
         AnimationControl();
     }
 
@@ -230,7 +236,8 @@ public class MovementAndShooting : MonoBehaviour
             {
                 levelGeneration.ScrollAdvance(MoveSpeed * Time.deltaTime * speedMultiplier);
                 Time.timeScale = AimingTimeScale;
-            } else
+            }
+            else
             {
                 levelGeneration.ScrollAdvance(AimingSpeed * Time.deltaTime);
             }
@@ -349,12 +356,20 @@ public class MovementAndShooting : MonoBehaviour
         Vector2 rightBound = transform.position + new Vector3(leftnRightBounds.y, 0, 0);
         RaycastHit2D leftRay = Physics2D.Raycast(leftBound, Vector2.down, JumpRaycastLength + 0.5f, Ground);
         RaycastHit2D rightRay = Physics2D.Raycast(rightBound, Vector2.down, JumpRaycastLength + 0.5f, Ground);
-        
+
         float angle = Mathf.Atan2(leftRay.point.y - rightRay.point.y, leftRay.point.x - rightRay.point.x) * Mathf.Rad2Deg + 180;
-        if(!Physics2D.Raycast(transform.position, Vector2.down, JumpRaycastLength + 0.5f, Ground))
+        if (!Physics2D.Raycast(transform.position, Vector2.down, JumpRaycastLength + 0.5f, Ground))
         {
             angle = 0;
         }
         childTf.eulerAngles = new Vector3(childTf.eulerAngles.x, childTf.eulerAngles.y, angle);
     }
+    public void StartGame()
+    {
+        levelGeneration.generateFlat = false;
+        MoveSpeed *= 2;
+        scoreManager = GameManager.GetComponent<ScoreManager>();
+        difficultyManager = GameManager.GetComponent<DifficultyManager>();
+    }
 }
+
