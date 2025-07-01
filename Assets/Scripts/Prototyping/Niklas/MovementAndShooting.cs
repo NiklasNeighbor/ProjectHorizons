@@ -42,12 +42,13 @@ public class MovementAndShooting : MonoBehaviour
 
     [SerializeField] float addPointsPerSec;
     float pointTimer = 0;
-    float speedMultiplier = 1;
+    float speedDeathMultiplier = 1;
     [SerializeField] bool noPoints;
     public bool IsDead;
     [SerializeField] Vector2 leftnRightBounds;
     Transform childTf;
     bool isGrounded = false;
+    [SerializeField] float MaxExtraSpeed;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -217,10 +218,12 @@ public class MovementAndShooting : MonoBehaviour
     {
         if (!CollisionOnRight())
         {
-            levelGeneration.ScrollAdvance(MoveSpeed * Time.deltaTime * speedMultiplier);
+            float extraSpeed = MaxExtraSpeed * difficultyManager.addedSpeed;
+            float speed = (MoveSpeed + extraSpeed) * speedDeathMultiplier;
+            levelGeneration.ScrollAdvance(speed * Time.deltaTime);
             if (backgroundScript != null)
             {
-                backgroundScript.ScrollAdvance(MoveSpeed * BgSpeed * Time.deltaTime * speedMultiplier);
+                backgroundScript.ScrollAdvance(speed * BgSpeed * Time.deltaTime);
             }
         }
     }
@@ -240,20 +243,22 @@ public class MovementAndShooting : MonoBehaviour
     {
         if (!CollisionOnRight())
         {
+            float extraSpeed = MaxExtraSpeed * difficultyManager.addedSpeed;
+            float speed = (MoveSpeed + extraSpeed) * speedDeathMultiplier;
             if (SlowdownThroughTimescale)
             {
-                levelGeneration.ScrollAdvance(MoveSpeed * Time.deltaTime * speedMultiplier);
+                levelGeneration.ScrollAdvance(speed * Time.deltaTime);
                 Time.timeScale = AimingTimeScale;
             }
             else
             {
-                levelGeneration.ScrollAdvance(AimingSpeed * Time.deltaTime);
+                levelGeneration.ScrollAdvance((AimingSpeed + extraSpeed) * Time.deltaTime);
             }
 
 
             if (backgroundScript != null)
             {
-                backgroundScript.ScrollAdvance(AimingSpeed * BgSpeed * Time.deltaTime);
+                backgroundScript.ScrollAdvance((AimingSpeed  + extraSpeed) * BgSpeed * Time.deltaTime);
             }
         }
 
@@ -355,7 +360,7 @@ public class MovementAndShooting : MonoBehaviour
 
     public void AdjustSpeed(float multiplier)
     {
-        speedMultiplier = multiplier;
+        speedDeathMultiplier = multiplier;
     }
 
     void RotatePlayer()

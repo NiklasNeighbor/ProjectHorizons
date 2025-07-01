@@ -184,7 +184,7 @@ GameObject:
   - component: {fileID: 466003747}
   - component: {fileID: 466003746}
   - component: {fileID: 466003748}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Death zone
   m_TagString: DeathZone
   m_Icon: {fileID: 0}
@@ -741,8 +741,10 @@ MonoBehaviour:
   difficulty: 0
   mediumDifficulty: 0
   hardDifficulty: 0
+  addedSpeed: 0
   mediumRange: {x: 1000, y: 10000}
   hardRange: {x: 9000, y: 100000}
+  speedUpRange: {x: 12000, y: 100000}
 --- !u!1 &1131159092 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6199284848022028764, guid: 853c0a563b9f0a248ac8faa7dcd0f40a, type: 3}
@@ -871,6 +873,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1198376933}
     - target: {fileID: 6633295975295920011, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
+      propertyPath: maxSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6633295975295920011, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
       propertyPath: MoveSpeed
       value: 14
       objectReference: {fileID: 0}
@@ -882,6 +888,10 @@ PrefabInstance:
       propertyPath: JumpParticle
       value: 
       objectReference: {fileID: 3852633956719443277, guid: 3f9d3b7901c0c4744b7e3d7861b61d04, type: 3}
+    - target: {fileID: 6633295975295920011, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
+      propertyPath: MaxExtraSpeed
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6633295975295920011, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
       propertyPath: UseAltControls
       value: 1
