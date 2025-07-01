@@ -9,8 +9,8 @@ public class WalkingEnemyAI : MonoBehaviour
 
     public GameObject objectToSpawn; // the prefab effect
     [SerializeField] int pointsOnDeath;
-
-
+    [SerializeField] Animator anim;
+    [SerializeField] float spotDistance;
 
     void Start()
     {
@@ -24,6 +24,8 @@ public class WalkingEnemyAI : MonoBehaviour
         {
             if (DetectedPlayer())
             {
+                if (anim.GetBool("PlayerDetected") == false)
+                    anim.SetBool("PlayerDetected", true);
                 rb.linearVelocityX = moveSpeed;
                 Debug.Log("MOVE");
                 //moveSpeed = moveSpeed * 2;
@@ -37,7 +39,7 @@ public class WalkingEnemyAI : MonoBehaviour
     }
     bool DetectedPlayer()
     {
-        if (Vector2.Distance(rb.position, player.position) <= 10)
+        if (Vector2.Distance(rb.position, player.position) <= spotDistance)
             return true;
         else
             return false;
