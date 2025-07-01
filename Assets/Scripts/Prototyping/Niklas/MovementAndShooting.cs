@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -9,6 +10,7 @@ public class MovementAndShooting : MonoBehaviour
     public float AimingSpeed = 1f;
     public bool SlowdownThroughTimescale = true;
     public float AimingTimeScale = 0.25f;
+    public float ShootingCooldown;
     public float JumpForce = 1f;
     public float JumpRaycastLength = 1f;
     public float PlayerDragSize = 1f;
@@ -16,6 +18,7 @@ public class MovementAndShooting : MonoBehaviour
     public float FallGravityMultiplier;
     public GameObject JumpParticle; // the effect prefab to spawn
     bool aiming = false;
+    bool canShoot = true;
     Vector2 aimStart;
     Vector2 aimEnd;
     public float AimMultiplier = 1f;
@@ -163,7 +166,12 @@ public class MovementAndShooting : MonoBehaviour
             {
                 aiming = false;
                 Time.timeScale = 1;
-                FireProjectile();
+                if (canShoot)
+                {
+                    canShoot = false;
+                    FireProjectile();
+                    StartCoroutine(StartShotCooldown());
+                }
                 arrow.enabled = false;
             }
 
@@ -370,6 +378,12 @@ public class MovementAndShooting : MonoBehaviour
         MoveSpeed *= 2;
         scoreManager = GameManager.GetComponent<ScoreManager>();
         difficultyManager = GameManager.GetComponent<DifficultyManager>();
+    }
+
+    public IEnumerator StartShotCooldown()
+    {
+        yield return new WaitForSeconds(ShootingCooldown);
+        canShoot = true;
     }
 }
 
