@@ -8,17 +8,20 @@ public class LevelGeneration : MonoBehaviour
 {
     public float _Speed;
     [SerializeField] GameObject _LevelParent;
-    [SerializeField] float _SpawnDistance;
+    [SerializeField] float _SegmentSpawnDistance;
     [SerializeField] float _RemoveDistance;
     [SerializeField] GameObject[] _EasySegments;
     [SerializeField] GameObject[] _MediumSegments;
     [SerializeField] GameObject[] _HardSegments;
     DifficultyManager difficultyManager;
+    [SerializeField] float _IntroSpawnDistance;
+
 
     List<float> levelHeights = new List<float>();
     float lowestLow = 100;
     [SerializeField] GameObject deathBox;
     public bool generateFlat;
+    float spawnDistance;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -27,6 +30,7 @@ public class LevelGeneration : MonoBehaviour
         float startLevelHeight = _LevelParent.transform.GetChild(0).transform.position.y;
         levelHeights.Add(startLevelHeight);
         lowestLow = startLevelHeight;
+        spawnDistance = _IntroSpawnDistance;
     }
 
     // Update is called once per frame
@@ -38,7 +42,7 @@ public class LevelGeneration : MonoBehaviour
     {
         Transform lastLvl = _LevelParent.transform.GetChild(_LevelParent.transform.childCount - 1);
         Vector3 spawnPos = lastLvl.GetComponent<LevelSetup>().NextSegmentSpawnPos.position;
-        if (spawnPos.x < _SpawnDistance)
+        if (spawnPos.x < spawnDistance)
         {
             SpawnLevel(spawnPos);
         }
@@ -155,6 +159,11 @@ public class LevelGeneration : MonoBehaviour
     void AdjustDeathBox(float levelHeight)
     {
         deathBox.transform.position = new Vector3(deathBox.transform.position.x, levelHeight - 10, deathBox.transform.position.z);
+    }
+
+    public void SwitchSpawnDistance()
+    {
+        spawnDistance = _SegmentSpawnDistance;
     }
 
 

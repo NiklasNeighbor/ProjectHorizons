@@ -661,7 +661,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Speed: 5
   _LevelParent: {fileID: 774143897}
-  _SpawnDistance: 200
+  _SegmentSpawnDistance: 50
   _RemoveDistance: -200
   _EasySegments:
   - {fileID: 2054966469424343781, guid: 6b0e4ebdbff6ad54da8de7c3212a26b3, type: 3}
@@ -676,6 +676,7 @@ MonoBehaviour:
   - {fileID: 5205863000833432643, guid: fa3b0732f86300e4a96988a95dc5984c, type: 3}
   _MediumSegments: []
   _HardSegments: []
+  _IntroSpawnDistance: 0
   deathBox: {fileID: 466003745}
   generateFlat: 0
 --- !u!4 &991366441
@@ -723,7 +724,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BackgroundParent: {fileID: 1620304081}
-  SpawnDistance: 500
+  SpawnDistance: 0
   RemoveDistance: -500
   BackGroundPrefab: {fileID: 4285944025496151969, guid: 193d1c65e9d91794195072700cb12644, type: 3}
 --- !u!114 &991366444
