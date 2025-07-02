@@ -20,18 +20,18 @@ public class PlayerStateChecker : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Damager")
+        if (collision.gameObject.CompareTag("Damager"))
         {
             anim.SetBool("Dead", true);
             KillPlayer();
         }
-        if(collision.gameObject.tag == "DeathZone")
+        if(collision.gameObject.CompareTag("DeathZone"))
         {
             Time.timeScale = 0;
             scoreManagerRef.gameActive = false;
             scoreManagerRef.EndRun();
-            Destroy(this.gameObject);
             KillPlayer();
+            Destroy(this.gameObject);
         }
     }
 
