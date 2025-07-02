@@ -15,7 +15,7 @@ public class LevelGeneration : MonoBehaviour
     [SerializeField] GameObject[] _HardSegments;
     DifficultyManager difficultyManager;
     [SerializeField] float _IntroSpawnDistance;
-
+    [SerializeField] int _DeathBoxHeight;
 
     List<float> levelHeights = new List<float>();
     float lowestLow = 100;
@@ -158,13 +158,11 @@ public class LevelGeneration : MonoBehaviour
 
     void AdjustDeathBox(float levelHeight)
     {
-        deathBox.transform.position = new Vector3(deathBox.transform.position.x, levelHeight - 10, deathBox.transform.position.z);
+        deathBox.transform.position = new Vector3(deathBox.transform.position.x, levelHeight + _DeathBoxHeight, deathBox.transform.position.z);
     }
 
     public void SwitchSpawnDistance()
     {
         spawnDistance = _SegmentSpawnDistance;
     }
-
-
 }
