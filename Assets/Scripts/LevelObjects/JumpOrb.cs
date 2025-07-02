@@ -22,16 +22,15 @@ public class JumpOrb : MonoBehaviour
         {
             if (collision.CompareTag("Player"))
             {
-                
                 MovementAndShooting movementAndShooting = collision.gameObject.GetComponent<MovementAndShooting>();
-                if (Input.GetMouseButton(0) && movementAndShooting.MouseOnRightSide(true))
+                if (Input.GetMouseButtonDown(0) && movementAndShooting.MouseOnRightSide(true))
                 {
-                    
+                    Debug.Log("Jumpy");
+                    collision.GetComponent<Rigidbody2D>().linearVelocityY = 0;
                     movementAndShooting.DoJump(force);
+                    hasJumped = true;
                 }
             }
-
-            hasJumped = true;
         }
     }
 }

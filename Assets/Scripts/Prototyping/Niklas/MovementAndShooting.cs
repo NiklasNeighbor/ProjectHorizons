@@ -50,6 +50,7 @@ public class MovementAndShooting : MonoBehaviour
     Transform childTf;
     bool isGrounded = false;
     [SerializeField] float MaxExtraSpeed;
+    [SerializeField] public bool dissableMovemement; 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -67,10 +68,12 @@ public class MovementAndShooting : MonoBehaviour
 
         levelGeneration = GameManager.GetComponent<LevelGeneration>();
         backgroundScript = GameManager.GetComponent<BackgroundScript>();
-        if (!levelGeneration.generateFlat)
-            scoreManager = GameManager.GetComponent<ScoreManager>();
-        else
+        scoreManager = GameManager.GetComponent<ScoreManager>();
+
+        if (levelGeneration.generateFlat)
+        {
             MoveSpeed *= 0.5f;
+        }
         difficultyManager = GameManager.GetComponent<DifficultyManager>();
        
 
@@ -89,13 +92,13 @@ public class MovementAndShooting : MonoBehaviour
             ControlsManager();
         }
 
-        //RotatePlayer();
+        RotatePlayer();
         ApplyControls();
     }
 
     private void FixedUpdate()
     {
-        if (!levelGeneration.generateFlat)
+        if (dissableMovemement)
         {
             if (!noPoints)
             {
@@ -151,7 +154,7 @@ public class MovementAndShooting : MonoBehaviour
 
     void ControlsManager()
     {
-        if (!levelGeneration.generateFlat)
+        if (!dissableMovemement)
         {
             if (canShoot)
             {
@@ -182,9 +185,9 @@ public class MovementAndShooting : MonoBehaviour
                 }
             }
             
-
-
-            if (Input.GetMouseButtonDown(0) && !aiming)
+            if(isGrounded)
+            {
+                            if (Input.GetMouseButtonDown(0) && !aiming)
             {
                 if (UseAltControls && MouseOnRightSide(true))
                 {
@@ -195,6 +198,7 @@ public class MovementAndShooting : MonoBehaviour
                 {
                     DoJump(JumpForce);
                 }
+            }
             }
 
             if ((Input.GetMouseButton(0) && !aiming))
@@ -238,13 +242,10 @@ public class MovementAndShooting : MonoBehaviour
 
     public void DoJump(float force)
     {
-        if (isGrounded)
-        {
-            GameObject spawned = Instantiate(JumpParticle, transform.position, Quaternion.identity);
-            spawned.SetActive(true);//spawns jump effect
-            rb.AddForce(Vector2.up * force);
-            //Debug.Log("Jumped");
-        }
+        GameObject spawned = Instantiate(JumpParticle, transform.position, Quaternion.identity);
+        spawned.SetActive(true);//spawns jump effect
+        rb.AddForce(Vector2.up * force);
+        //Debug.Log("Jumped");
     }
 
     void ApplyAim()
@@ -373,21 +374,26 @@ public class MovementAndShooting : MonoBehaviour
 
     void RotatePlayer()
     {
+        /*
         Vector2 leftBound = transform.position + new Vector3(leftnRightBounds.x, 0, 0);
         Vector2 rightBound = transform.position + new Vector3(leftnRightBounds.y, 0, 0);
         RaycastHit2D leftRay = Physics2D.Raycast(leftBound, Vector2.down, JumpRaycastLength + 0.5f, Ground);
         RaycastHit2D rightRay = Physics2D.Raycast(rightBound, Vector2.down, JumpRaycastLength + 0.5f, Ground);
+        */
 
-        float angle = Mathf.Atan2(leftRay.point.y - rightRay.point.y, leftRay.point.x - rightRay.point.x) * Mathf.Rad2Deg + 180;
-        if (!Physics2D.Raycast(transform.position, Vector2.down, JumpRaycastLength + 0.5f, Ground))
-        {
-            angle = 0;
-        }
-        childTf.eulerAngles = new Vector3(childTf.eulerAngles.x, childTf.eulerAngles.y, angle);
+        //float angle = Mathf.Atan2(leftRay.point.y - rightRay.point.y, leftRay.point.x - rightRay.point.x) * Mathf.Rad2Deg + 180;
+        //if (!Physics2D.Raycast(transform.position, Vector2.down, JumpRaycastLength + 0.5f, Ground))
+        //{
+        //    angle = 0;
+        //}
+
+        RaycastHit2D hit2D = Physics2D.Raycast(transform.position, Vector2.down, JumpRaycastLength + 0.75f, Ground);
+        float angle = Mathf.Atan2(hit2D.normal.x, hit2D.normal.y) * Mathf.Rad2Deg;
+        childTf.eulerAngles = new Vector3(childTf.eulerAngles.x, childTf.eulerAngles.y, -angle);
     }
     public void StartGame()
     {
-        levelGeneration.generateFlat = false;
+        dissableMovemement = false;
         MoveSpeed *= 2;
         scoreManager = GameManager.GetComponent<ScoreManager>();
         difficultyManager = GameManager.GetComponent<DifficultyManager>();
