@@ -68,12 +68,11 @@ public class MovementAndShooting : MonoBehaviour
         levelGeneration = GameManager.GetComponent<LevelGeneration>();
         backgroundScript = GameManager.GetComponent<BackgroundScript>();
         if (!levelGeneration.generateFlat)
-        {
             scoreManager = GameManager.GetComponent<ScoreManager>();
-            difficultyManager = GameManager.GetComponent<DifficultyManager>();
-        }
         else
             MoveSpeed *= 0.5f;
+        difficultyManager = GameManager.GetComponent<DifficultyManager>();
+       
 
         pointTimer = addPointsPerSec;
 
@@ -96,11 +95,14 @@ public class MovementAndShooting : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!noPoints)
+        if (!levelGeneration.generateFlat)
         {
-            UpdatePoints();
+            if (!noPoints)
+            {
+                UpdatePoints();
+            }
+            UpdateDifficulty();
         }
-        UpdateDifficulty();
     }
 
     void CheckGrounded()
@@ -180,6 +182,7 @@ public class MovementAndShooting : MonoBehaviour
                 }
             }
             
+
 
             if (Input.GetMouseButtonDown(0) && !aiming)
             {
@@ -263,7 +266,7 @@ public class MovementAndShooting : MonoBehaviour
 
             if (backgroundScript != null)
             {
-                backgroundScript.ScrollAdvance((AimingSpeed  + extraSpeed) * BgSpeed * Time.deltaTime);
+                backgroundScript.ScrollAdvance((AimingSpeed + extraSpeed) * BgSpeed * Time.deltaTime);
             }
         }
 
