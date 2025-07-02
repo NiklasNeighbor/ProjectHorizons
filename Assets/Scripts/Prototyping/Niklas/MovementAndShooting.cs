@@ -17,6 +17,7 @@ public class MovementAndShooting : MonoBehaviour
     float regularGravity;
     public float FallGravityMultiplier;
     public GameObject JumpParticle; // the effect prefab to spawn
+    public GameObject RechargeParticle;
     bool aiming = false;
     bool canShoot = true;
     Vector2 aimStart;
@@ -150,31 +151,35 @@ public class MovementAndShooting : MonoBehaviour
     {
         if (!levelGeneration.generateFlat)
         {
-            if (Input.GetMouseButtonDown(0) && UseAltControls && MouseOnRightSide(false))
+            if (canShoot)
             {
-                aimStart = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                aiming = true;
-                arrow.enabled = true;
-            }
-            else if (Input.GetMouseButtonDown(0) && MouseNearPlayer())
-            {
-                aiming = true;
-                aimStart = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-                arrow.enabled = true;
+                if (Input.GetMouseButtonDown(0) && UseAltControls && MouseOnRightSide(false))
+                {
+                    aimStart = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    aiming = true;
+                    arrow.enabled = true;
+                }
+                else if (Input.GetMouseButtonDown(0) && MouseNearPlayer())
+                {
+                    aiming = true;
+                    aimStart = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+                    arrow.enabled = true;
+                }
             }
 
-            if (Input.GetMouseButtonUp(0) && aiming)
+            if (canShoot)
             {
-                aiming = false;
-                Time.timeScale = 1;
-                if (canShoot)
+                if (Input.GetMouseButtonUp(0) && aiming)
                 {
+                    aiming = false;
+                    Time.timeScale = 1;
                     canShoot = false;
                     FireProjectile();
                     StartCoroutine(StartShotCooldown());
+                    arrow.enabled = false;
                 }
-                arrow.enabled = false;
             }
+            
 
             if (Input.GetMouseButtonDown(0) && !aiming)
             {
@@ -389,6 +394,10 @@ public class MovementAndShooting : MonoBehaviour
     {
         yield return new WaitForSeconds(ShootingCooldown);
         canShoot = true;
+        if (RechargeParticle != null)
+        {
+            Instantiate(RechargeParticle, transform.position, Quaternion.identity);
+        }
     }
 }
 
