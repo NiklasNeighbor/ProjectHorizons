@@ -932,6 +932,10 @@ PrefabInstance:
       propertyPath: LowerLimit
       value: -4
       objectReference: {fileID: 0}
+    - target: {fileID: 6750603486420980572, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
+      propertyPath: DeathBarrierObject
+      value: 
+      objectReference: {fileID: 466003745}
     - target: {fileID: 7625826516216379356, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.36
