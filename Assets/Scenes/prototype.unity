@@ -788,6 +788,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 899feac9652557848b306bf0b10fb573, type: 2}
+    - target: {fileID: 996887720566452439, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1078815225411479803, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
       propertyPath: m_Controller
       value: 
