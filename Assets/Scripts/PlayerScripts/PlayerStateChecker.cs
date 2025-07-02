@@ -20,18 +20,18 @@ public class PlayerStateChecker : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Damager")
+        if (collision.gameObject.CompareTag("Damager"))
         {
             anim.SetBool("Dead", true);
             KillPlayer();
         }
-        if(collision.gameObject.tag == "DeathZone")
+        if(collision.gameObject.CompareTag("DeathZone"))
         {
             Time.timeScale = 0;
             scoreManagerRef.gameActive = false;
             scoreManagerRef.EndRun();
-            Destroy(this.gameObject);
             KillPlayer();
+            Destroy(this.gameObject);
         }
     }
 
@@ -52,13 +52,16 @@ public class PlayerStateChecker : MonoBehaviour
             speedScale = Mathf.Clamp(speedScale, 0, 1);
             movementAndShooting.AdjustSpeed(speedScale);
         }
-
-        if(speedScale == 0)
+ 
+        if(!Physics2D.Raycast(transform.position, Vector2.down, movementAndShooting.JumpRaycastLength, LayerMask.NameToLayer("Ground")))
         {
-            scoreManagerRef.EndRun();
-            hasStopped = true;
-            Time.timeScale = 0;
+            if (speedScale == 0)
+            {
+                scoreManagerRef.EndRun();
+                hasStopped = true;
+            }
         }
+
     }
 
     public void KillPlayer()
@@ -66,6 +69,7 @@ public class PlayerStateChecker : MonoBehaviour
         scoreManagerRef.gameActive = false;
         //start falling animation
         hasDied = true;
+        movementAndShooting.IsDead = true;
         //Destroy(this.gameObject);
     }
 

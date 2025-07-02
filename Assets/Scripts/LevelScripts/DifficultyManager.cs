@@ -10,21 +10,17 @@ public class DifficultyManager : MonoBehaviour
     public float mediumDifficulty = 0;
     [Range(0, 1)]
     public float hardDifficulty = 0;
+    [Range(0, 1)]
+    public float addedSpeed;
 
     [SerializeField] Vector2Int mediumRange;
     [SerializeField] Vector2Int hardRange;
-
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
-    }
+    [SerializeField] Vector2Int speedUpRange;
 
     // Update is called once per frame
     void Update()
     {
-
+        IncreaseSpeed();
     }
 
     public void IncreaseDifficulty(int addedDifficulty)
@@ -41,7 +37,16 @@ public class DifficultyManager : MonoBehaviour
             hardDifficulty = (float)(difficulty - hardRange.x) / (float)(hardRange.y - hardRange.x);
         }
     }
-    
+
+    void IncreaseSpeed()
+    {
+        if (difficulty > speedUpRange.x && difficulty < speedUpRange.y)
+        {
+            addedSpeed = (float)(difficulty - speedUpRange.x) / (float)(speedUpRange.y - speedUpRange.x);
+        }
+    }
+
+
     public float GetMediumDifficulty()
     {
         return mediumDifficulty;

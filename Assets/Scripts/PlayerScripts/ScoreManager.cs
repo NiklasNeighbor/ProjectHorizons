@@ -23,6 +23,7 @@ public class ScoreManager : MonoBehaviour
     }
     public void EndRun()
     {
+        Time.timeScale = 0;
         deathScreen.SetActive(true);
 
         highScore = PlayerPrefs.GetFloat("highScore", highScore);
