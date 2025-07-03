@@ -98,7 +98,7 @@ public class MovementAndShooting : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (dissableMovemement)
+        if (!dissableMovemement)
         {
             if (!noPoints)
             {
@@ -393,6 +393,7 @@ public class MovementAndShooting : MonoBehaviour
     }
     public void StartGame()
     {
+        dissableMovemement = false;
         levelGeneration.generateFlat = false;
         MoveSpeed *= 2;
         scoreManager = GameManager.GetComponent<ScoreManager>();
