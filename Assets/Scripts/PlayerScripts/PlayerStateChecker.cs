@@ -22,10 +22,15 @@ public class PlayerStateChecker : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Damager"))
         {
+            Debug.Log("Help im dying");
             anim.SetBool("Dead", true);
             KillPlayer();
         }
-        if(collision.gameObject.CompareTag("DeathZone"))
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("DeathZone"))
         {
             Time.timeScale = 0;
             scoreManagerRef.gameActive = false;

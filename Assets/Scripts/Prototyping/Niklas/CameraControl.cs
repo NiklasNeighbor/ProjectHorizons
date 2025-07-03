@@ -3,9 +3,11 @@ using UnityEngine;
 public class CameraControl : MonoBehaviour
 {
     public GameObject CameraTarget;
+    public GameObject DeathBarrierObject;
     public float VerticalMoveSpeed = 1f;
     public Vector2 IdleFraming;
     public float LowerLimit = -4f;
+    float DeathBarrier = -8f;
     public LayerMask Ground;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -19,11 +21,22 @@ public class CameraControl : MonoBehaviour
     {
         if (CameraTarget != null)
         {
+            DeathBarrier = DeathBarrierObject.transform.position.y + 11;
             Vector3 newFraming = CameraTarget.transform.position + new Vector3(IdleFraming.x, IdleFraming.y, -10);
             newFraming.y = transform.position.y;
             transform.position = newFraming;
-            AdjustHeight();
+
+            if (transform.position.y > DeathBarrier)
+            {
+                AdjustHeight();
+            } else
+            {
+                Debug.Log("Out Of Bounds");
+            }
+
+            
         }
+        
     }
 
     void AdjustHeight()
@@ -31,10 +44,14 @@ public class CameraControl : MonoBehaviour
         Vector3 currentPos = transform.position;
         Vector3 targetPos = new Vector3(transform.position.x, CameraTarget.transform.position.y + IdleFraming.y, transform.position.z);
 
-        while (CameraTarget.transform.position.y < transform.position.y + LowerLimit)
+        
+
+        while ((CameraTarget.transform.position.y < transform.position.y + LowerLimit))
         {
+
             transform.Translate(Vector3.down * 0.1f);
             //Debug.Log("Failsafe Scroll Down");
+
         }
 
         if (Vector3.Distance(currentPos, targetPos) > 0.5f)
@@ -57,5 +74,7 @@ public class CameraControl : MonoBehaviour
             Gizmos.DrawSphere(CameraTarget.transform.position, 0.5f);
         Gizmos.color = Color.red;
         Gizmos.DrawLine(new Vector3(transform.position.x - 10, transform.position.y + LowerLimit, 0), new Vector3(transform.position.x + 10, transform.position.y + LowerLimit, 0));
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawLine(new Vector3(transform.position.x - 11, DeathBarrierObject.transform.position.y + 11, 0), new Vector3(transform.position.x + 11, DeathBarrierObject.transform.position.y + 11, 0));
     }
 }
