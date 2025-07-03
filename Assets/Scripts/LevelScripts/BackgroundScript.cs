@@ -14,13 +14,33 @@ public class BackgroundScript : MonoBehaviour
         public float layerSpeed;
     }
 
-    [SerializeField] Layer[] backGroundLayers;
+    [SerializeField] Layer[] forestLayers;
+    [SerializeField] Layer[] caveLayers;
+
+    [SerializeField] Layer[] transitionForToCav;
+    [SerializeField] Layer[] transitionCavToFor;
+
+    Layer[] backGroundLayers;
+
+    enum Background { Forest, Caves};
+    Background bg;
+
+    bool switchToCaves = false;
+    bool switchToForest = false;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        if(Random.Range(0, 1) == 1)
+        {
+            backGroundLayers = forestLayers;
+            bg = Background.Forest;
+        }else
+        {
+            backGroundLayers = caveLayers;
+            bg = Background.Caves;
+        }
     }
 
     // Update is called once per frame
@@ -43,7 +63,23 @@ public class BackgroundScript : MonoBehaviour
                 if (lastLayerSegTf.position.x < SpawnDistance)
                 {
                     Vector3 spawnPos = lastLayerSegTf.GetChild(0).GetChild(0).transform.position;
-                    SpawnLevel(spawnPos, l);
+                    if (switchToCaves && l.layerParent == forestLayers[0].layerParent) //if on longest layer
+                    {
+                        SpawnLevel(spawnPos, transitionForToCav[0]);
+                        SpawnLevel(backGroundLayers[1].layerParent.transform.GetChild(l.layerParent.transform.childCount - 1).GetChild(0).GetChild(0).transform.position, transitionForToCav[1]);
+                        SpawnLevel(backGroundLayers[2].layerParent.transform.GetChild(l.layerParent.transform.childCount - 1).GetChild(0).GetChild(0).transform.position, transitionForToCav[2]);
+                        switchToCaves = false;
+                    } else
+                    if (switchToForest && l.layerParent == caveLayers[0].layerParent) //if on longest layer
+                    {
+                        SpawnLevel(spawnPos, transitionCavToFor[0]);
+                        SpawnLevel(backGroundLayers[1].layerParent.transform.GetChild(l.layerParent.transform.childCount - 1).GetChild(0).GetChild(0).transform.position, transitionCavToFor[1]);
+                        SpawnLevel(backGroundLayers[2].layerParent.transform.GetChild(l.layerParent.transform.childCount - 1).GetChild(0).GetChild(0).transform.position, transitionCavToFor[2]);
+                        switchToForest = false;
+                    }else
+                    {
+                        SpawnLevel(spawnPos, l);
+                    }
                 }
 
 
@@ -70,6 +106,21 @@ public class BackgroundScript : MonoBehaviour
             {
                 l.layerParent.transform.GetChild(i).Translate(new Vector3(-moveAmount * l.layerSpeed, 0, 0));
             }
+        }
+    }
+
+    public void SwitchLevel()
+    {
+        if (bg == Background.Forest)
+        {
+            bg = Background.Caves;
+            switchToCaves = true;
+        }
+
+        if(bg == Background.Forest)
+        {
+            bg = Background.Forest;
+            switchToForest = true;
         }
     }
 }
