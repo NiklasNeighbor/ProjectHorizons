@@ -191,8 +191,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000042219, y: 64.6}
-  m_SizeDelta: {x: 1512, y: 826}
+  m_AnchoredPosition: {x: -0.000042219, y: -28.3}
+  m_SizeDelta: {x: 1512, y: 324}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &253693013
 MonoBehaviour:
@@ -214,7 +214,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -6990081392350209015, guid: f4b9fdbcf7ca16641b9fd051fddf61f7, type: 3}
+  m_Sprite: {fileID: 7289894148593631861, guid: 10765a8b6ee263940aa68900cb9985b4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1007,6 +1007,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: DeathScreenPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 5392583259111449683, guid: 853c0a563b9f0a248ac8faa7dcd0f40a, type: 3}
+      propertyPath: m_fontSize
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 5392583259111449683, guid: 853c0a563b9f0a248ac8faa7dcd0f40a, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5392583259111449683, guid: 853c0a563b9f0a248ac8faa7dcd0f40a, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 5540295892394198285, guid: 853c0a563b9f0a248ac8faa7dcd0f40a, type: 3}
       propertyPath: m_fontColor.b
       value: 0.9716981
@@ -1149,7 +1161,7 @@ PrefabInstance:
       insertIndex: 3
       addedObject: {fileID: 1892385729}
     - targetCorrespondingSourceObject: {fileID: 2562906856362312425, guid: 853c0a563b9f0a248ac8faa7dcd0f40a, type: 3}
-      insertIndex: -1
+      insertIndex: 4
       addedObject: {fileID: 253693012}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 853c0a563b9f0a248ac8faa7dcd0f40a, type: 3}
