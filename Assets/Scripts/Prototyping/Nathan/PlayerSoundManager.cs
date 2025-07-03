@@ -6,18 +6,26 @@ public class PlayerSoundManager : MonoBehaviour
     [SerializeField] AudioSource shootSound;
     [SerializeField] AudioSource deathSound;
     [SerializeField] AudioSource shortDeathSound;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Death();
+        }
+    }
     public void Jump()
     {
         Debug.Log("hey");
         jumpSound.Play();
     }
-    public void Death(bool diedFromEnemy)
+    public void Death()
     {
-        if(diedFromEnemy)
+        Debug.Log("DEATH");
+        //if(diedFromEnemy)
             deathSound.Play();
-        else
-            shortDeathSound.Play();
+       // else
+           // shortDeathSound.Play();
     }
     public void Shoot()
     {
