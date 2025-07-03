@@ -98,7 +98,7 @@ public class MovementAndShooting : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (dissableMovemement)
+        if (!dissableMovemement)
         {
             if (!noPoints)
             {
