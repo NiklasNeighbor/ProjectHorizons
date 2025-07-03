@@ -393,7 +393,7 @@ public class MovementAndShooting : MonoBehaviour
     }
     public void StartGame()
     {
-        dissableMovemement = false;
+        levelGeneration.generateFlat = false;
         MoveSpeed *= 2;
         scoreManager = GameManager.GetComponent<ScoreManager>();
         difficultyManager = GameManager.GetComponent<DifficultyManager>();
