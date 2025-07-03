@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: db22c5ef2b5244748adb42dbf4779ec0
+guid: 4613b58f30accfd4d8a45336cf3bb7af
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3607679298215659499
-    second: ThrowingEnemy1_0
+      213: -6841253828300517169
+    second: new button 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ThrowingEnemy1_0
+      name: new button 1_0
       rect:
         serializedVersion: 2
-        x: 650
-        y: 29
-        width: 682
-        height: 804
+        x: 8
+        y: 11
+        width: 640
+        height: 177
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: be7cca9153d011230800000000000000
-      internalID: 3607679298215659499
+      spriteID: fc0ddd1c3ebfe01a0800000000000000
+      internalID: -6841253828300517169
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      ThrowingEnemy1_0: 3607679298215659499
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
