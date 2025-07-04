@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class LevelSetup : MonoBehaviour
 {
-    [SerializeField] Vector3 scale;
     public Transform NextSegmentSpawnPos;
     DifficultyManager difficultyManager;
     enum Difficulty { Easy, Medium, Hard };
@@ -19,10 +18,6 @@ public class LevelSetup : MonoBehaviour
 
     [SerializeField] EnemySpawn[] enemySpawns;
 
-    private void Awake()
-    {
-        transform.localScale = scale;
-    }
     void Start()
     {
         difficultyManager = GameObject.FindWithTag("GameController").GetComponent<DifficultyManager>();

@@ -49,7 +49,8 @@ public class MovementAndShooting : MonoBehaviour
     Transform childTf;
     bool isGrounded = false;
     [SerializeField] float MaxExtraSpeed;
-    [SerializeField] public bool dissableMovemement; 
+    [SerializeField] public bool dissableMovemement;
+    [SerializeField] float CollisionRightRaySize = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -310,7 +311,7 @@ public class MovementAndShooting : MonoBehaviour
 
     bool CollisionOnRight()
     {
-        if (Physics2D.Raycast(transform.position, Vector2.right, 0.6f, Ground))
+        if (Physics2D.Raycast(transform.position, Vector2.right, CollisionRightRaySize, Ground))
         {
             return true;
         }
