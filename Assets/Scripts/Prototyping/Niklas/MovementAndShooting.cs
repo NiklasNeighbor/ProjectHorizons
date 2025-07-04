@@ -178,21 +178,24 @@ public class MovementAndShooting : MonoBehaviour
                     arrow.enabled = false;
                 }
             }
-            
+
+            CheckGrounded();
+
             if(isGrounded)
             {
-                            if (Input.GetMouseButtonDown(0) && !aiming)
-            {
-                if (UseAltControls && MouseOnRightSide(true))
+                if (Input.GetMouseButtonDown(0) && !aiming)
                 {
-                    DoJump(JumpForce);
+                    if (UseAltControls && MouseOnRightSide(true))
+                    {
+                        DoJump(JumpForce);
+                    }
+                    
+                    else if (!UseAltControls)
+                    {
+                        DoJump(JumpForce);
+                    }
                 }
-                else
-                if (!UseAltControls)
-                {
-                    DoJump(JumpForce);
-                }
-            }
+                 
             }
 
             if ((Input.GetMouseButton(0) && !aiming))
@@ -369,6 +372,8 @@ public class MovementAndShooting : MonoBehaviour
     void RotatePlayer()
     {
         RaycastHit2D hit2D = Physics2D.Raycast(transform.position, Vector2.down, JumpRaycastLength + 0.75f, Ground);
+        Debug.DrawRay(transform.position, Vector2.down * (JumpRaycastLength + 0.75f), Color.cyan);
+        
         float angle = Mathf.Atan2(hit2D.normal.x, hit2D.normal.y) * Mathf.Rad2Deg;
         childTf.eulerAngles = new Vector3(childTf.eulerAngles.x, childTf.eulerAngles.y, -angle);
     }
