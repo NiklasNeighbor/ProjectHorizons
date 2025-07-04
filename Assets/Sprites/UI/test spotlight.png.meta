@@ -116,12 +116,12 @@ TextureImporter:
       name: test spotlight_0
       rect:
         serializedVersion: 2
-        x: 749
-        y: 333
-        width: 869
-        height: 747
+        x: 0
+        y: 0
+        width: 1256
+        height: 1080
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 688e7a37c99a8c4448d4ab77d40645d5
     internalID: 0
     vertices: []
     indices: 
