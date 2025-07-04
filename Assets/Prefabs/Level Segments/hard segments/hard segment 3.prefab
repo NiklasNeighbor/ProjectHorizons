@@ -2753,10 +2753,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NextSegmentSpawnPos: {fileID: 2258383015685590540}
-  enemySpawns:
-  - enemyPrefab: {fileID: 0}
-    spawnPosition: {fileID: 0}
-    difficulty: 2
+  enemySpawns: []
 --- !u!1 &7246494685651260177
 GameObject:
   m_ObjectHideFlags: 0

@@ -1110,7 +1110,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00025145, y: 131}
+  m_AnchoredPosition: {x: -0.00025145, y: 119}
   m_SizeDelta: {x: 2400, y: 2000.3906}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &464183969
@@ -1572,7 +1572,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 694191655657081819, guid: 853c0a563b9f0a248ac8faa7dcd0f40a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 133
+      value: 115
       objectReference: {fileID: 0}
     - target: {fileID: 1739159777594998227, guid: 853c0a563b9f0a248ac8faa7dcd0f40a, type: 3}
       propertyPath: m_Type
@@ -2106,21 +2106,25 @@ MonoBehaviour:
   - {fileID: 7244736234137839646, guid: 85d7e2c4e76bc8248a811192aa46090f, type: 3}
   - {fileID: 5303940378832131856, guid: 987a6f9a710a46f45817096178e21b06, type: 3}
   - {fileID: 246136925027892719, guid: 7565ec57d09114b4e9d6afe398d77835, type: 3}
-  - {fileID: 2315751107337115845, guid: f13dd54164807ad429d5d71d5ab65e39, type: 3}
+  - {fileID: 8032093275207283977, guid: 03c9f55e0c841da44a0fe39f81baad79, type: 3}
   - {fileID: 4798620350367735875, guid: 31f104399abd42a44962d1284d04fd20, type: 3}
   - {fileID: 7808659100931256547, guid: e4a344d003f1bdb4a9086e5a28f14e4d, type: 3}
   - {fileID: 4755928360745883014, guid: 6084bdb714208e74291ce92993e6d2a9, type: 3}
   - {fileID: 5382671709118544051, guid: b82f38bae92535742845e38c5397432e, type: 3}
   - {fileID: 4754328464333300203, guid: d0c79ab6f4644e54485016b5b4df1e4a, type: 3}
   - {fileID: 5605395723282173652, guid: a7bf40219da7b164aa14c35942197503, type: 3}
+  - {fileID: 876517290473600740, guid: b99d92e2fe642b84fb0b710d7705a86b, type: 3}
   _MediumSegments:
   - {fileID: 5734894378587373288, guid: 23e2b41752c5e09468539297fdd2256c, type: 3}
   - {fileID: 6684232002470922627, guid: 92eabd01afa5b7f48b6cb6d3931c3aec, type: 3}
   - {fileID: 2778951242192945364, guid: 3afec85a5e2eaa648ae749b1226cb09b, type: 3}
+  - {fileID: 5734894378587373288, guid: 63c68ab64fe04eb49a5d155455ec5cb0, type: 3}
+  - {fileID: 5734894378587373288, guid: d60c70372aa915d409bd1fb3687d55db, type: 3}
   _HardSegments:
   - {fileID: 7244736234137839646, guid: 857de6035bcebb54c88a39d9a7ab49ae, type: 3}
   - {fileID: 7244736234137839646, guid: 73639d907887d1946bf68543429344cb, type: 3}
   - {fileID: 7244736234137839646, guid: e79621c895e18cf4f95bb1dc49b52754, type: 3}
+  - {fileID: 7244736234137839646, guid: 10aa11c3971dd024abacc88b79303fd2, type: 3}
   _IntroSpawnDistance: 30
   _DeathBoxHeight: -25
   deathBox: {fileID: 466003745}
@@ -2204,10 +2208,10 @@ MonoBehaviour:
   difficulty: 0
   mediumDifficulty: 0
   hardDifficulty: 0
-  addedSpeed: 0.078
-  mediumRange: {x: 1000, y: 10000}
-  hardRange: {x: 9000, y: 100000}
-  speedUpRange: {x: 12000, y: 100000}
+  addedSpeed: 1
+  mediumRange: {x: 80, y: 200}
+  hardRange: {x: 200, y: 100000}
+  speedUpRange: {x: 150, y: 200}
 --- !u!114 &991366445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4935,7 +4939,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6633295975295920011, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
       propertyPath: MoveSpeed
-      value: 11
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6633295975295920011, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
       propertyPath: GameManager
@@ -5004,6 +5008,10 @@ PrefabInstance:
     - target: {fileID: 7691812118958035828, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
       propertyPath: m_SortingOrder
       value: -100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8552757029220537828, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
+      propertyPath: m_Size.x
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -110,6 +110,7 @@ MonoBehaviour:
   pointsOnDeath: 5
   anim: {fileID: 159303667647114490}
   throwPoint: {fileID: 2308376651255158973}
+  throwForce: {x: 0, y: 0}
 --- !u!50 &4924191473472989733
 Rigidbody2D:
   serializedVersion: 5
@@ -153,7 +154,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 192
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2

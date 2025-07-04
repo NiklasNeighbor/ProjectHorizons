@@ -3953,13 +3953,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NextSegmentSpawnPos: {fileID: 2258383015685590540}
-  enemySpawns:
-  - enemyPrefab: {fileID: 6970898557103606605}
-    spawnPosition: {fileID: 5093513616159152034}
-    difficulty: 2
-  - enemyPrefab: {fileID: 7221947667461350820, guid: cde869316af9b38419b0b6ff36f1b02a, type: 3}
-    spawnPosition: {fileID: 4703940400393662428, guid: cde869316af9b38419b0b6ff36f1b02a, type: 3}
-    difficulty: 2
+  enemySpawns: []
 --- !u!1 &7246494685651260177
 GameObject:
   m_ObjectHideFlags: 0
@@ -4917,11 +4911,6 @@ PrefabInstance:
 --- !u!4 &5093513616159152034 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6273281678966157718, guid: fd0d0ef4876febf4ba5b365332eacb91, type: 3}
-  m_PrefabInstance: {fileID: 1270270003768616500}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &6970898557103606605 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8150807907685363065, guid: fd0d0ef4876febf4ba5b365332eacb91, type: 3}
   m_PrefabInstance: {fileID: 1270270003768616500}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4199391403712753116
