@@ -5795,7 +5795,7 @@ MonoBehaviour:
   NextSegmentSpawnPos: {fileID: 9116323921154599029}
   enemySpawns:
   - enemyPrefab: {fileID: 3795788007009422158, guid: 16ff46b015f84c146866813b4df720aa, type: 3}
-    spawnPosition: {fileID: 0}
+    spawnPosition: {fileID: 5515510476507552567}
     difficulty: 0
   - enemyPrefab: {fileID: 3795788007009422158, guid: 16ff46b015f84c146866813b4df720aa, type: 3}
     spawnPosition: {fileID: 0}
