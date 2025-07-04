@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3218450985570353255}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Flying enemy
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9116323921154599029}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SpawnPos
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -71,7 +71,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5515510476507552567}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Walking enemy
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 2438810855173120098}
   - component: {fileID: 7280664524569561104}
   - component: {fileID: 1825997342728665936}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Segment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3186,7 +3186,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1206051029858335868}
   - component: {fileID: 6730914191949947509}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ESegment10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3244,7 +3244,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7410489782904003320}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Flying enemy (1)
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}

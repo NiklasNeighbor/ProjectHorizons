@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7695859214668247936}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SpawnPos
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 9073524879369971378}
   - component: {fileID: 2854083197987792405}
   - component: {fileID: 2820399046465356317}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Segment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -799,8 +799,8 @@ Tilemap:
   - first: {x: 10, y: -8, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 27
-      m_TileSpriteIndex: 27
+      m_TileIndex: 18
+      m_TileSpriteIndex: 18
       m_TileMatrixIndex: 1
       m_TileColorIndex: 11
       m_TileObjectToInstantiateIndex: 65535
@@ -1724,7 +1724,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 5fd8839ab9894da46bab085e09368f95, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: c8d369785a0875b49858f0c686126a6b, type: 2}
-  - m_RefCount: 1
+  - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: c23e5d9645d02c0449a26a0472fbaf7f, type: 2}
   - m_RefCount: 5
     m_Data: {fileID: 11400000, guid: 32aa6a5a5f8c88948a3140b0612eef94, type: 2}
@@ -1742,7 +1742,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 9686ee5a20170654aada91667e73f880, type: 2}
   - m_RefCount: 7
     m_Data: {fileID: 11400000, guid: 960f51f81cc8d854a8e1288153a290b8, type: 2}
-  - m_RefCount: 8
+  - m_RefCount: 7
     m_Data: {fileID: 11400000, guid: c2a832f253f1f1a449f27563083d503d, type: 2}
   - m_RefCount: 84
     m_Data: {fileID: 11400000, guid: 6be2a2ae200a11746b1fc71746245f2b, type: 2}
@@ -1785,7 +1785,7 @@ Tilemap:
     m_Data: {fileID: 94104380374067836, guid: 02510bf951c55834bad5fb22b2327d70, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: 58f0748c23c8fd140863250da58a628c, type: 3}
-  - m_RefCount: 1
+  - m_RefCount: 2
     m_Data: {fileID: 2716880934266495704, guid: e2ccdf15b7864d44fa2a79a01bb06ee6, type: 3}
   - m_RefCount: 5
     m_Data: {fileID: 21300000, guid: 6c42c9567c5dc054381f2448ab4d8624, type: 3}
@@ -1803,7 +1803,7 @@ Tilemap:
     m_Data: {fileID: 6113404131435971798, guid: 75e0bae8e4d2b264288a4a50c179dd6a, type: 3}
   - m_RefCount: 7
     m_Data: {fileID: -5810339152185716554, guid: b33f47807812dc542baf112742f9f68d, type: 3}
-  - m_RefCount: 8
+  - m_RefCount: 7
     m_Data: {fileID: 8695917472109298336, guid: c37084d33427abe439d9e5da7a175fb7, type: 3}
   - m_RefCount: 84
     m_Data: {fileID: -5763805448815284335, guid: 441e1934246d4b2469436b4539c6524d, type: 3}
@@ -1995,7 +1995,7 @@ GameObject:
   m_Component:
   - component: {fileID: 854333349432943205}
   - component: {fileID: 2800200365619134661}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ESegment6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2044,7 +2044,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 22660760132290975}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Flying enemy
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}

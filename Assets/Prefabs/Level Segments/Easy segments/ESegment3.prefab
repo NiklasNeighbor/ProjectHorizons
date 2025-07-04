@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7199550022411258235}
   - component: {fileID: 7845817465134375580}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ESegment3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2467408652317396330}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SpawnPos
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 7268012197837370296}
   - component: {fileID: 5298112223111804764}
   - component: {fileID: 234158075569735403}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Segment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1854,7 +1854,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2677789496226405843}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Flying enemy
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
