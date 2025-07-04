@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class WalkingEnemyAI : MonoBehaviour
+public class NewEnemy : MonoBehaviour
 {
     public bool canShoot;
     [SerializeField] Rigidbody2D rb;

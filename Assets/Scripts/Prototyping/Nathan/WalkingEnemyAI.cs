@@ -64,11 +64,11 @@ public class WalkingEnemyAI : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerProjectile"))
         {
             Destroy(collision.gameObject);
-            Death();
+            Death2();
         }
     }
 
-    void Death()
+    void Death2()
     {
         GameObject spawned = Instantiate(objectToSpawn, transform.position, Quaternion.identity);
         spawned.SetActive(true);//spawns in death particle effect prefab

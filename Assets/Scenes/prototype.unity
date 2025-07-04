@@ -4875,15 +4875,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 92692021673114854, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
       propertyPath: m_Color.b
-      value: 0.75133497
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 92692021673114854, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
       propertyPath: m_Color.g
-      value: 0.75133497
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 92692021673114854, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
       propertyPath: m_Color.r
-      value: 0.7924528
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 92692021673114854, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
       propertyPath: m_SortingOrder
@@ -4907,15 +4907,15 @@ PrefabInstance:
       objectReference: {fileID: 1134771333}
     - target: {fileID: 1820336179214828156, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
       propertyPath: m_Color.b
-      value: 0.5835262
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1820336179214828156, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
       propertyPath: m_Color.g
-      value: 0.5835262
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1820336179214828156, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
       propertyPath: m_Color.r
-      value: 0.8773585
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3275452054638745135, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4933,6 +4933,18 @@ PrefabInstance:
       propertyPath: scoreManagerRef
       value: 
       objectReference: {fileID: 991366442}
+    - target: {fileID: 5330249120062768795, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5330249120062768795, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5330249120062768795, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5330249120062768795, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
       propertyPath: m_SortingOrder
       value: -90
@@ -4963,15 +4975,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6633295975295920011, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
       propertyPath: MoveSpeed
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6633295975295920011, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
       propertyPath: GameManager
       value: 
       objectReference: {fileID: 991366439}
     - target: {fileID: 6633295975295920011, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
+      propertyPath: MaxExtraSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6633295975295920011, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
       propertyPath: AimingTimeScale
-      value: 0.3
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 6633295975295920011, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
       propertyPath: ShootingCooldown
