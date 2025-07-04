@@ -2209,9 +2209,9 @@ MonoBehaviour:
   mediumDifficulty: 0
   hardDifficulty: 0
   addedSpeed: 1
-  mediumRange: {x: 80, y: 200}
-  hardRange: {x: 200, y: 100000}
-  speedUpRange: {x: 150, y: 200}
+  mediumRange: {x: 10000, y: 20000}
+  hardRange: {x: 20000, y: 1000000}
+  speedUpRange: {x: 10000, y: 20000}
 --- !u!114 &991366445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4958,6 +4958,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6750603486420980572, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
+      propertyPath: IdleFraming.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6750603486420980572, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
+      propertyPath: VerticalMoveSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6750603486420980572, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
       propertyPath: DeathBarrierObject
       value: 
       objectReference: {fileID: 466003745}
@@ -5011,7 +5019,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8552757029220537828, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
       propertyPath: m_Size.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
