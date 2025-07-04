@@ -76,12 +76,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -70
-  m_Sprite: {fileID: 4474453053386627651, guid: b8ba08a8eb2c90047b1bdd70fc062a22, type: 3}
+  m_Sprite: {fileID: -4469015009806689200, guid: a405b1998b0441042a9e7a94b016dfb1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 72.046906, y: 10.8}
+  m_Size: {x: 72.046906, y: 3.93}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -128,7 +128,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2555130211506928105}
   m_Layer: 0
-  m_Name: Forest2
+  m_Name: Caves2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
