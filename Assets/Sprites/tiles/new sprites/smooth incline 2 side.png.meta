@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      smooth incline 2 side_0: -2974928025479980140
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

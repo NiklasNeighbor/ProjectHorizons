@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      gooby 2_0: 5654696225355808746
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

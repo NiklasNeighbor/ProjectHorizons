@@ -32,7 +32,11 @@ public class BackgroundScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if(Random.Range(0, 1) == 1)
+        backGroundLayers = forestLayers;
+        bg = Background.Forest;
+
+        /*
+        if(Random.Range(0, 2) == 0)
         {
             backGroundLayers = forestLayers;
             bg = Background.Forest;
@@ -41,6 +45,7 @@ public class BackgroundScript : MonoBehaviour
             backGroundLayers = caveLayers;
             bg = Background.Caves;
         }
+        */
     }
 
     // Update is called once per frame
@@ -100,7 +105,7 @@ public class BackgroundScript : MonoBehaviour
 
     public void ScrollAdvance(float moveAmount)
     {
-        foreach(Layer l in backGroundLayers)
+        foreach (Layer l in backGroundLayers)
         {
             for(int i = 0; i < l.layerParent.transform.childCount; i++)
             {

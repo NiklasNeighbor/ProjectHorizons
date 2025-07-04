@@ -46,7 +46,6 @@ public class MovementAndShooting : MonoBehaviour
     float speedDeathMultiplier = 1;
     [SerializeField] bool noPoints;
     public bool IsDead;
-    [SerializeField] Vector2 leftnRightBounds;
     Transform childTf;
     bool isGrounded = false;
     [SerializeField] float MaxExtraSpeed;
@@ -122,14 +121,7 @@ public class MovementAndShooting : MonoBehaviour
 
     void UpdatePoints()
     {
-        if (!aiming)
-        {
-            pointTimer -= Time.deltaTime;
-        }
-        else
-        {
-            pointTimer -= Time.deltaTime * (AimingSpeed / MoveSpeed);
-        }
+        pointTimer -= Time.deltaTime;
 
 
         if (pointTimer <= 0)
@@ -374,19 +366,6 @@ public class MovementAndShooting : MonoBehaviour
 
     void RotatePlayer()
     {
-        /*
-        Vector2 leftBound = transform.position + new Vector3(leftnRightBounds.x, 0, 0);
-        Vector2 rightBound = transform.position + new Vector3(leftnRightBounds.y, 0, 0);
-        RaycastHit2D leftRay = Physics2D.Raycast(leftBound, Vector2.down, JumpRaycastLength + 0.5f, Ground);
-        RaycastHit2D rightRay = Physics2D.Raycast(rightBound, Vector2.down, JumpRaycastLength + 0.5f, Ground);
-        */
-
-        //float angle = Mathf.Atan2(leftRay.point.y - rightRay.point.y, leftRay.point.x - rightRay.point.x) * Mathf.Rad2Deg + 180;
-        //if (!Physics2D.Raycast(transform.position, Vector2.down, JumpRaycastLength + 0.5f, Ground))
-        //{
-        //    angle = 0;
-        //}
-
         RaycastHit2D hit2D = Physics2D.Raycast(transform.position, Vector2.down, JumpRaycastLength + 0.75f, Ground);
         float angle = Mathf.Atan2(hit2D.normal.x, hit2D.normal.y) * Mathf.Rad2Deg;
         childTf.eulerAngles = new Vector3(childTf.eulerAngles.x, childTf.eulerAngles.y, -angle);
