@@ -793,7 +793,10 @@ MonoBehaviour:
   BackgroundParent: {fileID: 1620304081}
   SpawnDistance: 500
   RemoveDistance: -500
-  BackGroundPrefab: {fileID: 4285944025496151969, guid: 193d1c65e9d91794195072700cb12644, type: 3}
+  forestLayers: []
+  caveLayers: []
+  transitionForToCav: []
+  transitionCavToFor: []
 --- !u!114 &991366444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1210,12 +1213,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb87f14fcdf67fa4ea8f5c7dcb7a1843, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundTracks:
-  - {fileID: 8300000, guid: e1d36d5a1d6dd0d4081a1cb17c78bcc0, type: 3}
-  - {fileID: 8300000, guid: 2ac2070e998d7a746a5ff5fb7a45a9ca, type: 3}
+  CurrentMusicTracks: []
+  startScreenTracks:
+  - {fileID: 8300000, guid: cc05a333b66ee484384d00cff285e39d, type: 3}
   - {fileID: 8300000, guid: 643a34e70d9e0a741b8558d251b1d15a, type: 3}
   - {fileID: 8300000, guid: 25494e5af56bfb04e84540561b2a450a, type: 3}
-  - {fileID: 8300000, guid: cc05a333b66ee484384d00cff285e39d, type: 3}
+  - {fileID: 8300000, guid: 24f55da397493134e9d67d62e266ad46, type: 3}
+  backgroundTracks:
+  - {fileID: 8300000, guid: e1d36d5a1d6dd0d4081a1cb17c78bcc0, type: 3}
+  - {fileID: 8300000, guid: d0a28abab62bfb644b3534ce22ed78a2, type: 3}
+  - {fileID: 8300000, guid: 3107d3ec5c24a5147b7e7fbab7a18471, type: 3}
+  - {fileID: 8300000, guid: 2ed77b1cfdfb95a4ab196c5df95cffb0, type: 3}
+  - {fileID: 8300000, guid: cd7b60ca9ff59e040bc354adca76ff9a, type: 3}
+  isGameplayMusic: 0
   fadeTime: 1
 --- !u!4 &1648823677
 Transform:

@@ -6,6 +6,7 @@ public class StartScreenScript : MonoBehaviour
     [SerializeField] Animator playerAnim;
     [SerializeField] MovementAndShooting movementRef;
     [SerializeField] GameObject score;
+    [SerializeField] Animator startScreenAnim;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -17,6 +18,11 @@ public class StartScreenScript : MonoBehaviour
     void Update()
     {
 
+    }
+    public void FadeOutUI()
+    {
+        Debug.Log("Fade out?");
+        startScreenAnim.Play("Fade Out");
     }
     public void StartGame()
     {
