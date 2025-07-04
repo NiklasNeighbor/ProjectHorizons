@@ -11,6 +11,7 @@ public class ScoreManager : MonoBehaviour
     [SerializeField]TextMeshProUGUI scoreText;
     [SerializeField]TextMeshProUGUI finalScoreText;
     [SerializeField] TextMeshProUGUI highScoreText;
+    [SerializeField]Animator scoreAnim;
     float highScore;
 
 
@@ -45,6 +46,10 @@ public class ScoreManager : MonoBehaviour
             score += addedScore;
             scoreText.text = "Score: " + score.ToString();
         }
+    }
+    public void LightUpScoreText()
+    {
+        scoreAnim.Play("Light Up");
     }
     public void Restart(string sceneName)
     {
