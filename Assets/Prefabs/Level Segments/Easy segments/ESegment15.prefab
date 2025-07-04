@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 612392139294391626}
   - component: {fileID: 7574727795839487090}
   - component: {fileID: 4646467022834105355}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Segment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1972,7 +1972,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2332768013438800656}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Walking enemy
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -2003,7 +2003,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4647842422614441905}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SpawnPos
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -2035,7 +2035,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9160001874257568112}
   - component: {fileID: 6822991961918610150}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ESegment15
   m_TagString: Untagged
   m_Icon: {fileID: 0}

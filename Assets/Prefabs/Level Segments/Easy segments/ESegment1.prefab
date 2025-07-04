@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5864055750571350136}
   - component: {fileID: 3435692056055296179}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ESegment1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 3448606936392974349}
   - component: {fileID: 5622350367639751166}
   - component: {fileID: 77344548492662514}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Segment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1399,7 +1399,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2258383015685590540}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SpawnPos
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
