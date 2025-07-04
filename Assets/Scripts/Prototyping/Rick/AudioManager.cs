@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public AudioClip[] backgroundTracks;  // Array to hold background music tracks
+    public AudioClip[] CurrentMusicTracks;  // Array to hold background music tracks
+    public AudioClip[] startScreenTracks; // Array to hold the music tracks for start screen
+    public AudioClip[] backgroundTracks;   // Array to hold the music tracks for the background music
+
+    public bool isGameplayMusic = false;
     private AudioSource audioSource;
     private int currentTrackIndex = 0;    // Index to track current song
 
@@ -12,20 +16,29 @@ public class AudioManager : MonoBehaviour
     private bool musicStopped = false;
 
 
-/*
+
     // Awake Is Only used for Testing
     public void Awake()
     {
         PlayMusic();
     }
-*/
+
 
     // Start Playing music
     public void PlayMusic()
     {
+        musicStopped = false;
         audioSource = GetComponent<AudioSource>(); // Audiosource on AudioManager GameObject
 
-        if (backgroundTracks.Length > 0)
+        if (isGameplayMusic)
+        {
+            CurrentMusicTracks = backgroundTracks;
+        }
+        else {
+            CurrentMusicTracks = startScreenTracks; 
+        }
+
+        if (CurrentMusicTracks.Length > 0)
         {
             ShuffleTracks();
             PlayNextTrack();
@@ -49,20 +62,20 @@ public class AudioManager : MonoBehaviour
 
     private void PlayNextTrack()
     {
-        if (backgroundTracks.Length == 0) return;
+        if (CurrentMusicTracks.Length == 0) return;
 
-        StartCoroutine(FadeAndPlay(backgroundTracks[currentTrackIndex]));
-        currentTrackIndex = (currentTrackIndex + 1) % backgroundTracks.Length;
+        StartCoroutine(FadeAndPlay(CurrentMusicTracks[currentTrackIndex]));
+        currentTrackIndex = (currentTrackIndex + 1) % CurrentMusicTracks.Length;
     }
 
     private void ShuffleTracks()
     {
-        for (int i = 0; i < backgroundTracks.Length; i++)
+        for (int i = 0; i < CurrentMusicTracks.Length; i++)
         {
-            int random = Random.Range(i, backgroundTracks.Length);
-            AudioClip temp = backgroundTracks[i];
-            backgroundTracks[i] = backgroundTracks[random];
-            backgroundTracks[random] = temp;
+            int random = Random.Range(i, CurrentMusicTracks.Length);
+            AudioClip temp = CurrentMusicTracks[i];
+            CurrentMusicTracks[i] = CurrentMusicTracks[random];
+            CurrentMusicTracks[random] = temp;
         }
     }
 
@@ -82,5 +95,12 @@ public class AudioManager : MonoBehaviour
         }
 
         audioSource.volume = 1f;
+    }
+
+    public void ChangeToBackgroundTracks()
+    {
+        StopMusic();        // stop current Track
+        isGameplayMusic = true;
+        PlayMusic();        // start new Tracks
     }
 }

@@ -24,9 +24,9 @@ public class ScoreManager : MonoBehaviour
     }
     public void EndRun()
     {
-        Time.timeScale = 0;
+        Debug.Log("asafaf");
         deathScreen.SetActive(true);
-
+        
         highScore = PlayerPrefs.GetFloat("highScore", highScore);
 
         if (score > highScore)
@@ -37,6 +37,7 @@ public class ScoreManager : MonoBehaviour
 
         finalScoreText.text = "Final Score: " +  score.ToString();
         highScoreText.text = "High Score: " + PlayerPrefs.GetFloat("highScore", highScore);
+        Time.timeScale = 0;
 
     }
     public void IncreaseScore(int addedScore)

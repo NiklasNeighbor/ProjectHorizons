@@ -1441,6 +1441,7 @@ MonoBehaviour:
   playerAnim: {fileID: 1198376933}
   movementRef: {fileID: 1198376939}
   score: {fileID: 1935767268}
+  startScreenAnim: {fileID: 0}
 --- !u!1 &1131159092 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6199284848022028764, guid: 853c0a563b9f0a248ac8faa7dcd0f40a, type: 3}

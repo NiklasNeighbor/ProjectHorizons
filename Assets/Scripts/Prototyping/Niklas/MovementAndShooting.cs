@@ -54,6 +54,7 @@ public class MovementAndShooting : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        SlowdownThroughTimescale = false;
         ProjectileOriginOffset.z = 0;
         rb = GetComponent<Rigidbody2D>();
         regularGravity = rb.gravityScale;
