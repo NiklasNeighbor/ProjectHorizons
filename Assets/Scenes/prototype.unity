@@ -180,7 +180,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 171524685}
@@ -903,7 +903,7 @@ PrefabInstance:
       objectReference: {fileID: 991366445}
     - target: {fileID: 5154858475819634320, guid: 22ef4ecfe0489db4eada718184455efc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: StartGame
+      value: FadeOutUI
       objectReference: {fileID: 0}
     - target: {fileID: 5445598289112380951, guid: 22ef4ecfe0489db4eada718184455efc, type: 3}
       propertyPath: m_CullTransparentMesh
@@ -927,13 +927,68 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5576052024221435116, guid: 22ef4ecfe0489db4eada718184455efc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 192851846}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8557344375622999913, guid: 22ef4ecfe0489db4eada718184455efc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 726962539}
+    - targetCorrespondingSourceObject: {fileID: 8557344375622999913, guid: 22ef4ecfe0489db4eada718184455efc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 726962538}
   m_SourcePrefab: {fileID: 100100000, guid: 22ef4ecfe0489db4eada718184455efc, type: 3}
 --- !u!1 &726962537 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8557344375622999913, guid: 22ef4ecfe0489db4eada718184455efc, type: 3}
   m_PrefabInstance: {fileID: 726962536}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &726962538
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726962537}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bfb2734c08fd3b84ca780e0b07092d23, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &726962539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726962537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25f360a5c42851445ab2a5e4ec746225, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventToTrigger:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 991366445}
+        m_TargetAssemblyTypeName: StartScreenScript, Assembly-CSharp
+        m_MethodName: StartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &808435041 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8297553960725560346, guid: 4bda1b4c39510df4fb1ae4a71a39103a, type: 3}
@@ -1447,6 +1502,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8023114310416071220, guid: 853c0a563b9f0a248ac8faa7dcd0f40a, type: 3}
   m_PrefabInstance: {fileID: 974619269}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &974619272 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6468268559307207098, guid: 853c0a563b9f0a248ac8faa7dcd0f40a, type: 3}
+  m_PrefabInstance: {fileID: 974619269}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &991366439
 GameObject:
   m_ObjectHideFlags: 0
@@ -1500,7 +1560,7 @@ MonoBehaviour:
   _IntroSpawnDistance: 30
   _DeathBoxHeight: -25
   deathBox: {fileID: 466003745}
-  generateFlat: 0
+  generateFlat: 1
 --- !u!4 &991366441
 Transform:
   m_ObjectHideFlags: 0
@@ -1533,7 +1593,7 @@ MonoBehaviour:
   scoreText: {fileID: 390829884}
   finalScoreText: {fileID: 508780914}
   highScoreText: {fileID: 974619270}
-  scoreAnim: {fileID: 0}
+  scoreAnim: {fileID: 974619272}
 --- !u!114 &991366443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1600,6 +1660,7 @@ MonoBehaviour:
   playerAnim: {fileID: 1198376933}
   movementRef: {fileID: 1568497967}
   score: {fileID: 974619271}
+  startScreenAnim: {fileID: 726962538}
 --- !u!1 &1063841206 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4149075373119116666, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
@@ -2079,7 +2140,7 @@ Grid:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1138428385}
   m_Enabled: 1
-  m_CellSize: {x: 1.5, y: 1.5, z: 0}
+  m_CellSize: {x: 1, y: 1, z: 0}
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
