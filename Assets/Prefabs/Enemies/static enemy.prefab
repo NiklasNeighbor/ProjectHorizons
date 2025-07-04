@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3361409209875515982}
   - component: {fileID: 2440757624952765036}
   - component: {fileID: 3744005700652296362}
-  - component: {fileID: 2201062658924794426}
+  - component: {fileID: 722742015551250867}
   m_Layer: 0
   m_Name: static enemy
   m_TagString: Damager
@@ -186,7 +186,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2201062658924794426
+--- !u!114 &722742015551250867
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -195,12 +195,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 7221947667461350820}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0522caee0c3f66943b5e66aff7f9d9ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 95ee815296ab2cd4b91c5917c9aeaacd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  projectile: {fileID: 0}
-  pointsOnDeath: 0
+  canShoot: 0
+  rb: {fileID: 3361409209875515982}
+  moveSpeed: -6
+  player: {fileID: 7625826516216379356, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
+  objectToSpawn: {fileID: 7482686703546088179, guid: eb57d09a696c9cb43b4fc2d7f8e7386b, type: 3}
+  pointsOnDeath: 2
   anim: {fileID: 0}
-  throwPoint: {fileID: 0}
-  throwForce: {x: 0, y: 0}
+  spotDistance: 0

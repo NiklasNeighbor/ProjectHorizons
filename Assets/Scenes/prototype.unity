@@ -2100,8 +2100,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Speed: 5
   _LevelParent: {fileID: 130951698}
-  _SegmentSpawnDistance: 200
-  _RemoveDistance: -200
+  _SegmentSpawnDistance: 1
+  _RemoveDistance: -100
   _EasySegments:
   - {fileID: 7244736234137839646, guid: 85d7e2c4e76bc8248a811192aa46090f, type: 3}
   - {fileID: 5303940378832131856, guid: 987a6f9a710a46f45817096178e21b06, type: 3}
@@ -4874,6 +4874,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 92692021673114854, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
+      propertyPath: m_Color.b
+      value: 0.75133497
+      objectReference: {fileID: 0}
+    - target: {fileID: 92692021673114854, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
+      propertyPath: m_Color.g
+      value: 0.75133497
+      objectReference: {fileID: 0}
+    - target: {fileID: 92692021673114854, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
+      propertyPath: m_Color.r
+      value: 0.7924528
+      objectReference: {fileID: 0}
+    - target: {fileID: 92692021673114854, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
       propertyPath: m_SortingOrder
       value: -80
       objectReference: {fileID: 0}
@@ -4893,6 +4905,18 @@ PrefabInstance:
       propertyPath: shortDeathSound
       value: 
       objectReference: {fileID: 1134771333}
+    - target: {fileID: 1820336179214828156, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
+      propertyPath: m_Color.b
+      value: 0.5835262
+      objectReference: {fileID: 0}
+    - target: {fileID: 1820336179214828156, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5835262
+      objectReference: {fileID: 0}
+    - target: {fileID: 1820336179214828156, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8773585
+      objectReference: {fileID: 0}
     - target: {fileID: 3275452054638745135, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
       propertyPath: m_LocalPosition.y
       value: -5.32

@@ -1,36 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &294747727195636466
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3218450985570353255}
-  m_Layer: 3
-  m_Name: Flying enemy
-  m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3218450985570353255
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 294747727195636466}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 23.632803, y: 7.089841, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4981265381733862626}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3132158151198205192
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,8 +95,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5515510476507552567}
-  - {fileID: 3218450985570353255}
-  - {fileID: 7410489782904003320}
   - {fileID: 9116323921154599029}
   m_Father: {fileID: 1206051029858335868}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5758,7 +5725,7 @@ TilemapCollider2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_LayerOverridePriority: 0
+  m_LayerOverridePriority: -1
   m_ForceSendLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -5828,10 +5795,10 @@ MonoBehaviour:
   NextSegmentSpawnPos: {fileID: 9116323921154599029}
   enemySpawns:
   - enemyPrefab: {fileID: 3795788007009422158, guid: 16ff46b015f84c146866813b4df720aa, type: 3}
-    spawnPosition: {fileID: 3218450985570353255}
+    spawnPosition: {fileID: 0}
     difficulty: 0
   - enemyPrefab: {fileID: 3795788007009422158, guid: 16ff46b015f84c146866813b4df720aa, type: 3}
-    spawnPosition: {fileID: 7410489782904003320}
+    spawnPosition: {fileID: 0}
     difficulty: 1
   - enemyPrefab: {fileID: 8150807907685363065, guid: fd0d0ef4876febf4ba5b365332eacb91, type: 3}
     spawnPosition: {fileID: 5515510476507552567}
@@ -6458,34 +6425,3 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
---- !u!1 &8676202163864876543
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7410489782904003320}
-  m_Layer: 3
-  m_Name: Flying enemy (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7410489782904003320
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8676202163864876543}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 28.45, y: 4.53, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4981265381733862626}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

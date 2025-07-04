@@ -107,7 +107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   projectile: {fileID: 5349289351302610006, guid: e10c3603eabf21e418f8ef8d26975606, type: 3}
-  pointsOnDeath: 5
+  pointsOnDeath: 20
   anim: {fileID: 159303667647114490}
   throwPoint: {fileID: 2308376651255158973}
   throwForce: {x: 0, y: 0}

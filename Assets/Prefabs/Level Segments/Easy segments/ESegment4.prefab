@@ -4488,7 +4488,7 @@ TilemapCollider2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_LayerOverridePriority: 0
+  m_LayerOverridePriority: -1
   m_ForceSendLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -4602,7 +4602,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4703940400393662428, guid: cde869316af9b38419b0b6ff36f1b02a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 1.34
       objectReference: {fileID: 0}
     - target: {fileID: 4703940400393662428, guid: cde869316af9b38419b0b6ff36f1b02a, type: 3}
       propertyPath: m_LocalPosition.z
