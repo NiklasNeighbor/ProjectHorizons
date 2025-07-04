@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4703940400393662428}
   - component: {fileID: 6307665341371112175}
-  - component: {fileID: 4637277518481621703}
   - component: {fileID: 3361409209875515982}
   - component: {fileID: 2440757624952765036}
   - component: {fileID: 3744005700652296362}
+  - component: {fileID: 722742015551250867}
   m_Layer: 0
   m_Name: static enemy
   m_TagString: Damager
@@ -91,26 +91,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4637277518481621703
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7221947667461350820}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88a2653dc94c0f842a8fe4ac7ff441d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canShoot: 0
-  rb: {fileID: 3361409209875515982}
-  moveSpeed: -6
-  player: {fileID: 0}
-  objectToSpawn: {fileID: 7482686703546088179, guid: eb57d09a696c9cb43b4fc2d7f8e7386b, type: 3}
-  pointsOnDeath: 5
-  anim: {fileID: 0}
-  spotDistance: 1000
 --- !u!50 &3361409209875515982
 Rigidbody2D:
   serializedVersion: 5
@@ -206,3 +186,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &722742015551250867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7221947667461350820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ee815296ab2cd4b91c5917c9aeaacd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canShoot: 0
+  rb: {fileID: 3361409209875515982}
+  moveSpeed: -6
+  player: {fileID: 7625826516216379356, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
+  objectToSpawn: {fileID: 7482686703546088179, guid: eb57d09a696c9cb43b4fc2d7f8e7386b, type: 3}
+  pointsOnDeath: 2
+  anim: {fileID: 0}
+  spotDistance: 0

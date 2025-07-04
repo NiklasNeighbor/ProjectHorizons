@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class WalkingEnemyAI : MonoBehaviour
+public class NewEnemy : MonoBehaviour
 {
     public bool canShoot;
     [SerializeField] Rigidbody2D rb;
@@ -64,11 +64,11 @@ public class WalkingEnemyAI : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerProjectile"))
         {
             Destroy(collision.gameObject);
-            Death2();
+            Death();
         }
     }
 
-    void Death2()
+    void Death()
     {
         GameObject spawned = Instantiate(objectToSpawn, transform.position, Quaternion.identity);
         spawned.SetActive(true);//spawns in death particle effect prefab
