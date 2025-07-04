@@ -32,20 +32,18 @@ public class BackgroundScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        backGroundLayers = forestLayers;
-        bg = Background.Forest;
 
-        /*
-        if(Random.Range(0, 2) == 0)
-        {
+
             backGroundLayers = forestLayers;
             bg = Background.Forest;
+        /*
         }else
         {
             backGroundLayers = caveLayers;
             bg = Background.Caves;
         }
         */
+        
     }
 
     // Update is called once per frame
