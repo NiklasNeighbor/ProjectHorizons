@@ -715,7 +715,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -1555,8 +1555,14 @@ MonoBehaviour:
   - {fileID: 5382671709118544051, guid: b82f38bae92535742845e38c5397432e, type: 3}
   - {fileID: 4754328464333300203, guid: d0c79ab6f4644e54485016b5b4df1e4a, type: 3}
   - {fileID: 5605395723282173652, guid: a7bf40219da7b164aa14c35942197503, type: 3}
-  _MediumSegments: []
-  _HardSegments: []
+  _MediumSegments:
+  - {fileID: 5734894378587373288, guid: 23e2b41752c5e09468539297fdd2256c, type: 3}
+  - {fileID: 6684232002470922627, guid: 92eabd01afa5b7f48b6cb6d3931c3aec, type: 3}
+  - {fileID: 2778951242192945364, guid: 3afec85a5e2eaa648ae749b1226cb09b, type: 3}
+  _HardSegments:
+  - {fileID: 7244736234137839646, guid: 857de6035bcebb54c88a39d9a7ab49ae, type: 3}
+  - {fileID: 7244736234137839646, guid: 73639d907887d1946bf68543429344cb, type: 3}
+  - {fileID: 7244736234137839646, guid: e79621c895e18cf4f95bb1dc49b52754, type: 3}
   _IntroSpawnDistance: 30
   _DeathBoxHeight: -25
   deathBox: {fileID: 466003745}
@@ -2182,9 +2188,17 @@ PrefabInstance:
       propertyPath: shortDeathSound
       value: 
       objectReference: {fileID: 1134771333}
+    - target: {fileID: 3275452054638745135, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5.32
+      objectReference: {fileID: 0}
     - target: {fileID: 3514451368823977186, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
       propertyPath: m_Name
       value: PlayerEssentials
+      objectReference: {fileID: 0}
+    - target: {fileID: 3902384716993149114, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
+      propertyPath: orthographic size
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4809034543612621333, guid: c24ebd2089eb3cd47b2398fa592687ba, type: 3}
       propertyPath: scoreManagerRef
