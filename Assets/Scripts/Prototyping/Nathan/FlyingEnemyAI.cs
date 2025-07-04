@@ -94,7 +94,9 @@ public class FlyingEnemyAI : MonoBehaviour
     {
         GameObject spawned = Instantiate(objectToSpawn, transform.position, Quaternion.identity);
         spawned.SetActive(true);//spawns in death particle effect prefab
-        GameObject.FindWithTag("GameController").GetComponent<ScoreManager>().IncreaseScore(pointsOnDeath);
+        ScoreManager scoreManager = GameObject.FindWithTag("GameController").GetComponent<ScoreManager>();
+        scoreManager.IncreaseScore(pointsOnDeath);
+        scoreManager.LightUpScoreText();
         Destroy(this.gameObject);
     }
 }

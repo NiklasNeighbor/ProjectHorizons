@@ -53,7 +53,9 @@ public class StationaryEnemyAI : MonoBehaviour
 
     void Death()
     {
-        GameObject.FindWithTag("GameController").GetComponent<ScoreManager>().IncreaseScore(pointsOnDeath);
+        ScoreManager scoreManager = GameObject.FindWithTag("GameController").GetComponent<ScoreManager>();
+        scoreManager.IncreaseScore(pointsOnDeath);
+        scoreManager.LightUpScoreText();
         Destroy(this.gameObject);
     }
 }
