@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 47b6765abcfb503459e6404b18ae17b5
+guid: a405b1998b0441042a9e7a94b016dfb1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8894378161134838276
-    second: Bg_0
+      213: 3480517505974136654
+    second: Caves 1_0
+  - first:
+      213: -4469015009806689200
+    second: Caves 1_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,30 +112,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WindowsStoreApps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bg_0
+      name: Caves 1_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 575
         width: 7200
-        height: 1080
+        height: 505
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +131,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cfdd097df22d09480800000000000000
-      internalID: -8894378161134838276
+      spriteID: e4fed1a2b384d4030800000000000000
+      internalID: 3480517505974136654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Caves 1_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 7200
+        height: 393
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05c5594c68edaf1c0800000000000000
+      internalID: -4469015009806689200
       vertices: []
       indices: 
       edges: []
@@ -160,8 +172,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Bg_0: -8894378161134838276
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
